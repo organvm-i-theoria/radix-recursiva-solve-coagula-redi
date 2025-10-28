@@ -1,3 +1,14 @@
+---
+uniqueID: PR01
+title: SYSTEM_ROOT_README.md
+tags:
+- thread
+- system
+- digest
+- core
+---
+
+
 # SYSTEM_ROOT_README.md
 Last updated: 2025-05-04 22:21:55
 
@@ -13,6 +24,7 @@ This document is your home base for navigating the following components:
 - `THREAD_DIGESTS.zip` — Per-folder logbook of all related GPT conversations (`PRxx_THREAD_DIGEST.md`).
 - `SYMBOLIC_TREE_MAP.md` — High-level symbolic overview showing folder-thread relationships.
 - `THREADS_REVIEW_REQUIRED.csv` — List of GPT threads not yet matched to a project folder.
+- `CheatCode_LookUp.md` — Central quick-reference system for Instructions, Knowledge Sources, Best Practices, and CookBooks.
 
 ### 🗂 Folder Structure (Example)
 - `PR06__floating_points/`
