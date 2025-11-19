@@ -26,12 +26,14 @@ from experimental_habitat_implementation import ExperimentalHabitat, Experimenta
 
 class HabitatManager:
     """Manager for experimental habitat operations"""
-    
-    def __init__(self, config_file: str = "habitat_config.json"):
+
+    def __init__(self, config_file: str = "habitat_config.json", state_file: str = "habitat_state.json"):
         self.config_file = config_file
+        self.state_file = state_file
         self.config = self.load_config()
         self.habitats = {}
         self.initialize_habitats()
+        self.load_state()
     
     def load_config(self) -> dict:
         """Load or create habitat configuration"""
@@ -66,7 +68,51 @@ class HabitatManager:
             config = self.config
         with open(self.config_file, 'w') as f:
             json.dump(config, f, indent=2)
-    
+
+    def load_state(self):
+        """Load habitat state from file"""
+        if not os.path.exists(self.state_file):
+            return
+
+        try:
+            with open(self.state_file, 'r') as f:
+                state = json.load(f)
+
+            # Restore habitats (just track metadata, not full objects)
+            # Full habitat restoration would need pickle or object serialization
+            self.habitat_metadata = state.get('habitats', {})
+
+        except Exception as e:
+            print(f"Warning: Could not load state: {e}")
+
+    def save_state(self):
+        """Save habitat state to file"""
+        state = {
+            'habitats': {},
+            'last_updated': datetime.now().isoformat()
+        }
+
+        # Save habitat metadata
+        for key, habitat in self.habitats.items():
+            status = habitat.get_habitat_status()
+            # Save experiment names for reference
+            exp_names = list(habitat.active_experiments.keys())
+            grad_names = list(habitat.graduated_patterns.keys())
+            failed_names = list(habitat.failed_experiments.keys())
+
+            state['habitats'][key] = {
+                'name': habitat.name,
+                'isolation_level': habitat.isolation_level,
+                'nesting_depth': habitat.nesting_depth,
+                'active_experiments': exp_names,
+                'graduated_patterns': grad_names,
+                'failed_experiments': failed_names,
+                'workspace': habitat.temp_dir
+            }
+
+        with open(self.state_file, 'w') as f:
+            json.dump(state, f, indent=2)
+
     def initialize_habitats(self):
         """Initialize habitat instances"""
         default_config = self.config["default_habitat"]
@@ -101,7 +147,8 @@ class HabitatManager:
         print(f"   Hypothesis: {hypothesis}")
         print(f"   Containment Level: {habitat.isolation_level}")
         print(f"   Boundary: {experiment.boundary.get_full_path()}")
-        
+
+        self.save_state()
         return exp_data
     
     def run_experiment(self, name: str, habitat_name: str = "main") -> dict:
@@ -122,9 +169,11 @@ class HabitatManager:
                         print(f"   {key}: {value}")
             else:
                 print(f"   {result}")
+            self.save_state()
             return result
         except Exception as e:
             print(f"❌ Experiment '{name}' failed: {e}")
+            self.save_state()
             raise
     
     def get_status(self, experiment_name: str = None, habitat_name: str = "main") -> dict:
@@ -181,9 +230,11 @@ class HabitatManager:
             print(f"   Code patterns: {forge_package['code_patterns']}")
             print(f"   Symbolic mappings: {forge_package['symbolic_mappings']}")
             print(f"   Integration hooks: {forge_package['integration_hooks']}")
+            self.save_state()
             return forge_package
         except Exception as e:
             print(f"❌ Failed to graduate experiment '{name}': {e}")
+            self.save_state()
             raise
     
     def compost_experiment(self, name: str, reason: str, habitat_name: str = "main") -> dict:
@@ -200,9 +251,11 @@ class HabitatManager:
             print("Lessons learned:")
             for lesson_type, lesson_data in lessons.items():
                 print(f"   {lesson_type}: {lesson_data}")
+            self.save_state()
             return lessons
         except Exception as e:
             print(f"❌ Failed to compost experiment '{name}': {e}")
+            self.save_state()
             raise
     
     def create_nested_habitat(self, parent_experiment: str, child_name: str, 
@@ -223,10 +276,12 @@ class HabitatManager:
             print(f"   Nesting depth: {nested_habitat.nesting_depth}")
             print(f"   Isolation level: {nested_habitat.isolation_level}")
             print(f"   Access key: {habitat_key}")
-            
+
+            self.save_state()
             return nested_habitat
         except Exception as e:
             print(f"❌ Failed to create nested habitat: {e}")
+            self.save_state()
             raise
     
     def list_habitats(self):
