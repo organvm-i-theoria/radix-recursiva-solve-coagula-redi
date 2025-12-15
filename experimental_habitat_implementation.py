@@ -35,9 +35,17 @@ class ContainmentBoundary:
         
         if parent:
             parent.children.append(self)
+            self._full_path = f"{parent.get_full_path()}/{self.name}"
+        else:
+            self._full_path = self.name
     
     def get_full_path(self) -> str:
         """Get the full containment path (hat stack)"""
+        # Return cached path if available
+        if hasattr(self, '_full_path'):
+            return self._full_path
+
+        # Fallback for compatibility or if cache is missing
         if self.parent:
             return f"{self.parent.get_full_path()}/{self.name}"
         return self.name
