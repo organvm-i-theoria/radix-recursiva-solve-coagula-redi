@@ -5,7 +5,7 @@
 *Responding to: "what agents would you suggest for this environment? list 10;"*
 
 **Symbolic Framework:**  
-These agents are designed to interface with RE:GE's 22+ organs, support the modular symbolic OS, and enhance the recursive mythic ecosystem.
+These agents are designed to interface with RE:GE's 23+ organs, support the modular symbolic OS, and enhance the recursive mythic ecosystem.
 
 ---
 
