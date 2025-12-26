@@ -22,7 +22,7 @@ The Users directory maintains **personal profiles and user-specific data** withi
 - **Role**: System Creator & Primary Maintainer
 - **Access Level**: Full Administrative Access
 - **Profile Status**: Active
-- **Personal Archive**: Documents/4_S0VRCE (note variant spelling)
+- **Personal Archive**: Documents/4_S0VRCE (note variant spelling; see explanation below for relationship to main system name)
 
 ---
 
