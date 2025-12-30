@@ -317,4 +317,4 @@ If character begins drifting from established parameters:
 
 ---
 
-*Cookbook for initializing new AI character personas in the 4_S0VRC3 environment.*
+*Cookbook for initializing new character personas for autonomous intelligence entities in the 4_S0VRC3 environment.*
