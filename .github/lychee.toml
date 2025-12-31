@@ -1,0 +1,16 @@
+# Global configuration for lychee link checking
+exclude_path = [".git", "README_NOTES.zip", "*.canvas"]
+# Ignore known placeholders or intentionally unreachable hosts
+exclude = [
+  "https://example.com",
+  "https://localhost",
+  "http://localhost",
+  "https://127.0.0.1"
+]
+# Enable caching to reduce repeated requests
+cache = true
+max_cache_age = "1d"
+
+[content]
+# Limit checks to Markdown and CSV content which make heavy use of links
+extensions = ["md", "csv"]

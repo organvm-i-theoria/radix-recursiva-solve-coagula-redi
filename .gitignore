@@ -35,8 +35,75 @@ env/
 
 # OS
 .DS_Store
+# Experimental Habitat temporary files
+/tmp/
+**/tmp/
+habitat_config.json
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Obsidian files
+.obsidian/workspace*
+.obsidian/workspaces.json
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Temporary experimental workspaces
+**/habitat_*_*/
+**/habitat_*_*/
+__pycache__/
+.pytest_cache/
+# Obsidian workspace files (user-specific settings)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
 # Temporary files
 *.tmp
 *.log
+*.temp
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Cache files
+.cache/
+*.cache
+
+# Node modules if any
+node_modules/
+
+# Editor files
+.vscode/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

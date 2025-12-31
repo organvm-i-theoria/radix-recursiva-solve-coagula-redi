@@ -1,0 +1,21 @@
+# Experimental Habitat System Requirements
+# Python 3.7+
+
+# No external dependencies required - uses Python standard library only:
+# - json
+# - os
+# - subprocess
+# - tempfile
+# - time
+# - datetime
+# - typing
+# - logging
+# - argparse
+# - cmd
+# - sys
+
+# Development dependencies (optional)
+# pytest>=7.0.0  # For running tests
+# pytest-cov>=3.0.0  # For code coverage
+# black>=22.0.0  # For code formatting
+# flake8>=4.0.0  # For linting
