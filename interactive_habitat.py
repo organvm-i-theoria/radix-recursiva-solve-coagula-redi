@@ -269,8 +269,9 @@ Type 'quit' or 'exit' to leave the shell.
         for habitat in self.habitats.values():
             try:
                 habitat.cleanup()
-            except:
-                pass
+            except Exception as e:
+                # Ignore cleanup errors during exit, but log them for visibility
+                print(f"❌ Error during cleanup of habitat '{habitat.name}': {e}")
         return True
 
     def do_exit(self, arg):

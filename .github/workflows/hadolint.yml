@@ -2,7 +2,7 @@
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
-# hadoint is a Dockerfile linter written in Haskell
+# hadolint is a Dockerfile linter written in Haskell
 # that helps you build best practice Docker images.
 # More details at https://github.com/hadolint/hadolint
 
@@ -32,7 +32,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Check for Dockerfile
+        id: check_dockerfile
+        run: |
+          if [ -f "./Dockerfile" ]; then
+            echo "dockerfile_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "dockerfile_exists=false" >> $GITHUB_OUTPUT
+            echo "No Dockerfile found, skipping hadolint scan"
+          fi
+
       - name: Run hadolint
+        if: steps.check_dockerfile.outputs.dockerfile_exists == 'true'
         uses: hadolint/hadolint-action@f988afea3da57ee48710a9795b6bb677cc901183
         with:
           dockerfile: ./Dockerfile
@@ -41,6 +52,7 @@ jobs:
           no-fail: true
 
       - name: Upload analysis results to GitHub
+        if: steps.check_dockerfile.outputs.dockerfile_exists == 'true'
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: hadolint-results.sarif
