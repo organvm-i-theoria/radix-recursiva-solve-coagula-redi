@@ -78,7 +78,7 @@ def parse_front_matter(block: str, path: Path) -> tuple[dict[str, object], List[
             if current_key is None or not isinstance(data.get(current_key), str):
                 errors.append(ValidationError(path, f"unexpected continuation line: '{line.strip()}'"))
                 continue
-            data[current_key] = f"{data[current_key]} {line.strip()}".strip()
+            data[current_key] = f"{data[current_key]}\n{line.strip()}"
             continue
         if ":" not in line:
             errors.append(ValidationError(path, f"malformed metadata line: '{line}'"))

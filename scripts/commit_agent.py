@@ -70,9 +70,20 @@ class CommitAgent:
         """Perform a merge with basic safety checks."""
         current_branch = self.run(["git", "branch", "--show-current"])
         self.ensure_clean_worktree()
-        self.run(["git", "checkout", target])
-        self.run(["git", "merge", "--no-ff", source])
-        self.run(["git", "checkout", current_branch or source])
+        try:
+            self.run(["git", "checkout", target])
+            self.run(["git", "merge", "--no-ff", source])
+        except Exception as exc:
+            # Attempt to restore original branch on failure
+            try:
+                self.run(["git", "checkout", current_branch or source])
+            except Exception as restore_exc:
+                raise RuntimeError(
+                    f"Merge failed and failed to restore original branch: {restore_exc}"
+                ) from exc
+            raise
+        else:
+            self.run(["git", "checkout", current_branch or source])
 
 
 def main() -> int:
