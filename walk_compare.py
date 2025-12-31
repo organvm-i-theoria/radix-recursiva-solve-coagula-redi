@@ -114,6 +114,15 @@ def scan_digests(
     report_path: Path,
     keywords: Iterable[str],
 ) -> None:
+    """
+    Scan digest files for thread entries matching keywords and write to CSV report.
+    
+    Output CSV schema:
+    - thread_id: Thread identifier (e.g., TH195)
+    - digest_path: Path to the digest markdown file
+    - title: Thread title text
+    - keyword: Matched keyword from the search list
+    """
     digest_files = sorted(digest_dir.glob('PR*_THREAD_DIGEST.md'))
     matches: List[Tuple[str, str, str, str]] = []
     for path in digest_files:
@@ -150,6 +159,8 @@ def analyze(root: str = '.') -> tuple[list[dict], int]:
     root_path = Path(root).resolve()
     report: list[dict] = []
     max_depth = 0
+    # Pre-compute lowercased keywords to avoid redundant operations
+    lower_keywords = [kw.lower() for kw in DEFAULT_KEYWORDS]
 
     def update_depth(depth: int) -> None:
         nonlocal max_depth
@@ -158,9 +169,9 @@ def analyze(root: str = '.') -> tuple[list[dict], int]:
 
     def handle_file(display_path: str, name: str, data: bytes, depth: int) -> None:
         name_lower = name.lower()
-        name_matches = [kw for kw in DEFAULT_KEYWORDS if kw.lower() in name_lower]
+        name_matches = [kw for kw, kw_lower in zip(DEFAULT_KEYWORDS, lower_keywords) if kw_lower in name_lower]
         text = data.decode('utf-8', errors='ignore').lower()
-        content_matches = [kw for kw in DEFAULT_KEYWORDS if kw.lower() in text]
+        content_matches = [kw for kw, kw_lower in zip(DEFAULT_KEYWORDS, lower_keywords) if kw_lower in text]
         mismatch = sorted(set(name_matches) ^ set(content_matches))
         sha256 = hashlib.sha256(data).hexdigest()
         report.append(
@@ -253,7 +264,8 @@ def main() -> None:
 
     if not args.skip_index:
         print(f'Wrote {OUTPUT_FILE}')
-    print(f'Updated {args.report}')
+    if args.report:
+        print(f'Updated {args.report}')
 
 
 if __name__ == '__main__':
