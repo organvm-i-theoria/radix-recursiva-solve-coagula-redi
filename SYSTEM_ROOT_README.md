@@ -19,6 +19,7 @@ You are viewing the **central index file** of your AI-integrated creative archiv
 This document is your home base for navigating the following components:
 
 ### ✅ Core Elements
+- `FOLDER_CATALOG_FINAL.csv` — Canonical list of 16 core project folders, each assigned a symbolic ID (PR01–PR16).
 - `ARCHIVAL_ST4CK_PROJECTS.csv` — Canonical list of 16 core project folders, each assigned a symbolic ID (PR01–PR16).
 - `THREAD_PROJECT_CROSSWALK_TAGGED.csv` — Index of all ChatGPT threads and their assigned folder relationships.
 - `THREAD_DIGESTS.zip` — Per-folder logbook of all related GPT conversations (`PRxx_THREAD_DIGEST.md`).
