@@ -11,7 +11,7 @@ additional isolation and structure for safe experimentation.
 
 import json
 import os
-import subprocess
+import shutil
 import tempfile
 import time
 from datetime import datetime
@@ -208,8 +208,8 @@ class ExperimentalHabitat:
         )
         nested_habitat.nesting_depth = self.nesting_depth + 1
         
-        # Create nested boundary
-        nested_boundary = ContainmentBoundary(
+        # Create nested boundary under parent
+        ContainmentBoundary(
             name=f"nested_{child_name}",
             level=self.isolation_level + 1,
             parent=parent_boundary
@@ -309,7 +309,6 @@ class ExperimentalHabitat:
     
     def cleanup(self):
         """Clean up habitat resources"""
-        import shutil
         if os.path.exists(self.temp_dir):
             shutil.rmtree(self.temp_dir)
         logger.info(f"Habitat {self.name} cleaned up")
@@ -335,7 +334,7 @@ def demonstrate_experimental_habitat():
         'recursive_depth_limit': 3
     }
     
-    exp_data = main_lab.spawn_experiment(myth_engine, containment_rules)
+    main_lab.spawn_experiment(myth_engine, containment_rules)
     print(f"Spawned experiment in containment boundary: {myth_engine.boundary.get_full_path()}")
     
     # Create nested habitat before running experiment
@@ -349,7 +348,7 @@ def demonstrate_experimental_habitat():
         print(json.dumps(result, indent=2))
         
         # Graduate successful experiment
-        forge_package = main_lab.graduate_to_forge(myth_engine.name)
+        main_lab.graduate_to_forge(myth_engine.name)
         print(f"Experiment graduated to Code Forge")
         
     except Exception as e:

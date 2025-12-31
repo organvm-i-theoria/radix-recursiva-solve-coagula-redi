@@ -21,7 +21,6 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime
 from experimental_habitat_implementation import ExperimentalHabitat, ExperimentalSystem, RecursiveMythEngine
 
 class HabitatManager:

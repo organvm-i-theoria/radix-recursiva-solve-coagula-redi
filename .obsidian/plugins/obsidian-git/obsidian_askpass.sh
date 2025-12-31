@@ -24,6 +24,9 @@ trap cleanup EXIT
 
 echo "$PROMPT" > "$TEMP_FILE"
 
+# Note: Using 'date +%s' which requires GNU date or compatible implementation.
+# This is available on Linux and modern macOS. For better portability across
+# BSD systems, consider using Python or Perl for timestamp generation.
 TIMEOUT=30
 START=$(date +%s)
 while [ ! -e "$TEMP_FILE.response" ]; do
@@ -31,16 +34,12 @@ while [ ! -e "$TEMP_FILE.response" ]; do
         echo "Trigger file got removed: Abort" >&2
         exit 1
     fi
-    if [ $(($(date +%s) - START)) -ge "$TIMEOUT" ]; then
+    ELAPSED=$(($(date +%s) - START))
+    if [ "$ELAPSED" -ge "$TIMEOUT" ]; then
         echo "Timeout waiting for response" >&2
         exit 1
     fi
     sleep 1
-    if [ $(($(date +%s) - START)) -ge $TIMEOUT ]; then
-        echo "Timeout waiting for response" >&2
-        exit 1
-    fi
-    sleep 0.1
 done
 
 RESPONSE=$(cat "$TEMP_FILE.response")

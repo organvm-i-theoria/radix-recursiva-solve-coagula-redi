@@ -8,7 +8,6 @@ experimental systems.
 """
 
 from experimental_habitat_implementation import ExperimentalHabitat, RecursiveMythEngine, ExperimentalSystem
-import json
 
 def main():
     print("🎩 'A HAT ON A HAT ON A' - EXPERIMENTAL CONTAINMENT DEMO")
@@ -29,7 +28,7 @@ def main():
         'recursive_depth_limit': 4
     }
     
-    exp1_data = base_habitat.spawn_experiment(myth_engine, base_containment)
+    base_habitat.spawn_experiment(myth_engine, base_containment)
     print(f"   ✅ Experiment spawned: {myth_engine.name}")
     print(f"   🔒 Containment boundary: {myth_engine.boundary.get_full_path()}")
     print()
@@ -57,7 +56,7 @@ def main():
         'parent_dependency': myth_engine.name
     }
     
-    exp2_data = nested_habitat.spawn_experiment(analyzer, nested_containment)
+    nested_habitat.spawn_experiment(analyzer, nested_containment)
     print(f"   ✅ Nested experiment spawned: {analyzer.name}")
     print(f"   🔒 Nested boundary: {analyzer.boundary.get_full_path()}")
     print()
@@ -85,7 +84,7 @@ def main():
         'max_runtime': 60
     }
     
-    exp3_data = deep_habitat.spawn_experiment(synthesizer, deep_containment)
+    deep_habitat.spawn_experiment(synthesizer, deep_containment)
     print(f"   ✅ Deep experiment spawned: {synthesizer.name}")
     print(f"   🔒 Deep boundary: {synthesizer.boundary.get_full_path()}")
     print()
@@ -146,17 +145,17 @@ def main():
     
     # Graduate synthesis to nested habitat
     print("🎓 Graduating synthesis engine to pattern analyzer level...")
-    synthesis_package = deep_habitat.graduate_to_forge(synthesizer.name)
+    deep_habitat.graduate_to_forge(synthesizer.name)
     print(f"   ✅ Synthesis patterns ready for integration")
     
     # Graduate analyzer to base habitat  
     print("🎓 Graduating pattern analyzer to base level...")
-    analysis_package = nested_habitat.graduate_to_forge(analyzer.name)
+    nested_habitat.graduate_to_forge(analyzer.name)
     print(f"   ✅ Analysis patterns ready for integration")
     
     # Graduate myth engine to Code Forge
     print("🎓 Graduating myth engine to Code Forge...")
-    myth_package = base_habitat.graduate_to_forge(myth_engine.name)
+    base_habitat.graduate_to_forge(myth_engine.name)
     print(f"   ✅ Myth engine patterns ready for production")
     print()
     
