@@ -57,7 +57,7 @@ def find_items_missing_metadata(items: Iterable[InboxItem]) -> List[InboxItem]:
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     if not INBOX_ROOT.exists():
-        logging.error("Inbox root %%s does not exist.", INBOX_ROOT)
+        logging.error("Inbox root %s does not exist.", INBOX_ROOT)
         return
 
     items = discover_items()
@@ -65,11 +65,11 @@ def main() -> None:
     if missing_metadata:
         logging.warning("%d items missing metadata:", len(missing_metadata))
         for item in missing_metadata:
-            logging.warning("- %%s", item.asset_path)
+            logging.warning("- %s", item.asset_path)
     else:
         logging.info("All inbox items include metadata files.")
 
-    logging.info("Processed %%d items in total.", len(items))
+    logging.info("Processed %d items in total.", len(items))
 
 
 if __name__ == "__main__":
