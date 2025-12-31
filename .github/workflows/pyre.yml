@@ -37,6 +37,9 @@ jobs:
         with:
           submodules: true
 
+      # Note: This workflow expects a requirements.txt file in the repository root
+      # containing Python dependencies. If this file doesn't exist, the workflow will fail.
+      # Consider creating requirements.txt or removing this workflow if type checking is not needed.
       - name: Run Pyre
         uses: facebook/pyre-action@60697a7858f7cc8470d8cc494a3cf2ad6b06560d
         with:

@@ -1,0 +1,41 @@
+# Configuration for the GitHub Actions labeler
+# This file defines rules for automatically labeling pull requests based on changed files
+
+# Documentation changes
+documentation:
+  - '**/*.md'
+  - 'docs/**/*'
+
+# Python code changes
+python:
+  - '**/*.py'
+
+# GitHub workflows and actions
+github-actions:
+  - '.github/workflows/**'
+  - '.github/actions/**'
+
+# Configuration files
+config:
+  - '**/*.yml'
+  - '**/*.yaml'
+  - '**/*.json'
+  - '.gitignore'
+  - '.gitattributes'
+
+# Scripts
+scripts:
+  - 'scripts/**/*'
+
+# Obsidian vault files
+obsidian:
+  - '.obsidian/**/*'
+
+# Templates
+templates:
+  - 'TEMPLATES_GENERALIZED/**/*'
+  - '; TEMPLATEs ; TP•01 ;/**/*'
+
+# Archive
+archive:
+  - 'ARCHIVAL_STACK/**/*'

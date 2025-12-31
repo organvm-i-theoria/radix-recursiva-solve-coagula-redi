@@ -15,4 +15,4 @@ jobs:
         with:
           python-version: '3.x'
       - name: Run commit agent
-        run: python scripts/commit_agent.py --base origin/main
+        run: python scripts/commit_agent.py
