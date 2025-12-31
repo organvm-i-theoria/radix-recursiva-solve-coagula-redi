@@ -19,7 +19,7 @@ import argparse
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, List, Sequence
+from typing import Iterable, Sequence
 
 import textstat  # type: ignore
 from sumy.nlp.tokenizers import Tokenizer  # type: ignore
@@ -65,7 +65,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def git_diff_files(base: str, head: str) -> List[str]:
+def git_diff_files(base: str, head: str) -> list[str]:
     """Return files that differ between two refs.
 
     The subprocess invocation can raise ``CalledProcessError`` if either ref is
@@ -84,7 +84,7 @@ def git_diff_files(base: str, head: str) -> List[str]:
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]
 
 
-def filter_files(paths: Iterable[str], exts: Iterable[str]) -> List[Path]:
+def filter_files(paths: Iterable[str], exts: Iterable[str]) -> list[Path]:
     ext_set = {ext.lower() for ext in exts}
     return [Path(p) for p in paths if Path(p).suffix.lower() in ext_set]
 

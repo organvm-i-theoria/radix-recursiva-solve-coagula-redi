@@ -6,7 +6,7 @@ import argparse
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, List, Sequence
+from typing import Iterable, Sequence
 
 FRONT_MATTER_BOUNDARY = re.compile(r"^---\s*$")
 FILENAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
@@ -34,7 +34,7 @@ def discover_markdown_files(paths: Sequence[Path]) -> Iterable[Path]:
                     yield path
 
 
-def validate_filename(path: Path) -> List[ValidationError]:
+def validate_filename(path: Path) -> list[ValidationError]:
     name = path.name
     if name.lower() in {"readme.md", "license.md"}:
         return []
@@ -55,9 +55,9 @@ def split_front_matter(content: str) -> tuple[str, str] | tuple[None, None]:
     return None, None
 
 
-def parse_front_matter(block: str, path: Path) -> tuple[dict[str, object], List[ValidationError]]:
+def parse_front_matter(block: str, path: Path) -> tuple[dict[str, object], list[ValidationError]]:
     data: dict[str, object] = {}
-    errors: List[ValidationError] = []
+    errors: list[ValidationError] = []
     current_key: str | None = None
 
     for raw_line in block.splitlines():
@@ -101,8 +101,8 @@ def parse_front_matter(block: str, path: Path) -> tuple[dict[str, object], List[
     return data, errors
 
 
-def validate_front_matter(data: dict[str, object], path: Path) -> List[ValidationError]:
-    errors: List[ValidationError] = []
+def validate_front_matter(data: dict[str, object], path: Path) -> list[ValidationError]:
+    errors: list[ValidationError] = []
 
     for key in REQUIRED_KEYS:
         if key not in data:
@@ -147,7 +147,7 @@ def validate_front_matter(data: dict[str, object], path: Path) -> List[Validatio
     return errors
 
 
-def validate_file(path: Path) -> List[ValidationError]:
+def validate_file(path: Path) -> list[ValidationError]:
     errors = validate_filename(path)
     content = path.read_text(encoding="utf-8")
     metadata_block, body = split_front_matter(content)
@@ -166,9 +166,9 @@ def validate_file(path: Path) -> List[ValidationError]:
     return errors
 
 
-def run(paths: Sequence[Path]) -> List[ValidationError]:
+def run(paths: Sequence[Path]) -> list[ValidationError]:
     markdown_files = sorted({path for path in discover_markdown_files(paths)})
-    errors: List[ValidationError] = []
+    errors: list[ValidationError] = []
     for file_path in markdown_files:
         errors.extend(validate_file(file_path))
     return errors
