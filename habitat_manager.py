@@ -35,6 +35,12 @@ class HabitatManager:
         self.initialize_habitats()
         self.load_state()
     
+    def __init__(self, config_file: str = "habitat_config.json"):
+        self.config_file = config_file
+        self.config = self.load_config()
+        self.habitats = {}
+        self.initialize_habitats()
+    
     def load_config(self) -> dict:
         """Load or create habitat configuration"""
         if os.path.exists(self.config_file):
@@ -113,6 +119,7 @@ class HabitatManager:
         with open(self.state_file, 'w') as f:
             json.dump(state, f, indent=2)
 
+    
     def initialize_habitats(self):
         """Initialize habitat instances"""
         default_config = self.config["default_habitat"]
@@ -149,6 +156,7 @@ class HabitatManager:
         print(f"   Boundary: {experiment.boundary.get_full_path()}")
 
         self.save_state()
+        
         return exp_data
     
     def run_experiment(self, name: str, habitat_name: str = "main") -> dict:
@@ -174,6 +182,9 @@ class HabitatManager:
         except Exception as e:
             print(f"❌ Experiment '{name}' failed: {e}")
             self.save_state()
+            return result
+        except Exception as e:
+            print(f"❌ Experiment '{name}' failed: {e}")
             raise
     
     def get_status(self, experiment_name: str = None, habitat_name: str = "main") -> dict:
@@ -235,6 +246,9 @@ class HabitatManager:
         except Exception as e:
             print(f"❌ Failed to graduate experiment '{name}': {e}")
             self.save_state()
+            return forge_package
+        except Exception as e:
+            print(f"❌ Failed to graduate experiment '{name}': {e}")
             raise
     
     def compost_experiment(self, name: str, reason: str, habitat_name: str = "main") -> dict:
@@ -256,6 +270,9 @@ class HabitatManager:
         except Exception as e:
             print(f"❌ Failed to compost experiment '{name}': {e}")
             self.save_state()
+            return lessons
+        except Exception as e:
+            print(f"❌ Failed to compost experiment '{name}': {e}")
             raise
     
     def create_nested_habitat(self, parent_experiment: str, child_name: str, 
@@ -282,6 +299,10 @@ class HabitatManager:
         except Exception as e:
             print(f"❌ Failed to create nested habitat: {e}")
             self.save_state()
+            
+            return nested_habitat
+        except Exception as e:
+            print(f"❌ Failed to create nested habitat: {e}")
             raise
     
     def list_habitats(self):
