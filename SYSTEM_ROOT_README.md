@@ -19,6 +19,9 @@ You are viewing the **central index file** of your AI-integrated creative archiv
 This document is your home base for navigating the following components:
 
 ### ✅ Core Elements
+<!-- Note: The number of core project folders was consolidated from 19 to 16 to better align with
+     the symbolic structure and reduce overlap between thematically similar projects. See CHANGELOG
+     for details on the consolidation process. -->
 - `FOLDER_CATALOG_FINAL.csv` — Canonical list of 16 core project folders, each assigned a symbolic ID (PR01–PR16).
 - `ARCHIVAL_ST4CK_PROJECTS.csv` — Canonical list of 16 core project folders, each assigned a symbolic ID (PR01–PR16).
 - `THREAD_PROJECT_CROSSWALK_TAGGED.csv` — Index of all ChatGPT threads and their assigned folder relationships.
