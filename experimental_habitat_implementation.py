@@ -33,14 +33,22 @@ class ContainmentBoundary:
         self.created = datetime.now().isoformat()
         self.active = True
         
+        # Pre-calculate full path to avoid recursion during access
         if parent:
+            self._full_path = f"{parent.get_full_path()}/{name}"
             parent.children.append(self)
+        else:
+            self._full_path = name
     
     def get_full_path(self) -> str:
         """Get the full containment path (hat stack)"""
-        if self.parent:
-            return f"{self.parent.get_full_path()}/{self.name}"
-        return self.name
+        # Handle cases where _full_path might be missing (e.g. unpickled objects)
+        if not hasattr(self, '_full_path'):
+            if self.parent:
+                self._full_path = f"{self.parent.get_full_path()}/{self.name}"
+            else:
+                self._full_path = self.name
+        return self._full_path
     
     def breach_detected(self) -> bool:
         """Check for containment breaches"""
