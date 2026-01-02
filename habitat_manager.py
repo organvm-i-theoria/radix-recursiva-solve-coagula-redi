@@ -23,6 +23,7 @@ import os
 import sys
 from datetime import datetime
 from experimental_habitat_implementation import ExperimentalHabitat, ExperimentalSystem, RecursiveMythEngine
+import habitat_ux
 
 class HabitatManager:
     """Manager for experimental habitat operations"""
@@ -97,10 +98,16 @@ class HabitatManager:
         habitat = self.habitats["main"]
         exp_data = habitat.spawn_experiment(experiment, containment_rules)
         
-        print(f"🧪 Spawned experiment '{name}' in habitat '{habitat.name}'")
-        print(f"   Hypothesis: {hypothesis}")
-        print(f"   Containment Level: {habitat.isolation_level}")
-        print(f"   Boundary: {experiment.boundary.get_full_path()}")
+        habitat_ux.print_card(
+            f"Spawned Experiment: {name}",
+            {
+                "Habitat": habitat.name,
+                "Hypothesis": hypothesis,
+                "Containment Level": habitat.isolation_level,
+                "Boundary": experiment.boundary.get_full_path()
+            },
+            icon="🧪"
+        )
         
         return exp_data
     
@@ -139,16 +146,14 @@ class HabitatManager:
                 exp_data = habitat.active_experiments[experiment_name]
                 experiment = exp_data['experiment']
                 status = {
-                    'name': experiment_name,
-                    'status': experiment.status,
-                    'hypothesis': experiment.hypothesis,
-                    'created': experiment.created,
-                    'boundary': experiment.boundary.get_full_path() if experiment.boundary else None,
-                    'workspace': exp_data.get('workspace'),
-                    'containment_rules': exp_data.get('containment_rules')
+                    'Status': experiment.status,
+                    'Hypothesis': experiment.hypothesis,
+                    'Created': experiment.created,
+                    'Boundary': experiment.boundary.get_full_path() if experiment.boundary else None,
+                    'Workspace': exp_data.get('workspace'),
+                    'Containment Rules': exp_data.get('containment_rules')
                 }
-                print(f"📊 Status for experiment '{experiment_name}':")
-                print(json.dumps(status, indent=2))
+                habitat_ux.print_card(f"Experiment: {experiment_name}", status, icon="📊")
                 return status
             elif experiment_name in habitat.graduated_patterns:
                 print(f"🎓 Experiment '{experiment_name}' has graduated to Code Forge")
@@ -162,8 +167,16 @@ class HabitatManager:
         else:
             # Get habitat status
             status = habitat.get_habitat_status()
-            print(f"🏠 Status for habitat '{habitat_name}':")
-            print(json.dumps(status, indent=2))
+            # Clean up status keys for display
+            display_status = {
+                "Isolation Level": status['isolation_level'],
+                "Nesting Depth": status['nesting_depth'],
+                "Active Experiments": status['active_experiments'],
+                "Graduated Patterns": status['graduated_patterns'],
+                "Failed Experiments": status['failed_experiments'],
+                "Workspace": status['workspace']
+            }
+            habitat_ux.print_card(f"Habitat: {habitat_name}", display_status, icon="🏠")
             return status
     
     def graduate_experiment(self, name: str, habitat_name: str = "main") -> dict:
@@ -176,11 +189,16 @@ class HabitatManager:
         
         try:
             forge_package = habitat.graduate_to_forge(name)
-            print(f"✅ Experiment '{name}' successfully graduated!")
-            print("Forge package contents:")
-            print(f"   Code patterns: {forge_package['code_patterns']}")
-            print(f"   Symbolic mappings: {forge_package['symbolic_mappings']}")
-            print(f"   Integration hooks: {forge_package['integration_hooks']}")
+            habitat_ux.print_card(
+                f"Graduated: {name}",
+                {
+                    "Status": "Success",
+                    "Code Patterns": forge_package['code_patterns'],
+                    "Symbolic Mappings": forge_package['symbolic_mappings'],
+                    "Integration Hooks": forge_package['integration_hooks']
+                },
+                icon="✅"
+            )
             return forge_package
         except Exception as e:
             print(f"❌ Failed to graduate experiment '{name}': {e}")
@@ -196,10 +214,11 @@ class HabitatManager:
         
         try:
             lessons = habitat.contain_failure(name, reason)
-            print(f"✅ Experiment '{name}' safely composted")
-            print("Lessons learned:")
-            for lesson_type, lesson_data in lessons.items():
-                print(f"   {lesson_type}: {lesson_data}")
+            habitat_ux.print_card(
+                f"Composted: {name}",
+                lessons,
+                icon="✅"
+            )
             return lessons
         except Exception as e:
             print(f"❌ Failed to compost experiment '{name}': {e}")
@@ -219,10 +238,16 @@ class HabitatManager:
             habitat_key = f"{parent_habitat}_{child_name}"
             self.habitats[habitat_key] = nested_habitat
             
-            print(f"✅ Nested habitat '{child_name}' created successfully")
-            print(f"   Nesting depth: {nested_habitat.nesting_depth}")
-            print(f"   Isolation level: {nested_habitat.isolation_level}")
-            print(f"   Access key: {habitat_key}")
+            habitat_ux.print_card(
+                f"Nested Habitat: {child_name}",
+                {
+                    "Parent Experiment": parent_experiment,
+                    "Nesting Depth": nested_habitat.nesting_depth,
+                    "Isolation Level": nested_habitat.isolation_level,
+                    "Access Key": habitat_key
+                },
+                icon="✅"
+            )
             
             return nested_habitat
         except Exception as e:
@@ -231,19 +256,20 @@ class HabitatManager:
     
     def list_habitats(self):
         """List all active habitats"""
-        print("🏠 Active Habitats:")
-        print("=" * 50)
+        habitat_ux.print_header("Active Habitats")
         
         for key, habitat in self.habitats.items():
             status = habitat.get_habitat_status()
-            print(f"📍 {key} ({habitat.name})")
-            print(f"   Isolation Level: {status['isolation_level']}")
-            print(f"   Nesting Depth: {status['nesting_depth']}")
-            print(f"   Active Experiments: {status['active_experiments']}")
-            print(f"   Graduated Patterns: {status['graduated_patterns']}")
-            print(f"   Failed Experiments: {status['failed_experiments']}")
-            print(f"   Workspace: {status['workspace']}")
-            print()
+            display_status = {
+                "Habitat Name": habitat.name,
+                "Isolation Level": status['isolation_level'],
+                "Nesting Depth": status['nesting_depth'],
+                "Active Experiments": status['active_experiments'],
+                "Graduated Patterns": status['graduated_patterns'],
+                "Failed Experiments": status['failed_experiments'],
+                "Workspace": status['workspace']
+            }
+            habitat_ux.print_card(f"Habitat: {key}", display_status, icon="📍")
     
     def cleanup_all(self):
         """Cleanup all habitats"""
