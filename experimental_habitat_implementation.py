@@ -11,12 +11,12 @@ additional isolation and structure for safe experimentation.
 
 import json
 import os
-import shutil
 import tempfile
 import time
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 import logging
+import shutil
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -208,7 +208,7 @@ class ExperimentalHabitat:
         )
         nested_habitat.nesting_depth = self.nesting_depth + 1
         
-        # Create nested boundary under parent
+        # Create nested boundary for isolation
         ContainmentBoundary(
             name=f"nested_{child_name}",
             level=self.isolation_level + 1,
@@ -348,8 +348,8 @@ def demonstrate_experimental_habitat():
         print(json.dumps(result, indent=2))
         
         # Graduate successful experiment
-        main_lab.graduate_to_forge(myth_engine.name)
         print(f"Experiment graduated to Code Forge")
+        main_lab.graduate_to_forge(myth_engine.name)
         
     except Exception as e:
         # Handle failure

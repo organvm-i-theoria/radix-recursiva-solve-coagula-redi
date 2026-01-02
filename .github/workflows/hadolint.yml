@@ -32,10 +32,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Note: This workflow expects a Dockerfile in the repository root.
-      # If no Dockerfile exists, this workflow will fail. Consider removing
-      # this workflow or adding a Dockerfile if Docker is used in this project.
+      - name: Check for Dockerfile
+        id: check_dockerfile
+        run: |
+          if [ -f "./Dockerfile" ]; then
+            echo "dockerfile_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "dockerfile_exists=false" >> $GITHUB_OUTPUT
+            echo "No Dockerfile found, skipping hadolint scan"
+          fi
       - name: Run hadolint
+        if: steps.check_dockerfile.outputs.dockerfile_exists == 'true'
         uses: hadolint/hadolint-action@f988afea3da57ee48710a9795b6bb677cc901183
         with:
           dockerfile: ./Dockerfile
@@ -44,6 +51,7 @@ jobs:
           no-fail: true
 
       - name: Upload analysis results to GitHub
+        if: steps.check_dockerfile.outputs.dockerfile_exists == 'true'
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: hadolint-results.sarif

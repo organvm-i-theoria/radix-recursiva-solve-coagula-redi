@@ -99,7 +99,6 @@ class HabitatManager:
 
         # Save habitat metadata
         for key, habitat in self.habitats.items():
-            status = habitat.get_habitat_status()
             # Save experiment names for reference
             exp_names = list(habitat.active_experiments.keys())
             grad_names = list(habitat.graduated_patterns.keys())

@@ -3,7 +3,7 @@
 Setup script for the Experimental Habitat System
 """
 
-from setuptools import setup, find_packages
+from setuptools import setup
 import os
 
 # Read the README for long description
@@ -21,7 +21,7 @@ setup(
     long_description=read_file('HABITAT_README.md'),
     long_description_content_type='text/markdown',
     author='Anthony James Padavano',
-    author_email='',
+    author_email='4-b100m@users.noreply.github.com',
     url='https://github.com/4-b100m/solve-et-coagula',
     license='MIT',
 

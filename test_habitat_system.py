@@ -16,9 +16,7 @@ Or with pytest: pytest test_habitat_system.py -v
 """
 
 import unittest
-import tempfile
 import os
-import shutil
 from experimental_habitat_implementation import (
     ExperimentalHabitat,
     ExperimentalSystem,
@@ -216,7 +214,8 @@ class TestExperimentalHabitat(unittest.TestCase):
 
         try:
             self.habitat.run_experiment("failing_exp")
-        except:
+        except Exception:
+            # Expected failure, ignore for test
             pass
 
         lessons = self.habitat.contain_failure("failing_exp", "Test failure")
