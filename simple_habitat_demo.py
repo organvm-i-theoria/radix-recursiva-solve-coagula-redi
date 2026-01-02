@@ -7,7 +7,12 @@ containment system, showing how to safely spawn, run, and manage nested
 experimental systems.
 """
 
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from experimental_habitat_implementation import ExperimentalHabitat, RecursiveMythEngine, ExperimentalSystem
+import json
 
 def main():
     print("🎩 'A HAT ON A HAT ON A' - EXPERIMENTAL CONTAINMENT DEMO")
@@ -28,7 +33,7 @@ def main():
         'recursive_depth_limit': 4
     }
     
-    base_habitat.spawn_experiment(myth_engine, base_containment)
+    exp1_data = base_habitat.spawn_experiment(myth_engine, base_containment)
     print(f"   ✅ Experiment spawned: {myth_engine.name}")
     print(f"   🔒 Containment boundary: {myth_engine.boundary.get_full_path()}")
     print()
@@ -56,7 +61,7 @@ def main():
         'parent_dependency': myth_engine.name
     }
     
-    nested_habitat.spawn_experiment(analyzer, nested_containment)
+    exp2_data = nested_habitat.spawn_experiment(analyzer, nested_containment)
     print(f"   ✅ Nested experiment spawned: {analyzer.name}")
     print(f"   🔒 Nested boundary: {analyzer.boundary.get_full_path()}")
     print()
@@ -84,7 +89,7 @@ def main():
         'max_runtime': 60
     }
     
-    deep_habitat.spawn_experiment(synthesizer, deep_containment)
+    exp3_data = deep_habitat.spawn_experiment(synthesizer, deep_containment)
     print(f"   ✅ Deep experiment spawned: {synthesizer.name}")
     print(f"   🔒 Deep boundary: {synthesizer.boundary.get_full_path()}")
     print()
@@ -145,17 +150,17 @@ def main():
     
     # Graduate synthesis to nested habitat
     print("🎓 Graduating synthesis engine to pattern analyzer level...")
-    deep_habitat.graduate_to_forge(synthesizer.name)
+    synthesis_package = deep_habitat.graduate_to_forge(synthesizer.name)
     print(f"   ✅ Synthesis patterns ready for integration")
     
     # Graduate analyzer to base habitat  
     print("🎓 Graduating pattern analyzer to base level...")
-    nested_habitat.graduate_to_forge(analyzer.name)
+    analysis_package = nested_habitat.graduate_to_forge(analyzer.name)
     print(f"   ✅ Analysis patterns ready for integration")
     
     # Graduate myth engine to Code Forge
     print("🎓 Graduating myth engine to Code Forge...")
-    base_habitat.graduate_to_forge(myth_engine.name)
+    myth_package = base_habitat.graduate_to_forge(myth_engine.name)
     print(f"   ✅ Myth engine patterns ready for production")
     print()
     

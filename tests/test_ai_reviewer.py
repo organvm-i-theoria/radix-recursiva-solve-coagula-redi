@@ -44,6 +44,10 @@ def test_build_report_handles_git_errors(tmp_path: Path, monkeypatch: pytest.Mon
     output = tmp_path / "report.md"
 
     def fake_git_diff(base: str, head: str) -> list[str]:  # noqa: ARG001 - required signature
+        """
+        This function is used to monkeypatch reviewer.git_diff_files in tests.
+        The signature must match the original function for monkeypatching, but the arguments are unused.
+        """
         raise RuntimeError("diff failed")
 
     monkeypatch.setattr(reviewer, "git_diff_files", fake_git_diff)

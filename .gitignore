@@ -1,40 +1,17 @@
-## Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+# Obsidian vault files
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/hotkeys.json
+.obsidian/appearance.json
+.obsidian/core-plugins.json
+.obsidian/community-plugins.json
+.obsidian/plugins/*
+!.obsidian/plugins/obsidian-git/
+!.obsidian/plugins/obsidian-git/**
+.obsidian/workspace*
+.obsidian/workspaces.json
 
-## Virtual environments
-venv/
-ENV/
-env/
-.venv
-
-## IDE / Editor
-.vscode/
-.idea/
-*.sublime-*
-*.swp
-*.swo
-*~
-
-## OS / Platform files
+# System files
 .DS_Store
 .DS_Store?
 ._*
@@ -43,55 +20,64 @@ env/
 ehthumbs.db
 Thumbs.db
 
-## Experimental Habitat temporary files
-/tmp/
-**/tmp/
-habitat_config.json
-**/habitat_*_*/
-.pytest_cache/
-
-## Obsidian files
-.obsidian/workspace*
-.obsidian/workspaces.json
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/hotkeys.json
-.obsidian/appearance.json
-.obsidian/core-plugins.json
-.obsidian/community-plugins.json
-.obsidian/plugins/
-.obsidian/cache/
-.sync/
-.makemd/
-
-## Obsidian trash (keep structure but not in version control)
-.trash/
-
-## Log / Temp files
-*.log
+# Temporary files
 *.tmp
 *.temp
+*.swp
+*.swo
+*~
+/tmp/
+**/tmp/
 
-## Cache files
+# Log files
+*.log
+
+# Cache and sync files
+.obsidian/cache/
 .cache/
 *.cache
+.sync/
+.makemd/
+.pytest_cache/
 
-## Build artifacts and dependencies
+# Build artifacts and dependencies
 node_modules/
 dist/
 build/
 
-## Backup files
+# Editor files
+.vscode/
+*.sublime-*
+
+# Backup files
 *.bak
 *.backup
 
-## Local environment files
+# Local environment files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-## Empty placeholder files
+# Obsidian trash (keep structure but not in version control)
+.trash/
+
+# ZIP archives are stored in ARCHIVES/ directory
+# Review contents before version control inclusion
+
+# Empty placeholder files
 Untitled*.md
 Untitled*.canvas
+!ACTIVE_WORK/Canvas/Untitled*.canvas
+
+# Experimental Habitat temporary files
+habitat_config.json
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Temporary experimental workspaces
+**/habitat_*_*/
