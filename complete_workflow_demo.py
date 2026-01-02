@@ -17,8 +17,7 @@ This demonstrates a realistic use case of the habitat system.
 from experimental_habitat_implementation import (
     ExperimentalHabitat,
     ExperimentalSystem,
-    RecursiveMythEngine,
-    ContainmentBoundary
+    RecursiveMythEngine
 )
 import json
 import time
@@ -267,6 +266,7 @@ def main():
     print("\n🎓 Graduating nested experiment...")
     nested_package = nested_habitat.graduate_to_forge(nested_analyzer.name)
     print(f"✅ Nested experiment graduated")
+    print(f"   Code patterns: {nested_package['code_patterns']}")
 
     # Compost failed experiment
     print_subsection("Composting Failed Experiments")
