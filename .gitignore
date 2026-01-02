@@ -1,23 +1,83 @@
-# Experimental Habitat temporary files
+# Obsidian vault files
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/hotkeys.json
+.obsidian/appearance.json
+.obsidian/core-plugins.json
+.obsidian/community-plugins.json
+.obsidian/plugins/*
+!.obsidian/plugins/obsidian-git/
+!.obsidian/plugins/obsidian-git/**
+.obsidian/workspace*
+.obsidian/workspaces.json
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
 /tmp/
 **/tmp/
+
+# Log files
+*.log
+
+# Cache and sync files
+.obsidian/cache/
+.cache/
+*.cache
+.sync/
+.makemd/
+.pytest_cache/
+
+# Build artifacts and dependencies
+node_modules/
+dist/
+build/
+
+# Editor files
+.vscode/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Obsidian trash (keep structure but not in version control)
+.trash/
+
+# ZIP archives are stored in ARCHIVES/ directory
+# Review contents before version control inclusion
+
+# Empty placeholder files
+Untitled*.md
+Untitled*.canvas
+!ACTIVE_WORK/Canvas/Untitled*.canvas
+
+# Experimental Habitat temporary files
 habitat_config.json
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-
-# Obsidian files
-.obsidian/workspace*
-.obsidian/workspaces.json
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Log files
-*.log
 
 # Temporary experimental workspaces
 **/habitat_*_*/
