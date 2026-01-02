@@ -78,3 +78,10 @@ You can pair the built-in automation with other no-cost services listed below to
 - Draft pull requests intentionally skip AI feedback to avoid noisy intermediate results. Mark them as ready for review when you want the helper to post comments.
 - For private forks with restricted environments, vendor the `sumy` dependency or pin to a compatible Python version to ensure deterministic runs.
 - If `punkt` tokenizer data is unavailable in CI, the AI summary falls back to a diagnostic message instead of failing. Install it via `python -m nltk.downloader punkt` when full summaries are required.
+
+  To ensure `punkt` is available in your GitHub Actions workflow, add a step like this before running your AI review script:
+
+  ```yaml
+  - name: Install NLTK punkt data
+    run: python -m nltk.downloader punkt
+  ```

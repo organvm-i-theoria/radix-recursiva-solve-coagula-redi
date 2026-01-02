@@ -6,7 +6,7 @@ import argparse
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Iterable, List, Sequence
 
 FRONT_MATTER_BOUNDARY = re.compile(r"^---\s*$")
 FILENAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
@@ -34,12 +34,16 @@ def discover_markdown_files(paths: Sequence[Path]) -> Iterable[Path]:
                     yield path
 
 
-def validate_filename(path: Path) -> list[ValidationError]:
+def validate_filename(path: Path) -> List[ValidationError]:
     name = path.name
     if name.lower() in {"readme.md", "license.md"}:
         return []
     if not FILENAME_PATTERN.match(name):
-        return [ValidationError(path, "file name must be lower-case kebab-case (e.g., example-file.md)")]
+        return [
+            ValidationError(
+                path, "file name must be lower-case kebab-case (e.g., example-file.md)"
+            )
+        ]
     return []
 
 
@@ -55,7 +59,9 @@ def split_front_matter(content: str) -> tuple[str, str] | tuple[None, None]:
     return None, None
 
 
-def parse_front_matter(block: str, path: Path) -> tuple[dict[str, object], list[ValidationError]]:
+def parse_front_matter(
+    block: str, path: Path
+) -> tuple[dict[str, object], List[ValidationError]]:
     data: dict[str, object] = {}
     errors: list[ValidationError] = []
     current_key: str | None = None
@@ -66,19 +72,31 @@ def parse_front_matter(block: str, path: Path) -> tuple[dict[str, object], list[
             continue
         if line.startswith("  - "):
             if current_key is None:
-                errors.append(ValidationError(path, f"unexpected list item without key: '{line.strip()}'"))
+                errors.append(
+                    ValidationError(
+                        path, f"unexpected list item without key: '{line.strip()}'"
+                    )
+                )
                 continue
             value = data.setdefault(current_key, [])
             if not isinstance(value, list):
-                errors.append(ValidationError(path, f"key '{current_key}' does not accept list items"))
+                errors.append(
+                    ValidationError(
+                        path, f"key '{current_key}' does not accept list items"
+                    )
+                )
                 continue
             value.append(line[4:].strip())
             continue
         if line.startswith("  "):
             if current_key is None or not isinstance(data.get(current_key), str):
-                errors.append(ValidationError(path, f"unexpected continuation line: '{line.strip()}'"))
+                errors.append(
+                    ValidationError(
+                        path, f"unexpected continuation line: '{line.strip()}'"
+                    )
+                )
                 continue
-            data[current_key] = f"{data[current_key]} {line.strip()}".strip()
+            data[current_key] = f"{data[current_key]}\n{line.strip()}"
             continue
         if ":" not in line:
             errors.append(ValidationError(path, f"malformed metadata line: '{line}'"))
@@ -101,23 +119,29 @@ def parse_front_matter(block: str, path: Path) -> tuple[dict[str, object], list[
     return data, errors
 
 
-def validate_front_matter(data: dict[str, object], path: Path) -> list[ValidationError]:
-    errors: list[ValidationError] = []
+def validate_front_matter(data: dict[str, object], path: Path) -> List[ValidationError]:
+    errors: List[ValidationError] = []
 
     for key in REQUIRED_KEYS:
         if key not in data:
-            errors.append(ValidationError(path, f"missing required metadata key '{key}'"))
+            errors.append(
+                ValidationError(path, f"missing required metadata key '{key}'")
+            )
 
     status = data.get("status")
     if isinstance(status, str):
         if status not in VALID_STATUS:
-            errors.append(ValidationError(path, f"status must be one of {sorted(VALID_STATUS)}"))
+            errors.append(
+                ValidationError(path, f"status must be one of {sorted(VALID_STATUS)}")
+            )
     elif status is not None:
         errors.append(ValidationError(path, "status must be a string"))
 
     summary = data.get("summary")
     if isinstance(summary, str) and len(summary) > 200:
-        errors.append(ValidationError(path, "summary should be 200 characters or fewer"))
+        errors.append(
+            ValidationError(path, "summary should be 200 characters or fewer")
+        )
     elif summary is not None and not isinstance(summary, str):
         errors.append(ValidationError(path, "summary must be a string"))
 
@@ -132,8 +156,12 @@ def validate_front_matter(data: dict[str, object], path: Path) -> list[Validatio
         if not tags:
             errors.append(ValidationError(path, "tags list cannot be empty"))
         for tag in tags:
-            if not isinstance(tag, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", tag):
-                errors.append(ValidationError(path, f"tag '{tag}' must be lower-case kebab-case"))
+            if not isinstance(tag, str) or not re.fullmatch(
+                r"[a-z0-9]+(?:-[a-z0-9]+)*", tag
+            ):
+                errors.append(
+                    ValidationError(path, f"tag '{tag}' must be lower-case kebab-case")
+                )
     elif tags is not None:
         errors.append(ValidationError(path, "tags must be a list"))
 
@@ -142,12 +170,14 @@ def validate_front_matter(data: dict[str, object], path: Path) -> list[Validatio
         if value is None:
             continue
         if not isinstance(value, str) or not DATE_PATTERN.match(value):
-            errors.append(ValidationError(path, f"{key} must use ISO format YYYY-MM-DD"))
+            errors.append(
+                ValidationError(path, f"{key} must use ISO format YYYY-MM-DD")
+            )
 
     return errors
 
 
-def validate_file(path: Path) -> list[ValidationError]:
+def validate_file(path: Path) -> List[ValidationError]:
     errors = validate_filename(path)
     content = path.read_text(encoding="utf-8")
     metadata_block, body = split_front_matter(content)
@@ -161,14 +191,18 @@ def validate_file(path: Path) -> list[ValidationError]:
     if body and body.lstrip().startswith("# "):
         pass
     else:
-        errors.append(ValidationError(path, "body should start with an H1 heading after the front matter"))
+        errors.append(
+            ValidationError(
+                path, "body should start with an H1 heading after the front matter"
+            )
+        )
 
     return errors
 
 
-def run(paths: Sequence[Path]) -> list[ValidationError]:
+def run(paths: Sequence[Path]) -> List[ValidationError]:
     markdown_files = sorted({path for path in discover_markdown_files(paths)})
-    errors: list[ValidationError] = []
+    errors: List[ValidationError] = []
     for file_path in markdown_files:
         errors.extend(validate_file(file_path))
     return errors

@@ -19,27 +19,27 @@ You are viewing the **central index file** of your AI-integrated creative archiv
 This document is your home base for navigating the following components:
 
 ### ✅ Core Elements
-- `ARCHIVAL_ST4CK_PROJECTS.csv` — Canonical list of 19 core project folders, each assigned a symbolic ID (PR01–PR19).
-- `THREAD_PROJECT_CROSSWALK_TAGGED.csv` — Index of all ChatGPT threads and their assigned folder relationships.
-- `THREAD_DIGESTS.zip` — Per-folder logbook of all related GPT conversations (`PRxx_THREAD_DIGEST.md`).
-- `SYMBOLIC_TREE_MAP.md` — High-level symbolic overview showing folder-thread relationships.
-- `THREADS_REVIEW_REQUIRED.csv` — List of GPT threads not yet matched to a project folder.
+- `CATALOGS_AND_INDEXES/FOLDER_CATALOG_FINAL.csv` — Canonical list of core project folders and symbolic IDs (PR01–PR19).
+- `CATALOGS_AND_INDEXES/THREAD_PROJECT_CROSSWALK_TAGGED.md` — Index of ChatGPT threads and their assigned folder relationships.
+- `ARCHIVAL_STACK/PRxx_THREAD_DIGEST.md` — Per-folder logbooks of related GPT conversations.
+- `PROJECT_MANAGEMENT/SYMBOLIC_TREE_MAP.md` — High-level symbolic overview showing folder-thread relationships.
+- `PROJECT_MANAGEMENT/GPT_PROJECTS_ARCHIVE.md` — Archive of GPT projects across the system.
 
 ### 🗂 Folder Structure (Example)
-- `PR06__floating_points/`
-  - `README.md` → overview of the project
-  - `PR06_THREAD_DIGEST.md` → related GPT logic
+- `REGEOS_RG01/`
+  - `README.md` → overview of the domain
+  - `RE-GE_ORG_BODY_23_EXPERIMENTAL_HABITAT.md` → live protocol example
 
 ### 📦 Obsidian Notes Synced
 - All canonical folders appear to be present in your Obsidian vault structure.
 - ARCHIVAL_STACK is live, with key GPT files visible in Downloads and Obsidian.
 
 ## 🔜 Suggested Next Steps
-1. **Choose a Launch Folder** → Which of the 19 PR folders do you want to work from first?
+1. **Choose a Launch Folder** → Which of the PR folders do you want to work from first?
 2. **Write or Refine the README.md** for that folder.
-3. **Review `THREADS_REVIEW_REQUIRED.csv`** for missed gold or forgotten ideas.
+3. **Review thread digests for missed insights** and capture new action items.
 4. **Mark each `README.md` with status:** `GEN+`, `STATIC`, or `ARCHIVE`.
-5. **Export `CHRONOS.md` or `SYSTEM_TIMELINE.md`** to track future evolution.
+5. **Export `CHR0N0S_manifest.md` or `SYSTEM_TIMELINE.md`** to track future evolution.
 
 ### 🌱 Personal Reminder
 This system exists so you don't have to hold everything in your head. It’s okay to pause.
