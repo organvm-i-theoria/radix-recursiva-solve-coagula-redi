@@ -1,0 +1,38 @@
+# Include documentation
+include README.md
+include HABITAT_README.md
+include CHANGELOG.md
+include LICENSE
+
+# Include configuration files
+include requirements.txt
+include setup.py
+include MANIFEST.in
+
+# Include Python source files
+include *.py
+
+# Include test files
+include test_*.py
+
+# Exclude compiled files
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.so
+global-exclude .DS_Store
+
+# Exclude development files
+exclude .gitignore
+exclude .gitattributes
+recursive-exclude .git *
+recursive-exclude .github *
+recursive-exclude .obsidian *
+recursive-exclude .makemd *
+recursive-exclude .space *
+recursive-exclude .trash *
+
+# Exclude temporary files
+exclude habitat_config.json
+exclude habitat_state.json
+global-exclude *.tmp
+global-exclude *.log

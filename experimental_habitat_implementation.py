@@ -33,7 +33,9 @@ class ContainmentBoundary:
         self.created = datetime.now().isoformat()
         self.active = True
         
+        # Pre-calculate full path to avoid recursion during access
         if parent:
+            self._full_path = f"{parent.get_full_path()}/{name}"
             parent.children.append(self)
             self._full_path = f"{parent.get_full_path()}/{self.name}"
         else:
@@ -152,7 +154,13 @@ class ExperimentalHabitat:
         experiment.resource_limits = resource_limits
         
         # Create isolated workspace
-        exp_dir = os.path.join(self.temp_dir, experiment.name)
+        exp_dir = os.path.abspath(os.path.join(self.temp_dir, experiment.name))
+
+        # Security check: Prevent path traversal
+        temp_dir_abs = os.path.abspath(self.temp_dir)
+        if os.path.commonpath([temp_dir_abs]) != os.path.commonpath([temp_dir_abs, exp_dir]):
+            raise ValueError(f"Security violation: Experiment name '{experiment.name}' attempts path traversal.")
+
         os.makedirs(exp_dir, exist_ok=True)
         
         experiment_data = {

@@ -1,0 +1,3 @@
+## 2025-12-14 - [Visual Hierarchy in CLI Tools]
+**Learning:** CLI tools often dump raw JSON or mixed log output, making it hard for users to parse critical information. By adding semantic coloring (Green=Success, Red=Failure, Cyan=Keys) and structured indentation, we can significantly reduce cognitive load without changing functionality.
+**Action:** When working on CLIs, always create a simple `Colors` helper and format complex objects (like status reports) into human-readable key-value pairs instead of raw JSON dumps. Also, ensure internal logging is suppressed or redirected so it doesn't pollute the user's primary interface.
