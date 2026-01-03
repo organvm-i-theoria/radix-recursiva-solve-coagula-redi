@@ -11,9 +11,9 @@ additional isolation and structure for safe experimentation.
 
 import json
 import os
-import subprocess
 import tempfile
 import time
+import re
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 import logging
@@ -141,6 +141,10 @@ class ExperimentalHabitat:
     def spawn_experiment(self, experiment: ExperimentalSystem, containment_rules: Dict[str, Any]) -> Dict[str, Any]:
         """Spawn a new experimental system within containment boundaries"""
         
+        # Validate experiment name to prevent path traversal
+        if not re.match(r'^[a-zA-Z0-9_-]+$', experiment.name):
+            raise ValueError(f"Invalid experiment name '{experiment.name}'. Name must contain only alphanumeric characters, underscores, and hyphens.")
+
         # Create containment boundary
         boundary = ContainmentBoundary(
             name=f"boundary_{experiment.name}",
