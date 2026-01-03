@@ -26,13 +26,21 @@ class ContainmentBoundary:
     """Represents an isolation boundary for experimental systems"""
     
     def __init__(self, name: str, level: int, parent: Optional['ContainmentBoundary'] = None):
-        self.name = name
+        self._name = name
+        self._parent = parent
         self.level = level
-        self.parent = parent
         self.children: List['ContainmentBoundary'] = []
         self.created = datetime.now().isoformat()
         self.active = True
         
+        if self._parent:
+            self._parent.children.append(self)
+
+        self._update_full_path()
+
+    @property
+    def name(self) -> str:
+        return self._name
         # Pre-calculate full path to avoid recursion during access
         if parent:
             self._full_path = f"{parent.get_full_path()}/{name}"
@@ -41,8 +49,45 @@ class ContainmentBoundary:
         else:
             self._full_path = self.name
     
+    @name.setter
+    def name(self, value: str):
+        self._name = value
+        self._update_full_path()
+        self._update_children_paths()
+
+    @property
+    def parent(self) -> Optional['ContainmentBoundary']:
+        return self._parent
+
+    @parent.setter
+    def parent(self, value: Optional['ContainmentBoundary']):
+        # Remove from old parent if exists
+        if self._parent and self in self._parent.children:
+            self._parent.children.remove(self)
+
+        self._parent = value
+        if self._parent:
+            self._parent.children.append(self)
+
+        self._update_full_path()
+        self._update_children_paths()
+
+    def _update_full_path(self):
+        """Update the cached full path"""
+        if self._parent:
+            self._full_path = f"{self._parent.get_full_path()}/{self._name}"
+        else:
+            self._full_path = self._name
+
+    def _update_children_paths(self):
+        """recursively update paths for all children"""
+        for child in self.children:
+            child._update_full_path()
+            child._update_children_paths()
+
     def get_full_path(self) -> str:
         """Get the full containment path (hat stack)"""
+        return self._full_path
         # Return cached path if available
         if hasattr(self, '_full_path'):
             return self._full_path
