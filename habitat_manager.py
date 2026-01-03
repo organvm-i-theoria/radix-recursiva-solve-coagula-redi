@@ -21,6 +21,7 @@ import argparse
 import json
 import os
 import sys
+from typing import Any
 import logging
 from datetime import datetime
 from experimental_habitat_implementation import ExperimentalHabitat, ExperimentalSystem, RecursiveMythEngine
@@ -142,6 +143,12 @@ class HabitatManager:
             print(f"{Colors.RED}❌ Experiment '{name}' failed: {e}{Colors.RESET}")
             raise
     
+    def _print_kv(self, key: str, value: Any, indent: int = 3):
+        """Helper to print key-value pairs nicely aligned"""
+        padding = " " * indent
+        key_str = f"{key}:"
+        print(f"{padding}{key_str:<25} {value}")
+
     def get_status(self, experiment_name: str = None, habitat_name: str = "main") -> dict:
         """Get habitat or experiment status"""
         habitat = self.habitats.get(habitat_name)
@@ -162,6 +169,12 @@ class HabitatManager:
                     'workspace': exp_data.get('workspace'),
                     'containment_rules': exp_data.get('containment_rules')
                 }
+                print(f"📊 Status for experiment '{experiment_name}':")
+                self._print_kv("Status", status['status'])
+                self._print_kv("Hypothesis", status['hypothesis'])
+                self._print_kv("Created", status['created'])
+                self._print_kv("Boundary", status['boundary'])
+                self._print_kv("Workspace", status['workspace'])
                 print(f"{Colors.HEADER}📊 Status for experiment '{Colors.BOLD}{experiment_name}{Colors.RESET}{Colors.HEADER}':{Colors.RESET}")
                 for key, value in status.items():
                     if key == 'containment_rules' and isinstance(value, dict):
@@ -183,6 +196,14 @@ class HabitatManager:
         else:
             # Get habitat status
             status = habitat.get_habitat_status()
+            print(f"🏠 Status for habitat '{habitat_name}':")
+            self._print_kv("Name", status['name'])
+            self._print_kv("Isolation Level", status['isolation_level'])
+            self._print_kv("Nesting Depth", status['nesting_depth'])
+            self._print_kv("Active Experiments", status['active_experiments'])
+            self._print_kv("Graduated Patterns", status['graduated_patterns'])
+            self._print_kv("Failed Experiments", status['failed_experiments'])
+            self._print_kv("Workspace", status['workspace'])
             print(f"{Colors.HEADER}🏠 Status for habitat '{Colors.BOLD}{habitat_name}{Colors.RESET}{Colors.HEADER}':{Colors.RESET}")
             for key, value in status.items():
                 if key == 'containment_boundaries' and isinstance(value, list):
@@ -257,18 +278,18 @@ class HabitatManager:
     def list_habitats(self):
         """List all active habitats"""
         print("🏠 Active Habitats:")
-        print("=" * 50)
+        print("=" * 60)
+        print(f"{'KEY':<20} {'NAME':<20} {'LVL':<5} {'ACTIVE':<7} {'WORKSPACE'}")
+        print("-" * 60)
         
         for key, habitat in self.habitats.items():
             status = habitat.get_habitat_status()
-            print(f"📍 {key} ({habitat.name})")
-            print(f"   Isolation Level: {status['isolation_level']}")
-            print(f"   Nesting Depth: {status['nesting_depth']}")
-            print(f"   Active Experiments: {status['active_experiments']}")
-            print(f"   Graduated Patterns: {status['graduated_patterns']}")
-            print(f"   Failed Experiments: {status['failed_experiments']}")
-            print(f"   Workspace: {status['workspace']}")
-            print()
+            workspace_short = status['workspace']
+            if len(workspace_short) > 30:
+                workspace_short = "..." + workspace_short[-27:]
+
+            print(f"{key:<20} {status['name']:<20} {status['isolation_level']:<5} {status['active_experiments']:<7} {workspace_short}")
+        print("=" * 60)
     
     def cleanup_all(self, force: bool = False):
         """Cleanup all habitats"""
