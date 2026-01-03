@@ -2,20 +2,39 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+This project is currently under active development. Security updates are applied to the main branch.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| main    | :white_check_mark: |
+
+## Recent Security Fixes
+
+### Path Traversal Vulnerability (Fixed: Dec 2025)
+- **Component**: `experimental_habitat_implementation.py`
+- **Severity**: HIGH
+- **Issue**: Unsanitized experiment names could escape containment directories
+- **Fix**: Strict input validation with alphanumeric whitelist
+- **Details**: See [SECURITY_FIX_DOCUMENTATION.md](./SECURITY_FIX_DOCUMENTATION.md)
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability in this project, please report it by:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+1. **DO NOT** create a public GitHub issue for security vulnerabilities
+2. Email the maintainers directly or use GitHub's private vulnerability reporting
+3. Include:
+   - Description of the vulnerability
+   - Steps to reproduce
+   - Potential impact
+   - Suggested fix (if any)
+
+### Response Timeline
+- **Initial Response**: Within 48 hours
+- **Status Update**: Weekly until resolved
+- **Fix Timeline**: Critical issues within 7 days, others within 30 days
+
+### What to Expect
+- **Accepted**: We'll work with you on a fix and coordinate disclosure
+- **Declined**: We'll explain why we don't consider it a vulnerability
+- **Credit**: Security researchers will be credited (unless they prefer anonymity)
