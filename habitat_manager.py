@@ -239,10 +239,15 @@ class HabitatManager:
         if not habitat:
             raise ValueError(f"Habitat '{habitat_name}' not found")
         
-        print(f"🎓 Graduating experiment '{name}' to Code Forge...")
+        print(f"{Colors.BLUE}🎓 Graduating experiment '{name}' to Code Forge...{Colors.RESET}")
         
         try:
             forge_package = habitat.graduate_to_forge(name)
+            print(f"{Colors.GREEN}✅ Experiment '{name}' successfully graduated!{Colors.RESET}")
+            print(f"{Colors.HEADER}Forge package contents:{Colors.RESET}")
+            print(f"   {Colors.CYAN}Code patterns:{Colors.RESET} {forge_package['code_patterns']}")
+            print(f"   {Colors.CYAN}Symbolic mappings:{Colors.RESET} {forge_package['symbolic_mappings']}")
+            print(f"   {Colors.CYAN}Integration hooks:{Colors.RESET} {forge_package['integration_hooks']}")
             habitat_ux.print_card(
                 f"Graduated: {name}",
                 {
@@ -255,7 +260,7 @@ class HabitatManager:
             )
             return forge_package
         except Exception as e:
-            print(f"❌ Failed to graduate experiment '{name}': {e}")
+            print(f"{Colors.RED}❌ Failed to graduate experiment '{name}': {e}{Colors.RESET}")
             raise
     
     def compost_experiment(self, name: str, reason: str, habitat_name: str = "main") -> dict:
@@ -264,10 +269,14 @@ class HabitatManager:
         if not habitat:
             raise ValueError(f"Habitat '{habitat_name}' not found")
         
-        print(f"♻️  Composting experiment '{name}' - Reason: {reason}")
+        print(f"{Colors.YELLOW}♻️  Composting experiment '{name}' - Reason: {reason}{Colors.RESET}")
         
         try:
             lessons = habitat.contain_failure(name, reason)
+            print(f"{Colors.GREEN}✅ Experiment '{name}' safely composted{Colors.RESET}")
+            print(f"{Colors.HEADER}Lessons learned:{Colors.RESET}")
+            for lesson_type, lesson_data in lessons.items():
+                print(f"   {Colors.CYAN}{lesson_type}:{Colors.RESET} {lesson_data}")
             habitat_ux.print_card(
                 f"Composted: {name}",
                 lessons,
@@ -275,7 +284,7 @@ class HabitatManager:
             )
             return lessons
         except Exception as e:
-            print(f"❌ Failed to compost experiment '{name}': {e}")
+            print(f"{Colors.RED}❌ Failed to compost experiment '{name}': {e}{Colors.RESET}")
             raise
     
     def create_nested_habitat(self, parent_experiment: str, child_name: str, 
@@ -285,13 +294,17 @@ class HabitatManager:
         if not parent_hab:
             raise ValueError(f"Parent habitat '{parent_habitat}' not found")
         
-        print(f"🪆 Creating nested habitat '{child_name}' under experiment '{parent_experiment}'...")
+        print(f"{Colors.BLUE}🪆 Creating nested habitat '{child_name}' under experiment '{parent_experiment}'...{Colors.RESET}")
         
         try:
             nested_habitat = parent_hab.nest_habitat(parent_experiment, child_name)
             habitat_key = f"{parent_habitat}_{child_name}"
             self.habitats[habitat_key] = nested_habitat
             
+            print(f"{Colors.GREEN}✅ Nested habitat '{child_name}' created successfully{Colors.RESET}")
+            print(f"   {Colors.CYAN}Nesting depth:{Colors.RESET} {nested_habitat.nesting_depth}")
+            print(f"   {Colors.CYAN}Isolation level:{Colors.RESET} {nested_habitat.isolation_level}")
+            print(f"   {Colors.CYAN}Access key:{Colors.RESET} {habitat_key}")
             habitat_ux.print_card(
                 f"Nested Habitat: {child_name}",
                 {
@@ -305,11 +318,24 @@ class HabitatManager:
             
             return nested_habitat
         except Exception as e:
-            print(f"❌ Failed to create nested habitat: {e}")
+            print(f"{Colors.RED}❌ Failed to create nested habitat: {e}{Colors.RESET}")
             raise
     
     def list_habitats(self):
         """List all active habitats"""
+        print(f"{Colors.HEADER}🏠 Active Habitats:{Colors.RESET}")
+        print("=" * 50)
+        
+        for key, habitat in self.habitats.items():
+            status = habitat.get_habitat_status()
+            print(f"{Colors.BOLD}📍 {key} ({habitat.name}){Colors.RESET}")
+            print(f"   {Colors.CYAN}Isolation Level:{Colors.RESET} {status['isolation_level']}")
+            print(f"   {Colors.CYAN}Nesting Depth:{Colors.RESET} {status['nesting_depth']}")
+            print(f"   {Colors.CYAN}Active Experiments:{Colors.RESET} {status['active_experiments']}")
+            print(f"   {Colors.CYAN}Graduated Patterns:{Colors.RESET} {status['graduated_patterns']}")
+            print(f"   {Colors.CYAN}Failed Experiments:{Colors.RESET} {status['failed_experiments']}")
+            print(f"   {Colors.CYAN}Workspace:{Colors.RESET} {status['workspace']}")
+            print()
         habitat_ux.print_header("Active Habitats")
         
         for key, habitat in self.habitats.items():
@@ -340,6 +366,7 @@ class HabitatManager:
     
     def cleanup_all(self, force: bool = False):
         """Cleanup all habitats"""
+        print(f"{Colors.BLUE}🧹 Cleaning up all habitats...{Colors.RESET}")
         if not force:
             response = input("⚠️  Are you sure you want to cleanup all habitats? This cannot be undone. [y/N] ")
             if response.lower() not in ['y', 'yes']:
@@ -351,11 +378,11 @@ class HabitatManager:
         for key, habitat in self.habitats.items():
             try:
                 habitat.cleanup()
-                print(f"✅ Cleaned up habitat '{key}'")
+                print(f"{Colors.GREEN}✅ Cleaned up habitat '{key}'{Colors.RESET}")
             except Exception as e:
-                print(f"❌ Failed to cleanup habitat '{key}': {e}")
+                print(f"{Colors.RED}❌ Failed to cleanup habitat '{key}': {e}{Colors.RESET}")
         
-        print("🎉 Cleanup complete!")
+        print(f"{Colors.GREEN}🎉 Cleanup complete!{Colors.RESET}")
 
 def main():
     """Main command-line interface"""
@@ -437,7 +464,7 @@ def main():
             manager.cleanup_all(args.force)
             
     except Exception as e:
-        print(f"❌ Command failed: {e}")
+        print(f"{Colors.RED}❌ Command failed: {e}{Colors.RESET}")
         sys.exit(1)
 
 if __name__ == "__main__":
