@@ -30,16 +30,8 @@ import habitat_ux
 # Configure logging to suppress INFO messages so they don't clutter CLI output
 logging.getLogger().setLevel(logging.ERROR)
 
-class Colors:
-    HEADER = '\033[95m'
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    GREEN = '\033[92m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    RESET = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+# Import Colors from habitat_ux to use shared definitions
+Colors = habitat_ux.Colors
 
 class HabitatManager:
     """Manager for experimental habitat operations"""
@@ -122,7 +114,8 @@ class HabitatManager:
                 "Containment Level": habitat.isolation_level,
                 "Boundary": experiment.boundary.get_full_path()
             },
-            icon="🧪"
+            icon="🧪",
+            color=Colors.GREEN
         )
         print(f"{Colors.GREEN}🧪 Spawned experiment '{Colors.BOLD}{name}{Colors.RESET}{Colors.GREEN}' in habitat '{habitat.name}'{Colors.RESET}")
         print(f"   Hypothesis: {hypothesis}")
@@ -179,7 +172,7 @@ class HabitatManager:
                     'Workspace': exp_data.get('workspace'),
                     'Containment Rules': exp_data.get('containment_rules')
                 }
-                habitat_ux.print_card(f"Experiment: {experiment_name}", status, icon="📊")
+                habitat_ux.print_card(f"Experiment: {experiment_name}", status, icon="📊", color=Colors.BLUE)
                 print(f"📊 Status for experiment '{experiment_name}':")
                 self._print_kv("Status", status['status'])
                 self._print_kv("Hypothesis", status['hypothesis'])
@@ -216,7 +209,7 @@ class HabitatManager:
                 "Failed Experiments": status['failed_experiments'],
                 "Workspace": status['workspace']
             }
-            habitat_ux.print_card(f"Habitat: {habitat_name}", display_status, icon="🏠")
+            habitat_ux.print_card(f"Habitat: {habitat_name}", display_status, icon="🏠", color=Colors.BLUE)
             print(f"🏠 Status for habitat '{habitat_name}':")
             self._print_kv("Name", status['name'])
             self._print_kv("Isolation Level", status['isolation_level'])
@@ -256,7 +249,8 @@ class HabitatManager:
                     "Symbolic Mappings": forge_package['symbolic_mappings'],
                     "Integration Hooks": forge_package['integration_hooks']
                 },
-                icon="✅"
+                icon="✅",
+                color=Colors.GREEN
             )
             return forge_package
         except Exception as e:
@@ -280,7 +274,8 @@ class HabitatManager:
             habitat_ux.print_card(
                 f"Composted: {name}",
                 lessons,
-                icon="✅"
+                icon="✅",
+                color=Colors.YELLOW
             )
             return lessons
         except Exception as e:
@@ -313,7 +308,8 @@ class HabitatManager:
                     "Isolation Level": nested_habitat.isolation_level,
                     "Access Key": habitat_key
                 },
-                icon="✅"
+                icon="✅",
+                color=Colors.BLUE
             )
             
             return nested_habitat
@@ -336,7 +332,7 @@ class HabitatManager:
             print(f"   {Colors.CYAN}Failed Experiments:{Colors.RESET} {status['failed_experiments']}")
             print(f"   {Colors.CYAN}Workspace:{Colors.RESET} {status['workspace']}")
             print()
-        habitat_ux.print_header("Active Habitats")
+        habitat_ux.print_header("Active Habitats", color=Colors.HEADER)
         
         for key, habitat in self.habitats.items():
             status = habitat.get_habitat_status()
@@ -349,7 +345,7 @@ class HabitatManager:
                 "Failed Experiments": status['failed_experiments'],
                 "Workspace": status['workspace']
             }
-            habitat_ux.print_card(f"Habitat: {key}", display_status, icon="📍")
+            habitat_ux.print_card(f"Habitat: {key}", display_status, icon="📍", color=Colors.HEADER)
         print("🏠 Active Habitats:")
         print("=" * 60)
         print(f"{'KEY':<20} {'NAME':<20} {'LVL':<5} {'ACTIVE':<7} {'WORKSPACE'}")
