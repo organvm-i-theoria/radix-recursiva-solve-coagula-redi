@@ -1,0 +1,14 @@
+# seed.yaml
+# This file contains placeholder values for common configuration options.
+
+# Example configuration for a database
+database:
+  host: localhost
+  port: 5432
+  user: admin
+  password: password
+
+# Example configuration for an API
+api:
+  endpoint: https://api.example.com
+  key: your-api-key

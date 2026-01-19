@@ -29,6 +29,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install sumy==0.11.0 textstat==0.7.3
 
+      - name: Check for required environment variables
+        env:
+          API_KEY: "dummy-key"
+          DATABASE_URL: "dummy-url"
+        run: python scripts/check_env_vars.py
+
       - name: Generate AI review
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
