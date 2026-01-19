@@ -8,20 +8,74 @@ Implements the 'CLI Card Pattern' for consistent, readable output.
 import shutil
 import textwrap
 import pprint
+import re
+from typing import Any
+
+
+_ANSI_CSI_RE = re.compile(r"\x1B\[[0-?]*[ -/]*[@-~]")
+_ANSI_OSC_RE = re.compile(r"\x1B\].*?(?:\x07|\x1B\\)", re.DOTALL)
+_ANSI_ESC_RE = re.compile(r"\x1B[@-Z\\-_]")
+
+
+def strip_ansi(text: str) -> str:
+    """Remove ANSI escape sequences from a string.
+
+    Intended for sanitizing untrusted/user-controlled strings before printing.
+    """
+    if not text:
+        return text
+    text = _ANSI_OSC_RE.sub("", text)
+    text = _ANSI_CSI_RE.sub("", text)
+    text = _ANSI_ESC_RE.sub("", text)
+    return text
+
+
+def sanitize_for_terminal(value: Any, *, keep_newlines: bool = False) -> str:
+    """Sanitize a value for safe-ish terminal display.
+
+    - Strips ANSI escape sequences.
+    - Replaces newlines/tabs with visible escape sequences by default.
+    - Removes remaining C0 control characters and DEL.
+    """
+    text = "" if value is None else str(value)
+    # Normalize line endings early.
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+
+    if keep_newlines:
+        text = text.replace("\t", "\\t")
+    else:
+        text = text.replace("\n", "\\n").replace("\t", "\\t")
+
+    text = strip_ansi(text)
+
+    # Drop remaining control chars (keep \n only if requested).
+    out_chars = []
+    for ch in text:
+        o = ord(ch)
+        if keep_newlines and ch == "\n":
+            out_chars.append(ch)
+            continue
+        if o < 0x20 or o == 0x7F:
+            continue
+        out_chars.append(ch)
+    return "".join(out_chars)
+
 
 class Colors:
-    HEADER = '\033[95m'
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    GREEN = '\033[92m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    RESET = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    HEADER = "\033[95m"
+    BLUE = "\033[94m"
+    CYAN = "\033[96m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    RESET = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+
 
 def get_terminal_width():
     return shutil.get_terminal_size((80, 20)).columns
+
 
 def print_card(title: str, data: dict, icon: str = "ℹ️", color: str = None):
     """Prints a formatted card with a title and key-value pairs."""
@@ -37,23 +91,25 @@ def print_card(title: str, data: dict, icon: str = "ℹ️", color: str = None):
     # Body
     for key, value in data.items():
         # Visual strings for length calculation
-        plain_key_str = f"│ {key}: "
+        safe_key = sanitize_for_terminal(key)
+        plain_key_str = f"│ {safe_key}: "
         plain_indent = "│   "
 
         # Colored strings for printing
-        colored_key_str = f"{c_start}│{c_end} {key}: "
+        colored_key_str = f"{c_start}│{c_end} {safe_key}: "
         colored_indent = f"{c_start}│{c_end}   "
 
         # Format complex values
         if isinstance(value, (dict, list)):
             val_str = pprint.pformat(value, width=content_width - len(plain_indent))
         else:
-            val_str = str(value)
+            val_str = value
+
+        safe_val_str = sanitize_for_terminal(val_str)
 
         # Wrap long text
         wrapped_lines = textwrap.wrap(
-            val_str,
-            width=content_width - len(plain_key_str) + len(plain_indent)
+            safe_val_str, width=content_width - len(plain_key_str) + len(plain_indent)
         )
 
         if not wrapped_lines:
@@ -62,10 +118,11 @@ def print_card(title: str, data: dict, icon: str = "ℹ️", color: str = None):
 
         print(f"{colored_key_str}{wrapped_lines[0]}")
         for line in wrapped_lines[1:]:
-             print(f"{colored_indent}{line}")
+            print(f"{colored_indent}{line}")
 
     # Footer
     print(f"{c_start}╰{'─' * (width - 2)}╯{c_end}")
+
 
 def print_header(title: str, subtitle: str = None, color: str = None):
     """Prints a main header."""

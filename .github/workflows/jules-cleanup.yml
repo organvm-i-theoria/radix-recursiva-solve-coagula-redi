@@ -38,6 +38,49 @@ jobs:
               run: |
                   git fetch --prune --tags origin
 
+            - name: Snapshot branch tips (pre-cleanup)
+              env:
+                  DRY_RUN: ${{ github.event.inputs.dry_run || 'true' }}
+                  MAX_AGE_DAYS: ${{ github.event.inputs.max_age_days || '30' }}
+                  PREFIXES: ${{ github.event.inputs.prefixes || 'bolt-,sentinel-,palette-' }}
+              run: |
+                  set -euo pipefail
+
+                  DEFAULT_BRANCH='${{ github.event.repository.default_branch }}'
+                  TS="$(date -u +%Y%m%d-%H%M%S)"
+                  OUT="branch_tips_pre_cleanup_${TS}.txt"
+
+                  {
+                    echo "# Jules cleanup branch-tip snapshot"
+                    echo "# repo: $GITHUB_REPOSITORY"
+                    echo "# timestamp_utc: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+                    echo "# dry_run: $DRY_RUN"
+                    echo "# max_age_days: $MAX_AGE_DAYS"
+                    echo "# prefixes: $PREFIXES"
+                    echo "# format: <sha>\t<ref>"
+                    echo ""
+                    echo "# Default branch tip"
+                    git ls-remote --heads origin "refs/heads/${DEFAULT_BRANCH}" || true
+                    echo ""
+                    echo "# Prefixed branch tips"
+                  } > "$OUT"
+
+                  IFS=',' read -r -a PREFIX_ARR <<< "$PREFIXES"
+                  for p in "${PREFIX_ARR[@]}"; do
+                    p_trimmed="$(echo "$p" | xargs)"
+                    if [ -n "$p_trimmed" ]; then
+                      git ls-remote --heads origin "refs/heads/${p_trimmed}*" >> "$OUT" || true
+                    fi
+                  done
+
+                  echo "Wrote snapshot: $OUT" >> "$GITHUB_STEP_SUMMARY"
+
+            - name: Upload branch-tip snapshot
+              uses: actions/upload-artifact@v4
+              with:
+                  name: jules-cleanup-branch-tip-snapshot
+                  path: branch_tips_pre_cleanup_*.txt
+
             - name: Backup current default branch
               run: |
                   DEFAULT_BRANCH='${{ github.event.repository.default_branch }}'
