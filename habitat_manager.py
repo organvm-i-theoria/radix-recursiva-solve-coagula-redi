@@ -30,16 +30,8 @@ import habitat_ux
 # Configure logging to suppress INFO messages so they don't clutter CLI output
 logging.getLogger().setLevel(logging.ERROR)
 
-class Colors:
-    HEADER = '\033[95m'
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    GREEN = '\033[92m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    RESET = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+# Use shared colors from habitat_ux
+Colors = habitat_ux.Colors
 
 class HabitatManager:
     """Manager for experimental habitat operations"""

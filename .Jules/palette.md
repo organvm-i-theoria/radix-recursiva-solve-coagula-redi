@@ -1,3 +1,7 @@
-## 2025-12-14 - [Visual Hierarchy in CLI Tools]
-**Learning:** CLI tools often dump raw JSON or mixed log output, making it hard for users to parse critical information. By adding semantic coloring (Green=Success, Red=Failure, Cyan=Keys) and structured indentation, we can significantly reduce cognitive load without changing functionality.
-**Action:** When working on CLIs, always create a simple `Colors` helper and format complex objects (like status reports) into human-readable key-value pairs instead of raw JSON dumps. Also, ensure internal logging is suppressed or redirected so it doesn't pollute the user's primary interface.
+## 2026-01-17 - Unifying CLI Styling
+**Learning:** Inconsistent UI patterns (emojis vs cards, hardcoded vs shared colors) create a disjointed user experience even in CLI tools. Centralizing styling logic (`habitat_ux`) early prevents drift.
+**Action:** When auditing CLI tools, look for "rogue" print statements that bypass the established UX module and refactor them to use shared components (`print_card`, `Colors`).
+
+## 2026-01-17 - The Cost of Hardcoded Strings
+**Learning:** Hardcoded "intro" strings in Python's `cmd` module limit dynamic styling opportunities (like ANSI colors).
+**Action:** Use the `preloop` hook to render dynamic, styled headers instead of relying on the static `intro` attribute.
