@@ -1,0 +1,217 @@
+name: Jules Branch Guard
+
+"on":
+    create:
+
+jobs:
+    guard:
+        # Only act on branch creations; ignore tags.
+        if: ${{ github.event.ref_type == 'branch' }}
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - name: Decide whether to delete
+              id: decide
+              env:
+                  BRANCH: ${{ github.event.ref }}
+                  ACTOR: ${{ github.actor }}
+              run: |
+                  echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+                  # Only enforce for the Jules bot, and only for known proliferation prefixes.
+                  if [ "$ACTOR" != "google-labs-jules[bot]" ]; then
+                    echo "should_delete=false" >> "$GITHUB_OUTPUT"
+                    echo "Reason: actor is $ACTOR (not Jules bot)" >> "$GITHUB_STEP_SUMMARY"
+                    exit 0
+                  fi
+
+                  case "$BRANCH" in
+                    bolt-*|sentinel-*|palette-*)
+                      echo "is_candidate=true" >> "$GITHUB_OUTPUT"
+                      ;;
+                    *)
+                      echo "is_candidate=false" >> "$GITHUB_OUTPUT"
+                      echo "Reason: branch '$BRANCH' does not match bolt-/sentinel-/palette- prefixes" >> "$GITHUB_STEP_SUMMARY"
+                      ;;
+                  esac
+
+            - name: Checkout repository
+              if: steps.decide.outputs.is_candidate == 'true'
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Set up Python
+              if: steps.decide.outputs.is_candidate == 'true'
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.11"
+
+            - name: Fetch refs
+              if: steps.decide.outputs.is_candidate == 'true'
+              run: |
+                  git fetch --prune --tags origin
+
+            - name: Fetch created branch
+              if: steps.decide.outputs.is_candidate == 'true'
+              env:
+                  BRANCH: ${{ github.event.ref }}
+              run: |
+                  git fetch --prune origin "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}" || true
+
+            - name: Map branch prefix to task signature
+              if: steps.decide.outputs.is_candidate == 'true'
+              id: task
+              env:
+                  BRANCH: ${{ github.event.ref }}
+              run: |
+                  task_type=""
+                  case "$BRANCH" in
+                    bolt-*) task_type="bolt-optimize-containment" ;;
+                    sentinel-*) task_type="sentinel-path-traversal" ;;
+                    palette-*) task_type="palette-cli-cards" ;;
+                  esac
+
+                  echo "task_type=$task_type" >> "$GITHUB_OUTPUT"
+
+            - name: Check if task already complete on main
+              if: steps.decide.outputs.is_candidate == 'true'
+              id: complete
+              env:
+                  TASK_TYPE: ${{ steps.task.outputs.task_type }}
+              run: |
+                  set +e
+                  python3 scripts/jules/check_task_completion.py --task-type "$TASK_TYPE" --repo-path . --ref origin/main
+                  rc=$?
+                  set -e
+
+                  # rc=1 means detected complete.
+                  if [ "$rc" -eq 1 ]; then
+                    echo "task_complete=true" >> "$GITHUB_OUTPUT"
+                  else
+                    echo "task_complete=false" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Check branch commit freshness
+              if: steps.decide.outputs.is_candidate == 'true'
+              id: freshness
+              env:
+                  BRANCH: ${{ github.event.ref }}
+              run: |
+                  # If we can't resolve the branch ref, treat as stale (safer default).
+                  if ! git rev-parse --verify "origin/${BRANCH}" >/dev/null 2>&1; then
+                    echo "is_stale=true" >> "$GITHUB_OUTPUT"
+                    echo "reason=unable_to_resolve_origin_ref" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  fi
+
+                  ts=$(git show -s --format=%ct "origin/${BRANCH}")
+                  now=$(date +%s)
+                  age_days=$(( (now - ts) / 86400 ))
+                  echo "age_days=$age_days" >> "$GITHUB_OUTPUT"
+
+                  if [ "$age_days" -gt 7 ]; then
+                    echo "is_stale=true" >> "$GITHUB_OUTPUT"
+                  else
+                    echo "is_stale=false" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Count existing branches for prefix
+              if: steps.decide.outputs.is_candidate == 'true'
+              id: count
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: ${{ github.event.ref }}
+              run: |
+                  prefix=""
+                  case "$BRANCH" in
+                    bolt-*) prefix="bolt-" ;;
+                    sentinel-*) prefix="sentinel-" ;;
+                    palette-*) prefix="palette-" ;;
+                  esac
+
+                  count=$(gh api "repos/${{ github.repository }}/branches" --paginate \
+                    | jq -r ".[].name" \
+                    | grep -E "^${prefix}" \
+                    | wc -l \
+                    | xargs)
+
+                  echo "prefix=$prefix" >> "$GITHUB_OUTPUT"
+                  echo "count=$count" >> "$GITHUB_OUTPUT"
+
+            - name: Decide deletion policy
+              if: steps.decide.outputs.is_candidate == 'true'
+              id: policy
+              env:
+                  TASK_COMPLETE: ${{ steps.complete.outputs.task_complete }}
+                  COUNT: ${{ steps.count.outputs.count }}
+                  STALE: ${{ steps.freshness.outputs.is_stale }}
+              run: |
+                  # Policy (from the Jules plan):
+                  # - delete if task already complete on main
+                  # - delete if too many competing branches exist
+                  # - delete if branch is based on a stale commit
+                  max=5
+
+                  should_delete=false
+                  reason=""
+                  if [ "$TASK_COMPLETE" = "true" ]; then
+                    should_delete=true
+                    reason="task_complete_on_main"
+                  elif [ "$COUNT" -gt "$max" ]; then
+                    should_delete=true
+                    reason="too_many_branches_for_prefix"
+                  elif [ "$STALE" = "true" ]; then
+                    should_delete=true
+                    reason="stale_branch_commit"
+                  fi
+
+                  echo "should_delete=$should_delete" >> "$GITHUB_OUTPUT"
+                  echo "reason=$reason" >> "$GITHUB_OUTPUT"
+
+            - name: Delete branch (policy)
+              if: steps.policy.outputs.should_delete == 'true'
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: ${{ github.event.ref }}
+                  PREFIX: ${{ steps.count.outputs.prefix }}
+                  COUNT: ${{ steps.count.outputs.count }}
+                  TASK_COMPLETE: ${{ steps.complete.outputs.task_complete }}
+                  STALE: ${{ steps.freshness.outputs.is_stale }}
+                  AGE_DAYS: ${{ steps.freshness.outputs.age_days }}
+                  REASON: ${{ steps.policy.outputs.reason }}
+              run: |
+                  echo "## Jules Branch Guard" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- actor: ${{ github.actor }}" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- branch: $BRANCH" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- prefix: $PREFIX" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- prefix_count: $COUNT" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- task_complete_on_main: $TASK_COMPLETE" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- stale_branch_commit: $STALE" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- branch_commit_age_days: ${AGE_DAYS:-unknown}" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- delete_reason: $REASON" >> "$GITHUB_STEP_SUMMARY"
+
+                  gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/${BRANCH}"
+                  echo "✅ Deleted branch '${BRANCH}'" >> "$GITHUB_STEP_SUMMARY"
+
+            - name: Keep branch (policy)
+              if: steps.decide.outputs.is_candidate == 'true' && steps.policy.outputs.should_delete != 'true'
+              env:
+                  BRANCH: ${{ github.event.ref }}
+                  PREFIX: ${{ steps.count.outputs.prefix }}
+                  COUNT: ${{ steps.count.outputs.count }}
+                  TASK_COMPLETE: ${{ steps.complete.outputs.task_complete }}
+                  STALE: ${{ steps.freshness.outputs.is_stale }}
+                  AGE_DAYS: ${{ steps.freshness.outputs.age_days }}
+              run: |
+                  echo "## Jules Branch Guard" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- actor: ${{ github.actor }}" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- branch: $BRANCH" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- prefix: $PREFIX" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- prefix_count: $COUNT" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- task_complete_on_main: $TASK_COMPLETE" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- stale_branch_commit: $STALE" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- branch_commit_age_days: ${AGE_DAYS:-unknown}" >> "$GITHUB_STEP_SUMMARY"
+                  echo "✅ Branch kept (policy did not trigger deletion)." >> "$GITHUB_STEP_SUMMARY"
