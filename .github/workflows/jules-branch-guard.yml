@@ -18,7 +18,11 @@ jobs:
                   BRANCH: ${{ github.event.ref }}
                   ACTOR: ${{ github.actor }}
               run: |
+                  set -euo pipefail
                   echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+                  # Default outputs
+                  echo "is_candidate=false" >> "$GITHUB_OUTPUT"
 
                   # Only enforce for the Jules bot, and only for known proliferation prefixes.
                   if [ "$ACTOR" != "google-labs-jules[bot]" ]; then
@@ -32,7 +36,6 @@ jobs:
                       echo "is_candidate=true" >> "$GITHUB_OUTPUT"
                       ;;
                     *)
-                      echo "is_candidate=false" >> "$GITHUB_OUTPUT"
                       echo "Reason: branch '$BRANCH' does not match bolt-/sentinel-/palette- prefixes" >> "$GITHUB_STEP_SUMMARY"
                       ;;
                   esac
@@ -59,6 +62,7 @@ jobs:
               env:
                   BRANCH: ${{ github.event.ref }}
               run: |
+                  set -euo pipefail
                   git fetch --prune origin "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}" || true
 
             - name: Map branch prefix to task signature
@@ -67,6 +71,7 @@ jobs:
               env:
                   BRANCH: ${{ github.event.ref }}
               run: |
+                  set -euo pipefail
                   task_type=""
                   case "$BRANCH" in
                     bolt-*) task_type="bolt-optimize-containment" ;;
@@ -82,6 +87,12 @@ jobs:
               env:
                   TASK_TYPE: ${{ steps.task.outputs.task_type }}
               run: |
+                  set -euo pipefail
+
+                  # Default outputs
+                  echo "task_complete=false" >> "$GITHUB_OUTPUT"
+                  echo "task_check_error=false" >> "$GITHUB_OUTPUT"
+
                   set +e
                   python3 scripts/jules/check_task_completion.py --task-type "$TASK_TYPE" --repo-path . --ref origin/main
                   rc=$?
@@ -90,8 +101,9 @@ jobs:
                   # rc=1 means detected complete.
                   if [ "$rc" -eq 1 ]; then
                     echo "task_complete=true" >> "$GITHUB_OUTPUT"
-                  else
-                    echo "task_complete=false" >> "$GITHUB_OUTPUT"
+                  elif [ "$rc" -ne 0 ]; then
+                    # If the check fails, treat as an error and let policy decide (safer default).
+                    echo "task_check_error=true" >> "$GITHUB_OUTPUT"
                   fi
 
             - name: Check branch commit freshness
@@ -100,6 +112,7 @@ jobs:
               env:
                   BRANCH: ${{ github.event.ref }}
               run: |
+                  set -euo pipefail
                   # If we can't resolve the branch ref, treat as stale (safer default).
                   if ! git rev-parse --verify "origin/${BRANCH}" >/dev/null 2>&1; then
                     echo "is_stale=true" >> "$GITHUB_OUTPUT"
@@ -122,9 +135,9 @@ jobs:
               if: steps.decide.outputs.is_candidate == 'true'
               id: count
               env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: ${{ github.event.ref }}
               run: |
+                  set -euo pipefail
                   prefix=""
                   case "$BRANCH" in
                     bolt-*) prefix="bolt-" ;;
@@ -132,11 +145,8 @@ jobs:
                     palette-*) prefix="palette-" ;;
                   esac
 
-                  count=$(gh api "repos/${{ github.repository }}/branches" --paginate \
-                    | jq -r ".[].name" \
-                    | grep -E "^${prefix}" \
-                    | wc -l \
-                    | xargs)
+                  # Use git instead of GitHub API for speed and to avoid dependencies on gh/jq.
+                  count=$(git ls-remote --heads origin "${prefix}*" | wc -l | xargs)
 
                   echo "prefix=$prefix" >> "$GITHUB_OUTPUT"
                   echo "count=$count" >> "$GITHUB_OUTPUT"
@@ -146,9 +156,11 @@ jobs:
               id: policy
               env:
                   TASK_COMPLETE: ${{ steps.complete.outputs.task_complete }}
+                  TASK_CHECK_ERROR: ${{ steps.complete.outputs.task_check_error }}
                   COUNT: ${{ steps.count.outputs.count }}
                   STALE: ${{ steps.freshness.outputs.is_stale }}
               run: |
+                  set -euo pipefail
                   # Policy (from the Jules plan):
                   # - delete if task already complete on main
                   # - delete if too many competing branches exist
@@ -160,6 +172,9 @@ jobs:
                   if [ "$TASK_COMPLETE" = "true" ]; then
                     should_delete=true
                     reason="task_complete_on_main"
+                  elif [ "$TASK_CHECK_ERROR" = "true" ]; then
+                    should_delete=true
+                    reason="task_completion_check_error"
                   elif [ "$COUNT" -gt "$max" ]; then
                     should_delete=true
                     reason="too_many_branches_for_prefix"
@@ -174,26 +189,29 @@ jobs:
             - name: Delete branch (policy)
               if: steps.policy.outputs.should_delete == 'true'
               env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: ${{ github.event.ref }}
                   PREFIX: ${{ steps.count.outputs.prefix }}
                   COUNT: ${{ steps.count.outputs.count }}
                   TASK_COMPLETE: ${{ steps.complete.outputs.task_complete }}
+                  TASK_CHECK_ERROR: ${{ steps.complete.outputs.task_check_error }}
                   STALE: ${{ steps.freshness.outputs.is_stale }}
                   AGE_DAYS: ${{ steps.freshness.outputs.age_days }}
                   REASON: ${{ steps.policy.outputs.reason }}
               run: |
+                  set -euo pipefail
                   echo "## Jules Branch Guard" >> "$GITHUB_STEP_SUMMARY"
                   echo "- actor: ${{ github.actor }}" >> "$GITHUB_STEP_SUMMARY"
                   echo "- branch: $BRANCH" >> "$GITHUB_STEP_SUMMARY"
                   echo "- prefix: $PREFIX" >> "$GITHUB_STEP_SUMMARY"
                   echo "- prefix_count: $COUNT" >> "$GITHUB_STEP_SUMMARY"
                   echo "- task_complete_on_main: $TASK_COMPLETE" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- task_completion_check_error: $TASK_CHECK_ERROR" >> "$GITHUB_STEP_SUMMARY"
                   echo "- stale_branch_commit: $STALE" >> "$GITHUB_STEP_SUMMARY"
                   echo "- branch_commit_age_days: ${AGE_DAYS:-unknown}" >> "$GITHUB_STEP_SUMMARY"
                   echo "- delete_reason: $REASON" >> "$GITHUB_STEP_SUMMARY"
 
-                  gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/${BRANCH}"
+                  # Delete via git to avoid relying on preinstalled gh.
+                  git push origin --delete "$BRANCH" || true
                   echo "✅ Deleted branch '${BRANCH}'" >> "$GITHUB_STEP_SUMMARY"
 
             - name: Keep branch (policy)
@@ -203,15 +221,18 @@ jobs:
                   PREFIX: ${{ steps.count.outputs.prefix }}
                   COUNT: ${{ steps.count.outputs.count }}
                   TASK_COMPLETE: ${{ steps.complete.outputs.task_complete }}
+                  TASK_CHECK_ERROR: ${{ steps.complete.outputs.task_check_error }}
                   STALE: ${{ steps.freshness.outputs.is_stale }}
                   AGE_DAYS: ${{ steps.freshness.outputs.age_days }}
               run: |
+                  set -euo pipefail
                   echo "## Jules Branch Guard" >> "$GITHUB_STEP_SUMMARY"
                   echo "- actor: ${{ github.actor }}" >> "$GITHUB_STEP_SUMMARY"
                   echo "- branch: $BRANCH" >> "$GITHUB_STEP_SUMMARY"
                   echo "- prefix: $PREFIX" >> "$GITHUB_STEP_SUMMARY"
                   echo "- prefix_count: $COUNT" >> "$GITHUB_STEP_SUMMARY"
                   echo "- task_complete_on_main: $TASK_COMPLETE" >> "$GITHUB_STEP_SUMMARY"
+                  echo "- task_completion_check_error: $TASK_CHECK_ERROR" >> "$GITHUB_STEP_SUMMARY"
                   echo "- stale_branch_commit: $STALE" >> "$GITHUB_STEP_SUMMARY"
                   echo "- branch_commit_age_days: ${AGE_DAYS:-unknown}" >> "$GITHUB_STEP_SUMMARY"
                   echo "✅ Branch kept (policy did not trigger deletion)." >> "$GITHUB_STEP_SUMMARY"
