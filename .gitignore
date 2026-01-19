@@ -86,3 +86,6 @@ __pycache__/
 
 # Temporary experimental workspaces
 **/habitat_*_*/
+
+# Generated cleanup artifacts
+branch_cleanup_delete_list_*.txt
