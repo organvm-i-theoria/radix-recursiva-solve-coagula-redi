@@ -1,0 +1,106 @@
+name: Jules Preflight (Branch Coordination)
+
+on:
+    workflow_dispatch:
+        inputs:
+            task_type:
+                description: "Task type (e.g., bolt-optimize-containment, sentinel-path-traversal, palette-cli-cards)"
+                required: true
+            max_branches:
+                description: "Maximum allowed branches for the derived prefix"
+                required: false
+                default: "5"
+            ref_to_check:
+                description: "Git ref to inspect for task completion (default: origin/main)"
+                required: false
+                default: "origin/main"
+
+jobs:
+    preflight:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.11"
+
+            - name: Fetch remote refs
+              run: |
+                  git fetch --prune --tags origin
+
+            - name: Derive branch prefix
+              id: prefix
+              env:
+                  TASK_TYPE: ${{ github.event.inputs.task_type }}
+              run: |
+                  tt="$(echo "$TASK_TYPE" | tr '[:upper:]' '[:lower:]')"
+                  prefix=""
+                  case "$tt" in
+                    bolt*) prefix="bolt-" ;;
+                    sentinel*) prefix="sentinel-" ;;
+                    palette*) prefix="palette-" ;;
+                  esac
+
+                  echo "prefix=$prefix" >> "$GITHUB_OUTPUT"
+
+            - name: Count existing branches
+              if: steps.prefix.outputs.prefix != ''
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  PREFIX: ${{ steps.prefix.outputs.prefix }}
+                  MAX_BRANCHES: ${{ github.event.inputs.max_branches || '5' }}
+              run: |
+                  count=$(gh api "repos/${{ github.repository }}/branches" --paginate \
+                    | jq -r ".[].name" \
+                    | grep -E "^${PREFIX}" \
+                    | wc -l \
+                    | xargs)
+
+                  echo "Found $count branches with prefix '${PREFIX}' (limit: ${MAX_BRANCHES})" | tee -a "$GITHUB_STEP_SUMMARY"
+
+                  if [ "$count" -gt "$MAX_BRANCHES" ]; then
+                    echo "⚠️ Too many branches already exist for '${PREFIX}'. Consider cleanup." | tee -a "$GITHUB_STEP_SUMMARY"
+                  else
+                    echo "✅ Branch count is within limit." | tee -a "$GITHUB_STEP_SUMMARY"
+                  fi
+
+            - name: Check task completion on ref
+              env:
+                  TASK_TYPE: ${{ github.event.inputs.task_type }}
+                  REF: ${{ github.event.inputs.ref_to_check || 'origin/main' }}
+              run: |
+                  set +e
+                  python3 scripts/jules/check_task_completion.py \
+                    --task-type "$TASK_TYPE" \
+                    --repo-path "." \
+                    --ref "$REF"
+                  rc=$?
+                  set -e
+
+                  if [ "$rc" -eq 1 ]; then
+                    echo "\n🛑 Task appears complete on $REF. Jules should skip." >> "$GITHUB_STEP_SUMMARY"
+                  else
+                    echo "\n✅ Task not detected on $REF. Jules may proceed." >> "$GITHUB_STEP_SUMMARY"
+                  fi
+
+            - name: Check base freshness
+              env:
+                  REF: ${{ github.event.inputs.ref_to_check || 'origin/main' }}
+              run: |
+                  set +e
+                  python3 scripts/jules/check_base_freshness.py --repo-path . --base-ref "$REF" --max-age-days 7
+                  rc=$?
+                  set -e
+
+                  if [ "$rc" -ne 0 ]; then
+                    echo "\n⚠️ Base ref is stale. Branching from it is discouraged." >> "$GITHUB_STEP_SUMMARY"
+                  else
+                    echo "\n✅ Base ref is fresh enough." >> "$GITHUB_STEP_SUMMARY"
+                  fi

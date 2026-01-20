@@ -1,0 +1,622 @@
+path,name_matches,content_matches,mismatch,sha256
+Character_Persona_Initialization_CB.md,,protocol;process,process;protocol,5e9381304ce57782e2b4830a0f6b724cca358e470bbe205ac9479c9e45784874
+SECURITY.md,,,,ba9643955bfcb04524a6fe5a8c2929b54abc2e67bb3480ce806e742d506e4dc9
+fact_check_report.csv,,protocol;process,process;protocol,5b434f2489df3d66729b5614185fb05b563ba57895c5aaae2ad949ddf47251bc
+verify_report.py,,,,5899ee6dd789c6d0de7a113db8f642c8a6d90529c5d0fd60b1b24fd28a36cf6c
+.gitattributes,,,,1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b
+simple_habitat_demo.py,,process,process,bb084c16cfb4a17514fa447e049e2fa74ad1f349806cf300f46ed520b74df1a9
+TEMPLATECONIVE_QUICKSTART.md,,protocol,protocol,532bd89d47ab5313a103d4ee4f9083ac39979c8e74cb4b5acabae3db2dda2c38
+experimental_habitat_implementation.py,,protocol;process,process;protocol,514c4de97fb70118c4a3c761985ff9c8fb3d0d622237adc9454f4e9db2285bd0
+thread_protocol_index.csv,protocol,protocol;SOP;process;naming,SOP;naming;process,b3c3521ad020d1667b5940504db8203b162aed278521362ed0fa334429c82cbd
+organization_suggestions.md,,naming,naming,6f2b5f187c49e69f7e65ebef74b2eb7920c50a0ad2898f6e9de74eb389f9b739
+root_overview.md,,naming,naming,3a5af6407bb992c116260b885da5f8485a981ae250127fcdf43dc71b08d5827f
+CURRENT_STATE_INVENTORY.md,,protocol,protocol,f0c790b774883e121b5db6192e6fed417532ed8ece2cb53bd81ff15010042e85
+keyword_matches.csv,,protocol;process;naming,naming;process;protocol,c74e9bef7c4f5eda6a30f488b35e1eae1b7bd23adc9000e34f9049a5294e40d7
+CheatCode_LookUp.md,,protocol;naming,naming;protocol,35954ee9b61343d9225a25d0b464737a31ecb202cd5ce02205dbd57c3cd10227
+SYSTEM_INDEX.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,47032f8fd5e2a25e371bc92c77ecac3d295fe0db08155530464fd345d222d66a
+DV001_INSTRUCTIONS.md,,protocol,protocol,afdc160a96e4e9ee36c4115ae14dbacd053cd9de667a7d59802102f0c0e091f2
+DISCUSSIONS.md,,protocol;process,process;protocol,dee9281d3d8e15140c4b6678cceab5327a5c3f70168d206c423eecf152f8d521
+habitat_manager.py,,,,3862fee0b2b0e9cbbb6b37068502b3758264ed63a92778deed25861fc8ca8b45
+fact_check_repo.py,,,,f4a64d86a8f63f67de45f58178dfacd6787d89c86177facdc1130f0050d4df93
+EXPERIMENTAL_CONTAINMENT_SYSTEM_GUIDE.md,,protocol;process,process;protocol,07307004a76d671c4f7a47b464bd36e3288ede2c95dafdc94225ac5df961c2f8
+FRONTMATTER_UPDATE_SUMMARY.md,,protocol;process,process;protocol,b0e9ea169c3e24d959c6fe55a399015ab120b0818ff26eeb2db3e6fec2cff2da
+README.md,,protocol;process;naming,naming;process;protocol,fc9c3eeb87d44132b1f5a6254dbf4303aed914585886dd400c6eace628ff7b16
+walk_compare.py,,protocol;SOP;process;naming,SOP;naming;process;protocol,390823aca81f5e7155d7ed220ed9b62ffde578e1a7002d9f871253bdd6735fd8
+PR_agents.md,,,,7d27292e734c9e0e9640b4e9b250ef4bf928b7d8887040d808cef75bb97353e6
+github_agents.py,,,,7c0a14c6df25254063795f503b1d18051df92fa0b936ead892c72a40130fa288
+COMPLETION_SUMMARY.md,,SOP;naming,SOP;naming,4f885d2fec0beeb26a365d66297e3f2563179e4724a136899eddad38d639a7e1
+.gitignore,,,,ad5e9bfaec55d526791222fd972861d7b4274bd1b5b84bc5b876e781c7956cdf
+MIGRATION_GUIDE.md,,SOP;naming,SOP;naming,d099708adf4cfe59470acb1817270ed58db810898b85062a0836b678e1c8012a
+SUGGESTED_AGENTS_FOR_REGEOS.md,,protocol;process,process;protocol,54bb8f8bd62e5671012018b08a191957d4f56ad62ff3e3a14633c3f610c40e7a
+Users/README.md,,protocol;process;naming,naming;process;protocol,6fa15f589b6ff78eca3cf7fb279473efb53cdc441b21d9c33a2ae17c35264ae6
+Users/anthonyjamespadavano/Documents/4_S0VRCE/.space/def.json,,,,8f38bf0ccee629b4eae3e0b780530398c2ff12e8f7caa17ec9581511c39b53e8
+Users/anthonyjamespadavano/Documents/4_S0VRCE/.space/waypoints.json,,,,f5a3e67a6ebae1dbcff0f8593d86c9e871fca4032501140a8bfdcefa6de5436c
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_13_BLOCKCHAIN_ECONOMY.md,,,,dd17d41f5fff85ade86583662db3003d8a5607bd4219eb3fe55d2aef0d55ab6a
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/AAW_CORE_10 ΓÇö GENEALOGY ENGINE.md,,protocol,protocol,9d790337408b2ec216a17b8cd64b22feb583e109202443fd02e6c6acb06adced
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_11_MASK_ENGINE.md,,,,2eebdf493e95f58cf3d0b8ae2a150ce8a7fa8e2c289f7d316fe26fe005cde6e1
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_04_ARCHIVE_ORDER.md,,,,83c44928b5b3d3a47b4e4904ea2442743931b660777b6a7f52912325f12ed0d3
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/AAW_CORE_11 ΓÇö FAILURE STUDY CHAMBER.md,,protocol;naming,naming;protocol,71c2e08c396580926d7032a683ab8739303fd4447ca11e6c931afe4ad8cae47d
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_09_ECHO_SHELL.md,,process,process,f0d526fa50d6e1440a4fb1d088b5657675b65c6f7d9accf4bda5560f4854f71e
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_05_RITUAL_COURT.md,,SOP;process,SOP;process,0fc2ab31038afc20d01726b1584ce13eed097c59f9dd3df40e3c2b79953cf698
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_21_STAGECRAFT_MODULE.md,,,,4ca3d88fcc384dcd7e11367bf81d83f80a59929e855983ca63e966953834382a
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_06_CODE_FORGE.md,,process,process,027bcd58a00207345bd78f901edf981e27802a63394724596e3fbb6f2b631960
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_17_TIME_RULES_ENGINE.md,,,,eea6d627e60ae778ab4c77c61b30a284587af6413bff560312e65def75eb0c79
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/R3..G3..[  0__S  ].md,,,,61a1f62eaf788da6340ffc1e695eabe87ecbd6927c0cede9c72b942c2bb767a0
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_4NTHOLOGY_INIT.v1.0.md,,protocol;process;naming,naming;process;protocol,9059ec8448f507bb2f8b6aafc69cd60d2996cd38eb10d980f8443f39f04095eb
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_03_MYTHIC_SENATE.md,,protocol;SOP;process,SOP;process;protocol,8b1afcdf7e65e7e6044940501acc673649bf43d94eb57c89bc2ffaa0c42b54a8
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_08_SOUL_PATCHBAY.md,,,,688a962dab37fce53767691ab242e31f8282c16954985055744adea5136e09a7
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_19_PROCESS_PRODUCT_CONV.md,process,protocol;process,protocol,3877e70366f3d56e092537faa14f43592548928339c7668861264ab33da59132
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_02_MIRROR_CABINET.md,,protocol;process,process;protocol,72a3910306a31fdbd14c0f4d44450611bf5e0cf2ade15e06168c2df6da66ec8d
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/AAW_CORE_09 ΓÇö INTERLOCUTOR PROTOCOLS.md,protocol,protocol,,848da0cb74118b5d7cc44a1684926298c1f16388672ba53b791cbffdf8905d6b
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_22_PUBLISHING_TEMPLE.md,,process,process,80cbb4370d826105c2da8b3ffec947d1340e5d949d8fe71e99062081c74755db
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_15_AUDIENCE_ENGINE.md,,protocol,protocol,f588b9ce7ce4c1fdc8db162d832b3c7e368953cc3f991cd266d37a8e5d58cf8d
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_18_ANALOG_DIGITAL_ENGIN.md,,protocol;process,process;protocol,4e8c2d0658a94b95b660b586ae9fe9ae5e46c0cbf2174cb74d92d8c699245ad8
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_16_PLACE_PROTOCOLS.md,protocol,protocol,,dffb1d9d9f5b1465412d2cbe7259b17702766b53f193979393af79f2bb52c337
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_14_PROCESS_MONETIZER.md,process,protocol;process,protocol,4090f1bdcccb236c66c162983cc5f9d7ac18d62b020983f1417d20ee18eba7b2
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_RECURSIVE_SYSTEM_RENDER_LINKMAP.md,,protocol,protocol,76e3fdea6f66510749e0984984fbe0d9458d18f26cb13048db52e3ea7c3416e2
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_07_BLOOM_ENGINE.md,,,,d5d4399176627df0127c6d6698642bd5f4b532679928104dced82584330e9f77
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_10_DREAM_COUNCIL.md,,process;naming,naming;process,4564d8bef229eeb5afe3786cf3275ab148877fae170b75c53fd114c0f40134fd
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_12_CHAMBER_OF_COMMERCE.md,,protocol;process,process;protocol,f307b29f662ebf7c5fe8f26ce40389c860c527fb4c44622a4681e75cf7e39f01
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/AAW_CORE_08 ΓÇö CANONIZATION ENGINE.md,,protocol;SOP,SOP;protocol,57bfc21d467d3514b19f278393e1a30f777a1255178d6b99d1ae4e01692928f1
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_00_ACADEMIA_WING_PROTOCOL.md,protocol,protocol;SOP;process;naming,SOP;naming;process,9210764422c0adc923b9fb2136fb85c3c2dffd7ca94bca2d3e11e444d01dc674
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/AAW_CORE_12 ΓÇö MYTHICAL CITATION SYSTEM.md,,protocol;naming,naming;protocol,a7ab6d954d267c9b9edc0147564a105098ea9144f397c44eba8691f3f3fca227
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_OS_INTERFACE_01_RITUAL_ACCESS_CO.md,,,,2fa2a0ae6582ff29c54eb99e3c84b2b8f0443ba44bcf1b754b16fe2783534614
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_20_CONSUMPTION_PROTOCOL.md,protocol,protocol;process,process,a1f5937b336e24c51912f4336763731efda6c40d18f30c41a073c7fc9c29ff0d
+ARCHIVES/; RE•GE•OS ; RG•01 ;.zip!; REΓÇóGEΓÇóOS ; RGΓÇó01 ;/RE-GE_ORG_BODY_01_HEART_OF_CANON.md,,process;naming,naming;process,deb429ff0c205a9ca623b798b03eb8d26c1ca21636db408a50b8715ddf400960
+ARCHIVES/README_NOTES.zip!rege_os.md,,protocol;naming,naming;protocol,1f1a4f73ba3d0042a69dcc5e65244b35fa04c4614c17285f01f13526a984ebc7
+ARCHIVES/README_NOTES.zip!abloom.md,,SOP;naming,SOP;naming,a979191cf1d010dbce401d3d29caf6adb87308b1fa47f7dc1bd73ac15f77a1ae
+ARCHIVES/README_NOTES.zip!met4morf_os.md,,naming,naming,47cc246faed451dfa7119fdbeaf925e4e00f1513fc5928351319da9f6acd39a2
+ARCHIVES/README_NOTES.zip!etceter4.md,,naming,naming,c6c3ecbb829bed33d9380eff5f0cdef28b0b9a4a9ce6098a23fd4ed313fe4425
+ARCHIVES/README_NOTES.zip!qvv33r.md,,naming,naming,02eadeba0080fc540148449c1da4a94278badfa1f460e3ac577ef4a45a957e77
+ARCHIVES/README_NOTES.zip!gr1nd3r.md,,naming,naming,4b9352c27451391a20071606ff7a9323b78fea7dc6398e789aacdabb7c46a600
+ARCHIVES/README_NOTES.zip!canon_timeline.md,,naming,naming,97c0f6eea4c913957fba59616ffc12ce7b3631bc7794b7eb34e0f2dce2b3cca6
+ARCHIVES/README_NOTES.zip!char_engine.md,,naming,naming,48441ca64677e1301c0697ff091293f2a55178632ae157683041dbb8576d8982
+ARCHIVES/README_NOTES.zip!theory_crit.md,,naming,naming,ad3c932149f8f67f335a8704b66d6849c01c902bad9b42a07081852b9acd8275
+ARCHIVES/README_NOTES.zip!naming_spells.md,naming,naming,,6acdc9a4716f05f67864ac022bb7daa7b53d3f2cf16243d52552d65ed63e80b1
+ARCHIVES/README_NOTES.zip!intr4_z0ne.md,,naming,naming,2bf4bc48509ab80229aea7c88eee5540e5e373e95fbc724a858f57fe88ee25a6
+ARCHIVES/README_NOTES.zip!pr0j_br4nds.md,,naming,naming,5f70ae6e17c967e19bd358e3df741c33295b0e4106e82b15a3865dc5c78ce628
+ARCHIVES/README_NOTES.zip!mirror.md,,naming,naming,6f53c7aa665ab4da8d845777a86f84a175e2c03fccbb882105edb0b7b34e43b7
+ARCHIVES/README_NOTES.zip!4rkl1v.md,,naming,naming,2ef5d1c678fa1a52f2c9ffebe1513edf00f37b5e367c6597ec258249f9e5db2f
+ARCHIVES/README_NOTES.zip!tr4nsmvt3.md,,naming,naming,f026529ab8b12944e08d9ad64313f11709861aaede244ac10c1fa3eae33108d0
+ARCHIVES/README_NOTES.zip!hydr4.md,,naming,naming,36eb665932fb21082b41c7750570ddebe5507748556274b81144419d68601059
+TEMPLATES_TP01/; AI•COOKBOOK ; CB•01 ;.md,,protocol;process,process;protocol,5663712fced31b98be7565c2d61b4c200c693f4c4645ba81a2ceed1827cc601d
+TEMPLATES_TP01/; AI•INSTRUCTIONS ; AI•01 ;.md,,protocol,protocol,0abcb61105fa7c5f5fe4fa89af8aa485adb43216a3bfbde0f2434d26d5286a31
+TEMPLATES_TP01/README.md,,protocol;process;naming,naming;process;protocol,478a9eb6bfc81c53c558ace96e7245014f700a4225abfe8db0ca35199a73c7d0
+TEMPLATES_TP01/; TEMPLATEs ; TP•01 ;.md,,protocol,protocol,ee4a4cda88128d245b1b6f0fcfd64f10b45b831623e602be5440c268d524d12a
+TEMPLATES_TP01/; TEMPLATECONIVE•REGISTRY ; TC•01 ;.md,,protocol,protocol,53e876ffc244fc7da741b07d0456792fdcf3843ba58a80e99d765f0d86501077
+TEMPLATES_TP01/; NOTE•TEMPLATE ; PF•BB ;.md,,,,3aa7d2b31697f943ac019e61a7ddd48ee16e6c7b3df07f7c7a86f246ac9115de
+TEMPLATES_TP01/EXPERIMENTAL_SYSTEM_TEMPLATE.md,,protocol,protocol,8a48c3d5e5d71f41767f4f411d5fb5024e0b241f47ed59f0f86de4427ed27182
+TEMPLATES_TP01/; AI•BEST•PRACTICES ; BP•01 ;.md,,protocol;process,process;protocol,b59ed2199bbcca1d7321972db1e394ce13ea62219f7a68305672d375770936bd
+.makemd/superstate.mdc,,SOP,SOP,ff8e8a4e424243973706c863523035a3ee71da0191e4919037e320a0d09cfb19
+.makemd/fileCache.mdc,,,,04241163dd6ccb83b21b219b114bc24455853650b41b1d7932291b30ff039279
+ACTIVE_WORK/C0D3_INJ3CT_D4V1D_CORE.v2.5_4RCH1V4L_M0D3.md,,protocol,protocol,c1ff914bbb7ef1a7ff71276267fe813e96d9217d95692f3e810cf66cf177cda9
+ACTIVE_WORK/ChatGPT-Disable Canvas Tool.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,5b575e7cbdfd70af5a4d8febdb52997098356252565554650ade23f280304fb7
+ACTIVE_WORK/ChatGPT-Merge Project Folders.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,704a153f31a6183ae9fe3c06558bd34901e673d89d22bac1dd5f156f2d70a72d
+ACTIVE_WORK/Ponyo_&_The-Little-Mermaid_Comparative-Reflection-Worksheet.md,,SOP,SOP,0831a28fef84fc238a99b729f7656b03cd8f0e241ee150c48258165ebc345ba6
+ACTIVE_WORK/Canvas/Untitled 1.canvas,,process,process,26ed428474d7fe90bd4ca6078879e1078c20ae4999a5e3ab61549597c459f64f
+ACTIVE_WORK/Canvas/Untitled.canvas,,protocol;process,process;protocol,3b046c80f03249579954a4f283d4559e71f1c77de87fb72b7e2019abd92e6d99
+TAGS_TA01/TAGs ; TA•01 ;.md,,,,6ca67d3a7c467002f449dcba07be3251bb20d81e6c27246b6f74b0f8693dff85
+TAGS_TA01/README.md,,protocol;process,process;protocol,55fec74cb14f64419eca9e476769e071b8c6fbcbf73e3a6886075190f570e48c
+.obsidian/templates.json,,,,8fb0a276ae00dbb59e984d85b818ffdbdb3c9fbcba15729de35b20179813b314
+.obsidian/workspace.json,,,,ed5aa5cd84bd4e91fdb076ca1a13c6ae645d7ca498a0d1c66b9d7248536ab883
+.obsidian/switcher.json,,,,20ee8030b2374d2eb47ad6eb5403b65f0ca5064bc7f89487970c6ad24e738ca8
+.obsidian/vault.json,,,,1abc706d963b9fa142400daf7e2708b5a15ca5e2408a80e2a1cce55d19d144af
+.obsidian/community-plugins.json,,,,92d757d7d7ee44ca48f1103236c7657d836dd098140114e37696856ae29d205a
+.obsidian/core-plugins.json,,,,71aaf8117c2a13465a70afdbe126745feb53e7cf3e0b4154b47e700bf9d473c6
+.obsidian/appearance.json,,,,bb74bbe7f53d36aee1159ef403eee0f2eaa2c9abd733fbf36a2dbada5a3385b4
+.obsidian/graph.json,,,,8c2b2e8a7d477b6cda3d73dd1672a3546244d709df96d2a8e8761d4613adbb7e
+.obsidian/text-generator.json,,,,5495d5af7a58e32ed2fd60e2aa0c8e6d2e093721d0d4df407900e3f939593076
+.obsidian/app.json,,,,a0fbf879703d2c76bea496f2e49f602789809ba244eb3ec81fe54f651cddea91
+.obsidian/backlink.json,,,,55b3d1b176a5c14c2307aea23fa66ba6d69a7920ccb67d11b0c7abed95b1c93b
+.obsidian/types.json,,,,6fe156e0dbbba8a4033a0360a56fe6bbbf5c4c958531f7278db7d50a3168f4b2
+.obsidian/daily-notes.json,,,,b656b298fbe39ba63be30b599a53d3121c6daaafc106baac1cfa6ced9f511847
+.obsidian/plugins/obsidian-icon-folder/manifest.json,,,,f524a18d69e990a244173a3595681c39a20bcbc9dc18b59af51e45660fef5ca2
+.obsidian/plugins/obsidian-icon-folder/data.json,,,,d0873e89d28d74fc3b83ec6d14e8b87e703a59cedbbe1230b295e52e74a8aec2
+.obsidian/plugins/obsidian-icon-folder/styles.css,,,,56ffeb8349f4af97dab8a14fcadcb0019d3b37b116d7a34aa21e958e98455a89
+.obsidian/plugins/obsidian-icon-folder/main.js,,process;naming,naming;process,87ca453c323633e8709dcd3239581a5d043a150faa3ab3a3e14d1780db2df241
+.obsidian/plugins/text-extractor/manifest.json,,,,171b424e011d3495e1d2f4199ce4e4e9d9607ad0ca0cb59786c80db65d326a01
+.obsidian/plugins/text-extractor/data.json,,,,39e44e1c260b0c47d6765ec24255e7023a92981863c792aab5d01d1182720871
+.obsidian/plugins/text-extractor/main.js,,SOP;process,SOP;process,55983ac7e1ed52bedb93f6f2e944bd683de2d08a73079269e47438c7e2970ccd
+.obsidian/plugins/editing-toolbar/manifest.json,,,,aab9ca66fa125b3faaa1fd850fb88feb3ee1f8b10507a1fc5c71e2c7d4d41a78
+.obsidian/plugins/editing-toolbar/data.json,,,,bf610145ad0e378663b9d363cbb93297c456b355e193b65b70e0c5acdb1cc653
+.obsidian/plugins/editing-toolbar/styles.css,,,,2a5b49d68e1f18a67ac4d853cf7cb2813dac644c0c1794d9e2cda97efaac23c0
+.obsidian/plugins/editing-toolbar/main.js,,SOP;process,SOP;process,dfddeac79c929e2908bbc02a77d5fac0c13a0b2358101334c4e1aa698e4c6592
+.obsidian/plugins/recent-files-obsidian/manifest.json,,,,9dce99e6f0facc1a2715573ac9b2b446fcb55d9f30c3094e906c820a8bd0ea54
+.obsidian/plugins/recent-files-obsidian/data.json,,protocol,protocol,30dfcdb1d90f753fc6978556bd8312d59a513f8fcff7289ade72a1854690531b
+.obsidian/plugins/recent-files-obsidian/styles.css,,,,2ee49c92ab0bb848221a09626f7ba676bbe85372c4c8065ee7790b0832cb3ddb
+.obsidian/plugins/recent-files-obsidian/main.js,,,,e102ab2499bff4304c17ed63f5fad7e505f00195496bf156eb90d32cec86c468
+.obsidian/plugins/file-explorer-note-count/manifest.json,,,,d8115eea8a1d27375ae59b84d934a8e6cd806988ce309e6b4cf2e488af6fb2c6
+.obsidian/plugins/file-explorer-note-count/styles.css,,,,1739c2b54f61aaa4902f4f3a09bff7ea0aea0f8145eea77ab417c42d55cb814e
+.obsidian/plugins/file-explorer-note-count/main.js,,process,process,7a5f990090da3259c22fe935884ae5afc50f2a975587289823f190c4c1aa76ec
+.obsidian/plugins/obsidian-excalidraw-plugin/manifest.json,,,,eb49399dff5fcd5cdd874721c4fe83f2253ed60d680148928f4f26028aaca60f
+.obsidian/plugins/obsidian-excalidraw-plugin/data.json,,,,c63b0077562915d818d3f98892cc214da25a9c6f5eca298160c4115fc082c760
+.obsidian/plugins/obsidian-excalidraw-plugin/styles.css,,,,f57c1d2e6d380eef466e017d3939eda68d2e6846f543c932f8ca572434b5ffe0
+.obsidian/plugins/obsidian-excalidraw-plugin/main.js,,SOP;process;naming,SOP;naming;process,e5e0c47ed2e8358d480eebe445f28d0aede5e92bb2c0acdafd2e008c28abc9d7
+.obsidian/plugins/obsidian-style-settings/manifest.json,,,,9cffdc20cf2aa1354820e0050b694b0f9b576446e3d5d44a36ae8b0187e5bfb8
+.obsidian/plugins/obsidian-style-settings/styles.css,,,,ee7937d2be50653a89ccb30ae5f0572b23507d5b7f1328d005271a363075bfd8
+.obsidian/plugins/obsidian-style-settings/main.js,,SOP,SOP,74915ff1db38058aad73a29a34706f8cc8e7c930c4cdf69ff5c6928bec7e0fe7
+.obsidian/plugins/obsidian-textgenerator-plugin/manifest.json,,,,bb04b11b6106f447b4ab1bb0494f3817aec1465673faeacf8a4f70fdfd069e7c
+.obsidian/plugins/obsidian-textgenerator-plugin/data.json,,SOP;process,SOP;process,cebba15c50e110ada4b7544d142d99ff8d24725f19291ef2692134ae7c645dbb
+.obsidian/plugins/obsidian-textgenerator-plugin/styles.css,,,,c8fa1fe44ad1223f816be5a55d282b6903b5b44fb7baab2ecb5b3253e3474e31
+.obsidian/plugins/obsidian-textgenerator-plugin/main.js,,protocol;SOP;process,SOP;process;protocol,e1f84b85b96c26c3d7fe51019ad73cd8d724da270db1a662cca5d3613c1e2e40
+.obsidian/plugins/dataview/manifest.json,,,,9235db47112da81b85591c79ecb9ae2574e5e72207056e976472f90616286185
+.obsidian/plugins/dataview/data.json,,,,919e8a262c8f08d4bea11e452f234544de65ff3b801cdcdab8724f2e15aa23fb
+.obsidian/plugins/dataview/styles.css,,,,3306dd9032e00f989ba7233a37fd255bc4d3f4340cee661762e952f3f6aa1de9
+.obsidian/plugins/dataview/main.js,,protocol;process,process;protocol,bcdb7a7882051a30427a3fa370533c1052019591e7551bcc12611bb9a726bbb3
+.obsidian/plugins/obsidian-git/obsidian_askpass.sh,,,,78bcc20c484fec6dbfade4196d9fa8f7059b587ee4b27de401f91b3fef02fdce
+.obsidian/plugins/obsidian-git/manifest.json,,,,be7f451b6ee6959ed20e369a087589069902a1a6f8bd6f4cd9ffcbfb37dda84f
+.obsidian/plugins/obsidian-git/data.json,,,,38c227145ae7102712c21a1e175fce5c2c02b80d831954c441960055005d701c
+.obsidian/plugins/obsidian-git/styles.css,,,,9ff22852aa8112a30246c16db21ee98102f912c756a7eb1d2db2ea1c426f99b6
+.obsidian/plugins/obsidian-git/main.js,,protocol;process;naming,naming;process;protocol,699ba5616e02dc0b944f23f9d2c5eb01e5bcb01a07325223df11282f17c111fb
+.obsidian/plugins/obsidian-projects/manifest.json,,,,eef4b4785e4ca83dda2cf7d172e8ad8f4ffe15a8426a5f9c87e85daf97abbe9f
+.obsidian/plugins/obsidian-projects/styles.css,,,,b0cd6697b53eb23a88a4f4902a35f5ece26ddcaafec5063f4dbd95e04401b95e
+.obsidian/plugins/obsidian-projects/main.js,,process,process,2de1c393668d5ca242d3d35ee1f14fddd037b3a53c69ec54d50ffd596df5acbd
+.obsidian/plugins/make-md/manifest.json,,,,8e1dcf6fc27a4dace4a967d5e82e27d1c4e941af11fcdc3818a0042a55fdab57
+.obsidian/plugins/make-md/Spaces.mdb,,protocol;process,process;protocol,532796445180a9dcff173bfc0894a798593e73e2e3e66264ecdadcf09c61c670
+.obsidian/plugins/make-md/data.json,,,,36ff28079ec109a308107d834b6cef5834d558e532d4bfa14f53521467aff098
+.obsidian/plugins/make-md/styles.css,,,,5c59b0cd9ddb3a5c4556bdc393b390c2d6e8377ba2f5ec79ca9dc7c7a18646ff
+.obsidian/plugins/make-md/main.js,,protocol;SOP;process,SOP;process;protocol,e635316b1d16b9e2ca73cc078efdf6a99b4ad7039bcbf51aa98f5f7f483ec454
+.obsidian/plugins/highlightr-plugin/manifest.json,,,,9f4f75cf47ccb4ef4b740a773ec4b593ac6930d582b6ce59ecf7384fa07b64c1
+.obsidian/plugins/highlightr-plugin/styles.css,,,,6fdd3e52f7df3ff4a74297d346fb4832309406d2aa061f7c9dc12591cb89a72f
+.obsidian/plugins/highlightr-plugin/main.js,,SOP,SOP,f0f12b0983846b91d34dfa5b81b81735ec78b8886ca91bf696cbd19b89bc17b1
+.obsidian/plugins/obsidian-tasks-plugin/manifest.json,,,,e6639a4a681ef6aad0c4bf69cd9eefba254750b4e10b837645ead3b453c11492
+.obsidian/plugins/obsidian-tasks-plugin/data.json,,,,c50c4ee98b0f97eb9ec69191027a929ca551f4a0516adc0ff60fab1fe64c69dc
+.obsidian/plugins/obsidian-tasks-plugin/styles.css,,,,4d925c095f74e11b06eda80c16b1b794c68624725d68109e3bdce66731ded3af
+.obsidian/plugins/obsidian-tasks-plugin/main.js,,SOP;process,SOP;process,ed07df0912e4117bdaf9ba29213d7a791ee31c5644122b638cf4b4482ceb2e00
+.obsidian/plugins/table-editor-obsidian/manifest.json,,,,63fe4aa89f17b846ad7f3985212cbf2be3f5043991d122ff45578921295f628c
+.obsidian/plugins/table-editor-obsidian/data.json,,,,6525d5e0734cc16cc753d3cddc9e2385890506c462ca33b48cc24ce804587b7a
+.obsidian/plugins/table-editor-obsidian/styles.css,,,,c47e8c5e66e6bc76c05ba608135ad7beb8577c102ad47fc6d0ba553e7dcd81af
+.obsidian/plugins/table-editor-obsidian/main.js,,SOP;process,SOP;process,ba67b53d505bee823e357c74a36059ad97dabfea3c3d6a09474b8878e7b9d126
+.obsidian/plugins/periodic-notes/manifest.json,,,,bda29323f75d3b3fcbda489335825b97fe4b574914d04635e9a7e67f2414049c
+.obsidian/plugins/periodic-notes/styles.css,,,,613f3985d4c84900ed2e25d8a46efb7b3ace6889fb71217055084084eb146238
+.obsidian/plugins/periodic-notes/main.js,,process,process,27478abb118f8829960a83dd8d96abfed7e2fde236ea4bdc716ec37e3abdbe36
+.obsidian/plugins/templater-obsidian/manifest.json,,,,68010f6cd469dbb42491adb64931196bbe4df31f71fff77c2c474d2ed1624ca7
+.obsidian/plugins/templater-obsidian/styles.css,,,,1a0d49312cfa6566a607a1e437a572a00b1643bf443a9348d96a68d76b3d99ab
+.obsidian/plugins/templater-obsidian/main.js,,process,process,41ba4ea7560d13d85f3a9be009aefd5a66de287322da52e9fade3ead81b06935
+.obsidian/plugins/omnisearch/manifest.json,,,,d229f23ae06e31be7e3683e30cd60724ee80f1bef95b6484e6074db619aae36c
+.obsidian/plugins/omnisearch/data.json,,,,b54c7795f078d64d18e4233db771d1443e7bd726b6db7e3dd9980cb6e2af2e75
+.obsidian/plugins/omnisearch/styles.css,,,,b70b786c51a899e376fb936954f655908709fe3cb746d98f1ba1f5171852ae2b
+.obsidian/plugins/omnisearch/main.js,,protocol;SOP;process;naming,SOP;naming;process;protocol,283d72815f73782af996c5a8f3b3997b577006c349c26e55cdd05d0a289140d9
+.obsidian/plugins/tag-wrangler/manifest.json,,,,4e58dc8924009b2b9839692fe258d08758512eca6ab54c174f8022c7eda719bb
+.obsidian/plugins/tag-wrangler/main.js,,SOP;process;naming,SOP;naming;process,7ed83f050e173a019b8a6f6b5c2bb7b38bf6b4cbf4a7982753f76a49b9ec27e5
+.obsidian/plugins/obsidian-annotator/manifest.json,,,,920b2e6cda006d025386b0a07ac1afe80e817cbdac8cea4ddec10a5f90c6d9b3
+.obsidian/plugins/obsidian-annotator/main.js,,protocol;SOP;process,SOP;process;protocol,b57a37a778c4c3120e4b7d59eaf90095eaba5aaa7bdf12bdbfb684bce27d6121
+.obsidian/plugins/obsidian42-brat/manifest.json,,,,8cdb58db55e98b249fb0a6fc1d2fe8702704933365f749ebce5a0e5360808cd3
+.obsidian/plugins/obsidian42-brat/styles.css,,,,47fa0e16d05eddf930e7b9fbc2eaf948faab4de52df08da5d15be4fb889c8155
+.obsidian/plugins/obsidian42-brat/main.js,,protocol;process,process;protocol,d34854b7e30cb7f84158bcab4cc035ff1dc72f690e755d442907b2d7fba7962b
+.obsidian/plugins/homepage/manifest.json,,,,edd9a29ee518a15f16047bfb8c9f0e12d2cb86255c954c32718e4f945b6d5232
+.obsidian/plugins/homepage/styles.css,,,,95a5ecf3044b923c00996adb13ad256788252c7b353daee6c430a48bcf8af75a
+.obsidian/plugins/homepage/main.js,,process,process,67ab26ba455899a22a1ac8a46426be073161f5bdf1e91be37956498ee74a27ca
+.obsidian/plugins/quickadd/manifest.json,,,,97c33a32879dd7a2bafbc281c2c69791defc1697bbc568c7882e6ed2bf9fb3ae
+.obsidian/plugins/quickadd/data.json,,,,69b17379a9db85b4bf26dbefdedc110f2f4a565fd454596292dd5f2a7046af10
+.obsidian/plugins/quickadd/styles.css,,,,d69ce103bd79291d288f2b0c01913b858162982aada40d0b1315ef4812766a79
+.obsidian/plugins/quickadd/main.js,,protocol;SOP;process,SOP;process;protocol,35ff4c3d1cc1df76d1840181882a7c06d53305342d7674c6e0d27d3559b861b6
+.obsidian/plugins/obsidian-kanban/manifest.json,,,,24976787097ead467969e014a35654e7a80e4db49a977689a48afadfa15e1854
+.obsidian/plugins/obsidian-kanban/styles.css,,,,ecf6dd31f1727c441cce6f54794b0d3916dcfffc87fa17b855c79ba04a85d9a7
+.obsidian/plugins/obsidian-kanban/main.js,,protocol;SOP;process,SOP;process;protocol,458574296f9c50bf5ac078ad28f37724a2520ae45e8ad2144c6769f4062453e4
+.obsidian/plugins/obsidian-importer/manifest.json,,,,a559bc171f90f564e1c8312e0ab0a820b9bce120171a0d8695620ad114c78954
+.obsidian/plugins/obsidian-importer/styles.css,,,,6a7fd66701c8542d34c09099af88e93b8a0d22909a7d5cd1e3c45315a2088b3d
+.obsidian/plugins/obsidian-importer/main.js,,protocol;SOP;process,SOP;process;protocol,3473c02e2097923013560486bfe88436e48367cf5a044a9b9f32d5df011268cd
+.obsidian/plugins/obsidian-mind-map/manifest.json,,,,af4423c20527d196ea44003054bc275a564d844537f8ab0fd657085bf675a0e3
+.obsidian/plugins/obsidian-mind-map/main.js,,protocol;SOP;process,SOP;process;protocol,6d6d815563d43e46a6c3ff991f8a0590c002b9889f5c4671c8becf6a1e4ba99c
+.obsidian/plugins/smart-connections/manifest.json,,,,f305bc830d0246e86c61d888ea0698494a57e09516cd72b699f1248c65190950
+.obsidian/plugins/smart-connections/data.json,,,,0ee63194e8947b5340ae078bb054d06c8354a8ca2fa13a61c62bba3edc6866fb
+.obsidian/plugins/smart-connections/styles.css,,,,f3ebc021c44280466f39b327fd1978b9b0367d16946861ea0a48920dd42ba197
+.obsidian/plugins/smart-connections/main.js,,protocol;SOP;process;naming,SOP;naming;process;protocol,ae868f73adf713a88e5d8eff3e0d85385cde665e7b61927c03857dc4819f2c42
+.obsidian/plugins/copilot/manifest.json,,,,701ea029ed3a2ff0a599b29071b5f7383c5a2d9d1925007cb0288948996afd9e
+.obsidian/plugins/copilot/data.json,,,,fc60cc8df380ecdf0a80922738f78b5a7ebc02b0c5a0dadacdcb33cc1dc63f97
+.obsidian/plugins/copilot/styles.css,,,,3498c46453ae4036ba86bd8a8fca5aac0b544263fafa2ce01be85e7c2aafe7b3
+.obsidian/plugins/copilot/main.js,,protocol;SOP;process,SOP;process;protocol,75a7eea06620bd087e2d2c50ba034b1c8566f42b942c3e4a46b316d717bd7f03
+.obsidian/plugins/obsidian-linter/manifest.json,,,,db79f6fbb3bae9820970582bfd6015fe4e7658ce7a16711c4cc7ca9fb6a951a8
+.obsidian/plugins/obsidian-linter/data.json,,,,c44b257f2062981ef0ee5c47de594c764ec5b3ffe21a9c7db5c4f3517df056b5
+.obsidian/plugins/obsidian-linter/styles.css,,,,0ccf508b05a9445dc7c433b1acfcae9f40b2d8e218d53fdffeadd74d413c22db
+.obsidian/plugins/obsidian-linter/main.js,,protocol;process,process;protocol,13416de66113bc47c2dfca6229c51c8d8024e0510911a066744bd16e341fd633
+.obsidian/themes/Minimal/manifest.json,,,,ab86312e646e6134a1c79ea638180150c43567e3ec56a780f46481bfd44a0625
+.obsidian/themes/Minimal/theme.css,,,,93bf14e688713c889d80dc4023c5fa97965a854654b9676a83956bf2a2f13ed0
+DOCUMENTATION/folder_map.md,,protocol,protocol,0d79d4c9f4aeb37c9a1931eb49d59432e9b038ab691831607d1a19ae80b28c50
+DOCUMENTATION/__VAULT_GUIDE__.md,,protocol;naming,naming;protocol,4d9e5856e00b1c8aaea429d292eedc30402b1fe53e184ebfc6cb496df30a2223
+DOCUMENTATION/NAME_STRUCTURE_OVERVIEW.md,,protocol;SOP;naming,SOP;naming;protocol,10aefb1042b3b5239881c42cc9afdb25357436ca0536f19d03530154dcca380b
+DOCUMENTATION/Vault.md,,protocol;naming,naming;protocol,ca009fc32ced9b4dde8c55e0d381167e689c115284018286d3c27ab157ec53a7
+DOCUMENTATION/SYSTEM_ROOT_README.md,,protocol,protocol,a2a9ae597010df5d806b7cabebf70d0ffbae90952688f1dffa6e915c1a6eed12
+DOCUMENTATION/vault_state.md,,naming,naming,3f7e4b71a36a15cf4ce4150822abdfb1b74e3dee1458af2371b16165db58ba92
+REGEOS_RG01/RE-GE_ORG_BODY_15_AUDIENCE_ENGINE.md,,protocol,protocol,d028cdf95a961362fbd89185e7b742a336f35066fc1c4560b776a1281b184828
+REGEOS_RG01/RE-GE_ORG_BODY_13_BLOCKCHAIN_ECONOMY.md,,,,ffc87d5f5e84af6b392cf3d712f7730670a5e14349ff50fff34722357a5e6b53
+REGEOS_RG01/RE-GE_ORG_BODY_04_ARCHIVE_ORDER.md,,,,ab7e8efae1218ca6f7fa0d73cb2d9f4ab770d84bcaac152c311a0d27c5264391
+REGEOS_RG01/RE-GE_OS_INTERFACE_01_RITUAL_ACCESS_CO.md,,,,c6cb0dc5efecac85975279815ae264f127f4f9181caf1c49833b2915ebffc2c2
+REGEOS_RG01/RE-GE_ORG_BODY_05_RITUAL_COURT.md,,SOP;process,SOP;process,bfaa466be59c3f7a85bb21d0a17c68f5bde048eb6ab3800b15b969943f99c1bf
+REGEOS_RG01/R3..G3..[  0__S  ].md,,,,9eaf6d162e61585b8172fcf5bc1f1f71397dd59830212f7d431c194e57d03ce0
+REGEOS_RG01/RE-GE_ORG_BODY_01_HEART_OF_CANON.md,,process;naming,naming;process,b352e76b834a2afdd3decb18073bc029472f22e1b90973f250cd2798cc8f8edb
+REGEOS_RG01/RE-GE_ORG_BODY_10_DREAM_COUNCIL.md,,process;naming,naming;process,e92368e7dcba7771b8db47aae28f50d4e77cf8a7cd8affe4f7bcabd9f6718c7e
+REGEOS_RG01/AAW_CORE_08 — CANONIZATION ENGINE.md,,protocol;SOP,SOP;protocol,7123a0ad0aa388f52d07f71d518ae2b42afbd87b19b9055ce9a59f776feceb37
+REGEOS_RG01/RE-GE_4NTHOLOGY_INIT.v1.0.md,,protocol;process;naming,naming;process;protocol,b4b587391bf319e7e0c8a4ff9003767f62c62c3c26db6850f789d7c185ef8eb9
+REGEOS_RG01/RE-GE_ORG_BODY_16_PLACE_PROTOCOLS.md,protocol,protocol,,c8d8c6dc2075de33ae712aea7100efbf5fb4b744c8389bcb5914b3d71a1e31b2
+REGEOS_RG01/RE-GE_ORG_BODY_12_CHAMBER_OF_COMMERCE.md,,protocol;process,process;protocol,dc7bf721e26103dd04958725445507f753a4b97d4c10e60517c0114f6079e568
+REGEOS_RG01/RE-GE_ORG_BODY_19_PROCESS_PRODUCT_CONV.md,process,protocol;process,protocol,5fc21218b0aed186778ef6c02b39b1d8b97bf7b085b89f84532f8be78a97bc6f
+REGEOS_RG01/RE-GE_ORG_BODY_08_SOUL_PATCHBAY.md,,,,911c2b67266ebbebca81d24f02438760df392009ecc96b16be7d0e631c836c35
+REGEOS_RG01/RE-GE_ORG_BODY_03_MYTHIC_SENATE.md,,protocol;SOP;process,SOP;process;protocol,e5ed81c6dc904be7d8622920a5e6372a1a378088b8b332e73c48c8c2e4a60e60
+REGEOS_RG01/RE-GE_ORG_BODY_21_STAGECRAFT_MODULE.md,,,,b0e8275aaad605a95cf67aa62d635bc0533e2c75af10604d1a7bac411e558e6b
+REGEOS_RG01/RE-GE_ORG_BODY_07_BLOOM_ENGINE.md,,,,644d2bd8c7c18e6cee29063090c109389d3ee3862a633bdded26385e8d302a5e
+REGEOS_RG01/AAW_CORE_11 — FAILURE STUDY CHAMBER.md,,protocol;naming,naming;protocol,aa923222e71c5f4fd601a8f895026d2e8039591a8c0929acf4eba61fbfe71c7a
+REGEOS_RG01/RE-GE_ORG_BODY_18_ANALOG_DIGITAL_ENGIN.md,,protocol;process,process;protocol,49e795571cd0c251f0587afa5208cbe59d8e97104ffd1701f2a3b80261f4f3b6
+REGEOS_RG01/README.md,,protocol;process,process;protocol,0beae0b3ceacd17e6252517dd26077b510ec7aff6bc4edef458d4f1077454ab4
+REGEOS_RG01/RE-GE_ORG_BODY_22_PUBLISHING_TEMPLE.md,,process,process,20ecdac3dc03bbdc4d707ec45165350855ca0a9b3e07579ce9826aed1c346ef3
+REGEOS_RG01/RE-GE_ORG_BODY_23_EXPERIMENTAL_HABITAT.md,,protocol;process,process;protocol,6401c0e6aad7500a793a01e349c84f4d783d594842a4451ef39958116eeebc16
+REGEOS_RG01/RE-GE_ORG_BODY_02_MIRROR_CABINET.md,,protocol;process,process;protocol,2c5df5380c749a19692e40bae98b425312d9acb89e85049d8fcacb9e3a568541
+REGEOS_RG01/RE-GE_RECURSIVE_SYSTEM_RENDER_LINKMAP.md,,protocol,protocol,be8cf73c3da39e9d67bcedce43a6343d5d1fea72630c3f0e54579818f745a819
+REGEOS_RG01/RE-GE_ORG_BODY_06_CODE_FORGE.md,,process,process,5832cc0af26754bee5bfee879fad155e8088b063b4e182ee97d167f82ab84e3f
+REGEOS_RG01/RE-GE_ORG_BODY_00_ACADEMIA_WING_PROTOCOL.md,protocol,protocol;SOP;process;naming,SOP;naming;process,ce7829df04a9da5d72be0ca62be48922df320a9cdb56828c55d66fa9e43ef130
+REGEOS_RG01/AAW_CORE_10 — GENEALOGY ENGINE.md,,protocol,protocol,12b4386c7c4c2b13c4f6d3750bd8c4290832c0494911a5dce115032db637c993
+REGEOS_RG01/RE-GE_ORG_BODY_20_CONSUMPTION_PROTOCOL.md,protocol,protocol;process,process,21758b7c2bac679e01af33f67aec39be87f7b4035ba237515b64487e1ef244e3
+REGEOS_RG01/AAW_CORE_09 — INTERLOCUTOR PROTOCOLS.md,protocol,protocol,,0d6ff113b95dc15775ed909a169d008f39479b9b16152a6fc0a18482f1039dae
+REGEOS_RG01/RE-GE_ORG_BODY_11_MASK_ENGINE.md,,,,bc467a836cf9d037d4fa82b69419403ee823e6aa21af6b1355344dae68d182d6
+REGEOS_RG01/RE-GE_ORG_BODY_17_TIME_RULES_ENGINE.md,,,,928c3cf58346bdcc021a33854424735237fbbc099cde9f04a2f03417609dea1f
+REGEOS_RG01/AAW_CORE_12 — MYTHICAL CITATION SYSTEM.md,,protocol;naming,naming;protocol,7379fc0380a59dc1169ffaf038d45f8ac1fd84d8cccb5fb235c4206c1a1b9dfa
+REGEOS_RG01/RE-GE_ORG_BODY_14_PROCESS_MONETIZER.md,process,protocol;process,protocol,e35383472cf4e5ab20f1498459d31e91affc1b9a58363f95e436dba8d3e2a097
+REGEOS_RG01/RE-GE_ORG_BODY_09_ECHO_SHELL.md,,process,process,d6aee3a110dca0e6f6154cf431a60ec828b6f7a35caf2656fc2370dcbbd4e999
+scripts/__init__.py,,,,06d825caeada2e7c81f832d37389a518d2f5f820da0c02731a88894afa2c8d65
+scripts/commit_agent.py,,process,process,c3c8fd3f0febefa9c92f5f085c3be2dc01abd19a106ba7f326da19139a998c9c
+SYSTEM_MAP_SM01/; SYSTEM•MAP ; SM•01 ;.md,,,,38632e8085da2427d079973cae0796efc3da23927d708ee6f7cc77c198429e8b
+SYSTEM_MAP_SM01/README.md,,protocol,protocol,f466d030105be35ad115f77e5f5aa8e536a2da3dbc31863f048844510ba57506
+docs/expansion_ideas.md,,naming,naming,f0ac7d317a2cd8b4c1b5e8ac38c84e8255bf26c1a567e396998acc5ae5f363b7
+docs/codebase_overview.md,,protocol;naming,naming;protocol,ef9248b6510a9652c5cdf6b8c2bc6a85174853dcd775d33ae0b18dfe80f1233c
+docs/documentation_roadmap.md,,naming,naming,328e4895f0dbeda0d61ea0444c5c5da484bfed803a7b29d6467efc8076cf3761
+MIRROR_MR01/; MIR•R0R ; MR•01 ;.md,,,,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+MIRROR_MR01/README.md,,protocol;process,process;protocol,db026439eece71d7c36d28c6e91ab34a3918a942f306964a67e66756abb8a2ce
+ARCHIVE_RK01/README.md,,protocol,protocol,8963e99d4a6cb7c059a7d721fb76ac099f6cbac81ebd35a13d5606f586556d07
+ARCHIVE_RK01/; ARK•LIV ; RK•01 ; [archive.md,,,,964237ad3ecc2f00006e4dd4dd9d19552bf87208c3f800f0f173d97caf8da7aa
+ARCHIVAL_STACK/PR17_THREAD_DIGEST.md,,protocol,protocol,a6e21b3ee053acd9392ca5c53a4e3d764b64d8f967e3f129d67497e9b06946d3
+ARCHIVAL_STACK/PR11_THREAD_DIGEST.md,,protocol,protocol,622019f0677b710f882d74771add49467234bbfdbaa52c15ab849cde6c3f228e
+ARCHIVAL_STACK/PR03_THREAD_DIGEST.md,,,,a11ddcff2581664bdc29eb2d2bf07426f45a76d001295d323153d6603418c04a
+ARCHIVAL_STACK/PR07_THREAD_DIGEST.md,,,,e6e1854a4f63bafd631770a27b6e5af7a1afe71e1750942d87fa65fafa71e9ad
+ARCHIVAL_STACK/PR16_THREAD_DIGEST.md,,,,541ab9ce998a2d50698a53224415056b6b52966df094cacf27065e9db1a5c2fe
+ARCHIVAL_STACK/PR15_THREAD_DIGEST.md,,,,053187868f6f2ff9b9e1e0857dc07617035f92c97801b3d94dfb76fd0d0c14f4
+ARCHIVAL_STACK/PR09_THREAD_DIGEST.md,,,,4c63dcc8da88f748335d0cddcbd5703a384279e2465bba8440eea4c3227556f7
+ARCHIVAL_STACK/PR05_THREAD_DIGEST.md,,protocol,protocol,03b5fa27494ea0cffdc60b2373d7dfcfd3169039cf2fac97007ffa2d301a99de
+ARCHIVAL_STACK/PR19_THREAD_DIGEST.md,,,,46a1262b791dd345ca048d25343d0a568cbe02a30c84ba52bd768672fad6e039
+ARCHIVAL_STACK/PR18_THREAD_DIGEST.md,,,,8d8fd32460134773c94c012e9361404dc9fb200bc9145a048059db30fc798cc8
+ARCHIVAL_STACK/PR12_THREAD_DIGEST.md,,naming,naming,679d0f5329fbf6902b4b209b98fae4a5d736d50cd4dc4eeac967e36f2747637d
+ARCHIVAL_STACK/README.md,,protocol;process,process;protocol,821d9747af31e69e1dd5d148fe97e2f4d13656ba19e1818f133e5ca0677cf218
+ARCHIVAL_STACK/PR02_THREAD_DIGEST.md,,protocol;naming,naming;protocol,fe03270e403996cd7c15a72ecc4d548d4bb72efafc9a7de1e851e6018dcb8a2f
+ARCHIVAL_STACK/PR04_THREAD_DIGEST.md,,,,9afb9912674d392217b8e6b663eeefcda10bf27a7de79b5d1ec314ba19464ace
+ARCHIVAL_STACK/PR01_THREAD_DIGEST.md,,,,88c307227444256519bd9b61ed9eefa5183d88cb538b3998e82da344f0d1251f
+ARCHIVAL_STACK/PR08_THREAD_DIGEST.md,,process,process,ceb9ab3e03299dfd35d66b3f6b89c82ac58f79cde4a610f116d06e00d08a11d6
+ARCHIVAL_STACK/THREADS_REVIEW_REQUIRED.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,b26669a1bfbe23173e6c682ddab5aca1b3d528bb84688ec3877c6b3349cd2093
+.space/def.json,,,,cf689f7961a85d158d9c3964a6e9b68d903a1064cc4c4e2565c97b428846c5fb
+.space/context.mdb,,,,d65e4c4301b73dc4898b31e61f9c44c03596e453232089cb0f3e8512d7906c43
+.space/waypoints.json,,,,9902207f07370803753afc23f31727e2e402e82d5a8d52fccde875c9d9215df6
+.space/templates/Note_Template — PF‑B.md,,,,0bd28ee361fe5b0666ae56d8c957f279a3b0548ccee8e011e176d7160c0011d5
+PROJECT_MANAGEMENT/THR_SYSTEM_CORE.md,,naming,naming,5a68b3a8fb4c3170c5798d17359aa9154cc61e3b44482d4fba5e8e2920b7c482
+PROJECT_MANAGEMENT/CHR0N0S_manifest.md,,,,984c2ff93a40332eed071c9e956e26a29984c3daa5547d55ce63fdc828c9bc95
+PROJECT_MANAGEMENT/SYMBOLIC_TREE_MAP.md,,protocol;process;naming,naming;process;protocol,bda54c2ef1b5907cc8fae60ea3aa61c92f71d91e77061789e0b5d5ef13e5fe56
+PROJECT_MANAGEMENT/GPT_PROJECTS_ARCHIVE.md,,SOP,SOP,fc86f0f1a0f69f7344812c866fac37c7eb0117a71646df6d13108fa0e94187f1
+PROJECT_MANAGEMENT/CHANGELOG.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,3f775e55a62315a2246d75596a0a9308c22f711447cd6c560773322333fbdca7
+PROJECT_MANAGEMENT/SESSION_LOGS/202505050025.md,,protocol;naming,naming;protocol,b68689e4cda96e205c63bf4ed57895c69edf6e460f85253953246b928ef9b674
+.github/copilot-instructions.md,,protocol;process;naming,naming;process;protocol,4147f05904f15f930b75dd2bb25a17c530d96e7f2e1ecb0f22805378a5bef769
+.github/COMMUNITY_GUIDELINES.md,,process;naming,naming;process,d35a75d2f80c68edffdbbe5126ff6a86b42e3d898863b27f2c36b7e03f695b6a
+.github/ISSUE_TEMPLATE/feature_request.md,,,,1f48c52f209a971b8e7eae4120144d28fcf8ee38a7778a7b4d8cf1ab356617d2
+.github/ISSUE_TEMPLATE/config.yml,,process,process,f2a7ae5bb900ea5e8adc894658a512d50774cd616f80f8101d45b1332125e3b5
+.github/ISSUE_TEMPLATE/bug_report.md,,,,0c8d64f29fb4536513653bf8c97da30f3340e2041b91c8952db1515d6b23a7b3
+.github/DISCUSSION_TEMPLATE/ideas.yml,,,,c37a347e37e13c7f02e735abd1a0c599b9a2624194202acb3b2a44029206f5f6
+.github/DISCUSSION_TEMPLATE/questions.yml,,,,8eaa6ea6cd1353568495cb3edff454300954f846ede8ccd27d08956d8805b765
+.github/workflows/codeql.yml,,,,6c404d288e59d8a543e6f27f5e4219353d9bf9accbe61e39eb1f5028d46ae363
+.github/workflows/label.yml,,,,071048f136942a70d914adcb7a25a7ac8780cee966082ce54240386a641e8b98
+.github/workflows/commit-agent.yml,,,,cf14f9da8a523cdac6635d68d98b82da1644c4131d4ea431e10d7ebc1d619b6f
+.trash/][T3MPl4T3[+][.md,,,,4f725301e0caf2653a9f960a46a392d36a18f2eb9430ed85647b60fe82dce0cf
+.trash/ 4RK.L1V .... .. . .. .... RK01 .md,,,,12b8b4af6472148ee97602667d6be6cf11bbc883ac4667f1be99292c0321d531
+.trash/][ {1S====ST3M[M4P]} ][.md,,,,1a42f0eccb69fe519115736979d57dcbffc4d034a3c9a972209e99b5525e5e70
+.trash/SYST3M__M4P.md,,,,37e1ea4e4f17f1221deec58eb8f7efec3f1ea8673d348ea9e58364f6a29fecb9
+.trash/TEMPLATE.md,,,,578d33b430fcd45f806373974b33d232a75c30ccafcdec41f4c08269c5a4e181
+.trash/ARCHIVAL_ST4CK_PROJECTS.md,,SOP,SOP,2a953bf7774aea24eaa8bfedbca30b6c1837acfdf20ff7a1188fab04413f264c
+.trash/Merge Project Folders.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,6fb2fccf7b2247c94cf445beba1bf853f2f0edc109b01bb63095d4657cce2372
+.trash/Screenshot 2025-05-04 at 6.06.34 PM.png,,,,47cb89305671718e79b21fd252cf35557c814b48cac0a655a68493d937d8d2db
+.trash/] [    ] [  T3MPl4T3(+)  ] [    ] [.md,,,,9c552be16a062877ec239c00bfce18a75e7637d0ed9330751d24d80b815e3672
+.trash/][ {1S====ST3M[M4P]} ][/][ {1S====ST3M[M4P]} ][.md,,,,00562b9dafdd61186a597194d66d069ea490f0a4bc9e6909bbddc782ec89b54b
+.trash/][ {1S====ST3M[M4P]} ][/.space/context.mdb,,,,ee7d6080972735c1a7dfd3906f84d1f7d569eccff1cba98b3a9888f7d7a5d005
+.trash/ajp/.space/def.json,,,,269670d501613875e984952add47446c9bc49bd57d73bbac2352cd2e15477026
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_15_AUDIENCE_ENGINE.md,,protocol,protocol,c250845105344ca66d6fab19d553afe276f4d5f74436b62fe99c67cdc8d4a3ab
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_13_BLOCKCHAIN_ECONOMY.md,,,,4f29a4f06faf0946c0142fa553aea6e1dbfcd3e6738ab4113b9e27083988b8cc
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_04_ARCHIVE_ORDER.md,,,,ab7e8efae1218ca6f7fa0d73cb2d9f4ab770d84bcaac152c311a0d27c5264391
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_OS_INTERFACE_01_RITUAL_ACCESS_CO.md,,,,c97421c36d16336fe3992bb30b39876a52cffdeee8e74fae9a7c9cff105e3311
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_05_RITUAL_COURT.md,,SOP;process,SOP;process,bfaa466be59c3f7a85bb21d0a17c68f5bde048eb6ab3800b15b969943f99c1bf
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_01_HEART_OF_CANON.md,,process;naming,naming;process,a18790c3e04ca337cf996aa74cccab871956813f2637ee415129d6da60adf170
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_10_DREAM_COUNCIL.md,,process;naming,naming;process,0b0c434d168e6fbdb9ff5ce2ab9f48a3f4f601754a27448bbbdc7580c72d9cbb
+.trash/R3..G3..[0 _  S    ]  [/AAW_CORE_08 — CANONIZATION ENGINE.md,,protocol;SOP,SOP;protocol,43ae06cc60f73735bf9401606dcebb5fb25fa8dbd4cd9ce8ef2835c229b8d3ff
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_4NTHOLOGY_INIT.v1.0.md,,protocol;process;naming,naming;process;protocol,7d0ec3298bc96a6bf9b1d290617cf6328dac8c0f1f909adc9dd12d34347339c7
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_16_PLACE_PROTOCOLS.md,protocol,protocol,,3f518f0344aad75354ff702ee8dab3d27acf2e1a0b9d4a59fce60f28095329f6
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_12_CHAMBER_OF_COMMERCE.md,,protocol;process,process;protocol,d0b0a2280f9b05486e3257c718b742d0cffccb8cc6106afc79aa85a63ab5093f
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_19_PROCESS_PRODUCT_CONV.md,process,protocol;process,protocol,2735a407a6737eab0178764767f24ba798f82bf1d165b5438fd18f93347805c0
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_08_SOUL_PATCHBAY.md,,,,911c2b67266ebbebca81d24f02438760df392009ecc96b16be7d0e631c836c35
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_03_MYTHIC_SENATE.md,,protocol;SOP;process,SOP;process;protocol,e5ed81c6dc904be7d8622920a5e6372a1a378088b8b332e73c48c8c2e4a60e60
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_21_STAGECRAFT_MODULE.md,,,,b0e8275aaad605a95cf67aa62d635bc0533e2c75af10604d1a7bac411e558e6b
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_07_BLOOM_ENGINE.md,,,,644d2bd8c7c18e6cee29063090c109389d3ee3862a633bdded26385e8d302a5e
+.trash/R3..G3..[0 _  S    ]  [/....R3..G3..[0 _  S    ]  [.md,,,,934c1285aaef7fa8febc5eec3e370b4e97c30d1fb9f4b3f069e1927630f110b1
+.trash/R3..G3..[0 _  S    ]  [/AAW_CORE_11 — FAILURE STUDY CHAMBER.md,,protocol;naming,naming;protocol,cbfa6e1ab633ba24b579ef2187b29afd7865fc7cb249f51a411a0bc918232c7d
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_18_ANALOG_DIGITAL_ENGIN.md,,protocol;process,process;protocol,a0265967771148083b039267438a45f83fceb9bb291323ee1c87713e7d36b68e
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_22_PUBLISHING_TEMPLE.md,,process,process,20ecdac3dc03bbdc4d707ec45165350855ca0a9b3e07579ce9826aed1c346ef3
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_02_MIRROR_CABINET.md,,protocol;process,process;protocol,e9e113cb67db003dc44dc52a8692f08c54787686d10a85615d58bd46bb44ed7f
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_RECURSIVE_SYSTEM_RENDER_LINKMAP.md,,protocol,protocol,8c2340911ac5e1a18b8b351e07d2147be342436dcf4c59ac371505625be5141d
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_06_CODE_FORGE.md,,process,process,131ac8eace1f9218cb20f18e743c37b08aec0e4f9d36d4256d73a3b459c4e0e1
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_00_ACADEMIA_WING_PROTOCOL.md,protocol,protocol;SOP;process;naming,SOP;naming;process,63c9c0318edf33f0872c90cd00dca78f87c8bd29a68d15f09f6f46fc1cb08eb1
+.trash/R3..G3..[0 _  S    ]  [/AAW_CORE_10 — GENEALOGY ENGINE.md,,protocol,protocol,12b4386c7c4c2b13c4f6d3750bd8c4290832c0494911a5dce115032db637c993
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_20_CONSUMPTION_PROTOCOL.md,protocol,protocol;process,process,cf8f2c4f84ee80ad4c8f9f96e12643b3bb8f4570f6fcc5eddf8271ebaeabd163
+.trash/R3..G3..[0 _  S    ]  [/AAW_CORE_09 — INTERLOCUTOR PROTOCOLS.md,protocol,protocol,,8b103b61189f832c1cf6705cb82afcc2fbad3b428dd57cddd89547f0e6b6aa57
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_11_MASK_ENGINE.md,,,,d1ed3cb0a3bcdfb9f690d62f34230d679a28a12ad6e8c1907ee19e76a88e274e
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_17_TIME_RULES_ENGINE.md,,,,d0779e2cfa34c8074cd0c06493571597cc5344a64dee5bb1edccdba40a0d370b
+.trash/R3..G3..[0 _  S    ]  [/AAW_CORE_12 — MYTHICAL CITATION SYSTEM.md,,protocol;naming,naming;protocol,ef166dee72bdced9cb3c01b3c1279f26bfe3d6a5ff9a6bbcd7a1e718ea82c130
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_14_PROCESS_MONETIZER.md,process,protocol;process,protocol,94d89c35618cab6b9a4c0828283f4ec429484e3c5961ff392cadd5a2fa07d145
+.trash/R3..G3..[0 _  S    ]  [/RE-GE_ORG_BODY_09_ECHO_SHELL.md,,process,process,836787ebb57b7aee04198473f246c65e75d73b84d56a6f01a3f529d9929347cb
+.trash/R3..G3..[0 _  S    ]  [/.space/def.json,,,,269670d501613875e984952add47446c9bc49bd57d73bbac2352cd2e15477026
+.trash/R3..G3..[0 _  S    ]  [/.space/context.mdb,,protocol;process,process;protocol,b3a3d9381721e55d499088b226b3a5e4a62e5224196db61d70cb918422416c4c
+.trash/][ {@T4G(+)} ][/][ {@T4G(+)} ][.md,,,,77ff414462b71992b3afebd199269f193ca7a69278e26b07da884c570e76641a
+.trash/][ {@T4G(+)} ][/.space/def.json,,,,269670d501613875e984952add47446c9bc49bd57d73bbac2352cd2e15477026
+.trash/][ {@T4G(+)} ][/.space/context.mdb,,,,b0691f3446a5075536a4b5426b6d78c1eb28ea3f3cf21c74e89310619e2ab7db
+".trash/1S.ST3M.M4P .... .. . .. .... SM01/1S.ST3M.M4P ’, ’ ’, , ’, SM01.md",,,,3ee240eb6b3bb17b133f21653a4a84ebc37853a0266089cd9cd2d16475c1feed
+.trash/1S .... ST3M[ M4P ]/1S .... ST3M[ M4P ].md,,,,e6e2b44b3f2360250ff18e2b5bd93724b4316a4a16bc657fb2cddee57ece80ae
+.trash/1S ..ST3M[M4P ]  [/....1S ..ST3M[M4P ]  [.md,,,,6b58ce1c84878384603e755cb8aa644261f059e56a4b3625221995579a1cd3da
+.trash/1S ..ST3M[M4P ]  [/.space/def.json,,,,269670d501613875e984952add47446c9bc49bd57d73bbac2352cd2e15477026
+.trash/1S ..ST3M[M4P ]  [/.space/context.mdb,,,,71983dfa11c5e727d182145e3a9d6826889b6d467e85758286cb6f6c1a550948
+tests/test_commit_agent.py,,,,b673960e42b9f7f1f8996c3ff6ecfc64d606fc4eeedef86672c175ffd89b73ef
+CATALOGS_AND_INDEXES/FINAL_FOLDER_COLLAPSE_SNAPSHOT.csv,,SOP;naming,SOP;naming,3b9bae637ad8a3b89a71f8f8a99aca7423edc6adde4d273e272dbcfe128b25c5
+CATALOGS_AND_INDEXES/FOLDER_CATALOG_FINAL.md,,protocol;SOP;naming,SOP;naming;protocol,0b925dbbc1a1198c2a4d50389ef731c6785c546f8a7d2514ae013512b3bb85cd
+CATALOGS_AND_INDEXES/THREAD_PROJECT_CROSSWALK_FINAL.csv,,protocol;SOP;process;naming,SOP;naming;process;protocol,1694ca2d9cc0da793be0e0c706eaa7111aea42076aa620cbb32aab2b63e38509
+CATALOGS_AND_INDEXES/THREAD_PROJECT_CROSSWALK_TAGGED.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,cfae9296dc995e5735c62c3c244eed8b64417f82109a45b8a135dc56f1b51923
+CATALOGS_AND_INDEXES/PR_FOLDERS_MASTER_INDEX_FINAL.md,,,,48e3456bff0336fe5b2615d425dec4758f892e1b2241419ca8be1dd7a9ceb816
+CATALOGS_AND_INDEXES/FOLDER_COLLAPSE_PLANNER.csv,,naming,naming,bd42e4afca16350bed416f27d5c887232c45fa67db700a5acebc3e70e68ab1c7
+CATALOGS_AND_INDEXES/FOLDER_CATALOG_FINAL.csv,,protocol;SOP;naming,SOP;naming;protocol,7006933cbeae044e2f4a050068279bb65d0e3d49867dd3cd4ef4b725be92d943
+CATALOGS_AND_INDEXES/THREAD_PROJECT_CROSSWALK.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,f8fbaac1ec85da54e5ae521ea5b0d0108d5818399bb19519f8303595fa99b7e5
+.git/description,,,,85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee
+.git/MERGE_MSG,,,,7bbfb2103d235fa6c01ce4904ca80ffbea293a50650ff683de97a4e89dbed30d
+.git/ORIG_HEAD,,,,a432a8ad334a738aee11c750b9e8971a26cbfefc86a94f802f7aa04fba4383e1
+.git/HEAD,,,,28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80
+.git/AUTO_MERGE,,,,b513749406f2b0e60fe6c66080bed127f3b5983d8ef51af02abf05d6ec758cae
+.git/config,,,,81d47ccbe2488ec841292e41ff97fb96496d9dfe6cc0e4e6a0cd1a2e84ca66de
+.git/MERGE_HEAD,,,,ccd0fe889c06d112f6e7e849df68c130b178e4b789560cf287fda6e1f25e547b
+.git/index,,protocol;SOP;process;naming,SOP;naming;process;protocol,94424443092533e344d313f31d4680e6a5b21b0f1e7f6e7d817a19f0bf3016cc
+.git/packed-refs,,,,6110899c7adc374885f9552bddfb76fa28a7f7ca3c05fb8b74471a457e1e57c8
+.git/FETCH_HEAD,,,,e51def325dae1a3deaf21c9db82950300feac3094a13f96fbdf9f7a2eac27344
+.git/COMMIT_EDITMSG,,,,c3d2dc6020a4a66aa08bb2e3afef2c521e6812170bc7725ef122cf46ef09bc8d
+.git/MERGE_MODE,,,,5940fba849655f7fd20878b451607d8f40866326bde6753ac71ebc855b646a55
+.git/refs/remotes/origin/24-4-b100m-i-hit-the-following-errors-while-trying-to-work-on-issue-2,,,,df1d29944e67f756f7aa2d7e63d8d1f22729ba5e3a5d189e27b1519e0fc92406
+.git/refs/remotes/origin/4-b100m-patch-2,,,,30d0f5437bdf6e00b6d2b9a828db9e31ffa1a6a6e57093b6d84826006791db2b
+.git/refs/remotes/origin/4-b100m-patch-1,,,,79d7a1a40a1d971d5d181f776e81cc67a2783a6388154ea7bb5598623097abc5
+.git/refs/remotes/origin/main,,,,7f8ad57aa59bffdc8c4c042b1792ec4418a48a0a86a5a874de66e0ada6cbd5db
+.git/refs/remotes/origin/codex/fix-typo-in-the-codebase,,,,c607c55cb9a0f3be59bbe16158d7617474b7801430ba5f7e4572672cbbd34b9a
+.git/refs/remotes/origin/codex/implement-agent-for-pr-critique-and-expansion,,,,c90ff6883d588354a6ccd888a40dce8a23c572a456c8387bc2ed50b38e1ab6d8
+.git/refs/remotes/origin/codex/combine-thread-files-into-csv-table-kvhg8e,,,,6adcf978c3605ed59dca4d44fee506edc88e8316b03317f59e209e784e8e8bbb
+.git/refs/remotes/origin/codex/combine-thread-files-into-csv-table,,,,4ea51637dfc2b983dbe37bebec31fb2f844e9eb7457f5a3b5a5055764fd80f70
+.git/refs/remotes/origin/codex/fix-typo-in-the-codebase-riz4uo,,,,2612119d80d338c08343756fcb48d0ab40ecde7ace119235ff4bf0920e0d00d8
+.git/refs/remotes/origin/codex/create-agents-for-review-requests,,,,882fe3cbbd7ab04a19ddea1866a96218dcd030264a1d096c2967398b7cdf1f09
+.git/refs/remotes/origin/codex/document-codebase-overview-for-newcomers,,,,256d3cba97570bf7d2e6d6f75ea6bc4527a4656e0ee406d66bfe501f291b81dd
+.git/refs/remotes/origin/codex/organize-project-files,,,,d091517b545580e1168eaf99e4f9aae97b7ee4eaa029521873f8715a769eed32
+.git/refs/remotes/origin/codex/locate-all-system-related-documentation,,,,53554366f28ab8646c29722e2c6ef9a887da1400d88ad3f998647d8341126c02
+.git/refs/remotes/origin/codex/implement-github-actions-for-ai-code-review,,,,78bc3f09e6972a98de8656fb6b259fd586256fff710f37fb3bbb3ec2948665ad
+.git/refs/remotes/origin/codex/update-walk_compare.py-for-thread-digest-parsing,,,,ccd0fe889c06d112f6e7e849df68c130b178e4b789560cf287fda6e1f25e547b
+.git/refs/remotes/origin/codex/locate-and-fix-important-codebase-bug,,,,cfb2899e2e728a22a0eaefcb06b4b861611c6e66af5d763d4099ce4ba231d35f
+.git/refs/remotes/origin/codex/locate-and-fix-important-codebase-bug-6zjvhl,,,,36cb4bbd8ceb4fe9df4f9fab523bde34ff539d02aa6c9d1f9caab6be60a17917
+.git/refs/remotes/origin/copilot/fix-16,,,,4e734b038fc357c2fc0914a15ee7022861fcda2b32c2d83c250a7001f7e71fea
+.git/refs/remotes/origin/copilot/fix-334af313-5c96-4504-93e5-5ed75ebdffc4,,,,deaeded7f83b34ab3c8e6bc287670ca5dbb66f923370e43806009d42e057c27b
+.git/refs/remotes/origin/copilot/fix-8,,,,2ce6683c07d768abd08bacc3f2fe9b1e69243a0fa9ee7beec098b8976bdd2bc8
+.git/refs/remotes/origin/copilot/fix-22,,,,ecb63cfb76ee66daf2a63b6f1b9a2468fcfea418cd4e48e8c556106796c63cb3
+.git/refs/remotes/origin/copilot/fix-c776c344-7ea4-4a49-8fac-d00228123d44,,,,93864c5a7f037c97649c1d624bbab492573e8d4c0e28904a808d4691d611f488
+.git/refs/remotes/origin/copilot/fix-4,,,,9b1fad989d8b8d33041f550338c797c7c71db08029827b176d65d823f972c904
+.git/refs/remotes/origin/copilot/fix-13,,,,9d029ca99d8551a7506057d304ac884e676e54478e8193c40f422427b86b43bf
+.git/refs/remotes/origin/copilot/fix-6,,,,52d25a800c67c6a0acd45bf09e3c91b7cdaac5cad889348df0b2afd84396aa68
+.git/refs/remotes/origin/copilot/fix-0ca6197d-aec0-4323-a906-0d923ded62ee,,,,3c5f1e76ea9f81d9118773f23ec019953607d7bef612342d6dab822e481de60a
+.git/refs/remotes/origin/copilot/fix-5ba92dd8-51e8-441a-b6c9-ac1a338dd337,,,,26a644a9ca1696b91525800509ee5fdcd40fe41c1ce7c8b42f38799153ebd07c
+.git/refs/remotes/origin/copilot/fix-10,,,,cf22444e59c09fd6974ddd58d4c9485ed62d70b8acc9e2c6d976d4f30bfd5dca
+.git/refs/heads/work,,,,7f8ad57aa59bffdc8c4c042b1792ec4418a48a0a86a5a874de66e0ada6cbd5db
+.git/refs/heads/main,,,,a432a8ad334a738aee11c750b9e8971a26cbfefc86a94f802f7aa04fba4383e1
+.git/info/exclude,,,,6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1
+.git/hooks/pre-receive.sample,,,,a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989
+.git/hooks/pre-applypatch.sample,,,,e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475
+.git/hooks/sendemail-validate.sample,,,,44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92
+.git/hooks/update.sample,,,,8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106
+.git/hooks/pre-push.sample,,,,ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a
+.git/hooks/commit-msg.sample,,,,1f74d5e9292979b573ebd59741d46cb93ff391acdd083d340b94370753d92437
+.git/hooks/prepare-commit-msg.sample,,,,e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619
+.git/hooks/pre-rebase.sample,,,,4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3
+.git/hooks/post-update.sample,,,,81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5
+.git/hooks/pre-merge-commit.sample,,,,d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53
+.git/hooks/fsmonitor-watchman.sample,,,,e0549964e93897b519bd8e333c037e51fff0f88ba13e086a331592bf801fa1d0
+.git/hooks/pre-commit.sample,,,,f9af7d95eb1231ecf2eba9770fedfa8d4797a12b02d7240e98d568201251244a
+.git/hooks/applypatch-msg.sample,,,,0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7
+.git/hooks/push-to-checkout.sample,,,,a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f
+.git/logs/HEAD,,,,3246c21d566a17fee8177b6062f8687d1bad3c731450bbcc43e6a867b0ec5cfc
+.git/logs/refs/remotes/origin/24-4-b100m-i-hit-the-following-errors-while-trying-to-work-on-issue-2,,,,efe003d044a1f49d3834bef84c4594df0587edf7fb3be453a6b436dd4a5f203d
+.git/logs/refs/remotes/origin/4-b100m-patch-2,,,,1671939aa6fe50782747af50b4a5c3f90f641d59289190ab84423736a843fc90
+.git/logs/refs/remotes/origin/4-b100m-patch-1,,,,8356ce70e211371fc13aea0a49a5dd57c2e5590dab6a61ec265ed0c998d48eea
+.git/logs/refs/remotes/origin/main,,,,547b65b405537f35abd769fb03aac5305018db6890a5047e85097d6e70720d93
+.git/logs/refs/remotes/origin/codex/fix-typo-in-the-codebase,,,,3f5e2acf68bc8f05df7121594b3b1c07e9bd0193b00221ade6697da3edc4b2a8
+.git/logs/refs/remotes/origin/codex/implement-agent-for-pr-critique-and-expansion,,,,a458f1d70e9e47d50d80fc49582d346451b23599217bcd40fe259fbf7f56134f
+.git/logs/refs/remotes/origin/codex/combine-thread-files-into-csv-table-kvhg8e,,,,a04b53aedc44c7685629ff035da994e83b4141ef26ea4cad6dca3955f758ba3e
+.git/logs/refs/remotes/origin/codex/combine-thread-files-into-csv-table,,,,d2ca8e85a214d4fa5bbae8d7de2b9d53c8ca3a8ff89fd20591a71827773a3401
+.git/logs/refs/remotes/origin/codex/fix-typo-in-the-codebase-riz4uo,,,,e2637751ed02369490178044899c56e8444cda3cf9827856c20fc76b9a03457e
+.git/logs/refs/remotes/origin/codex/create-agents-for-review-requests,,,,f33ac1ff5cd74a25b896d80c235535ed3cde83ef8c94e4e527ee252f8dc71e7b
+.git/logs/refs/remotes/origin/codex/document-codebase-overview-for-newcomers,,,,f5038cde5208a7eba43e2ca073530b24488e527a4c84d2e44afc284bbd171249
+.git/logs/refs/remotes/origin/codex/organize-project-files,,,,c4677f50e2624e971535d18480b7df70d1bd86cd51858643df263642d965c1c8
+.git/logs/refs/remotes/origin/codex/locate-all-system-related-documentation,,,,589ca5adce11c3a1ef574117eb6d609c3ee82184da4d9439c3b1b59a2379d00b
+.git/logs/refs/remotes/origin/codex/implement-github-actions-for-ai-code-review,,,,375d287dc70df794dc353204e18ce43294d12134a4f52e420f344ce591334fbf
+.git/logs/refs/remotes/origin/codex/update-walk_compare.py-for-thread-digest-parsing,,,,95c0e008dc7d87bffd098c123e1c05f40f9b6783f1557abedbb545915b5f3f6a
+.git/logs/refs/remotes/origin/codex/locate-and-fix-important-codebase-bug,,,,7f36532c6410c83797b451f03e806154ace88d74459356c254a3b23728c95bc1
+.git/logs/refs/remotes/origin/codex/locate-and-fix-important-codebase-bug-6zjvhl,,,,3fd778b24653c00231764c35c195dcccb956889bc0fde4903ca79d64e596d9fc
+.git/logs/refs/remotes/origin/copilot/fix-16,,,,c574061d2c159a07a7643141b1571445bc2b3883b393399e436dbcc58ad94bab
+.git/logs/refs/remotes/origin/copilot/fix-334af313-5c96-4504-93e5-5ed75ebdffc4,,,,23089772907c8345e6f5a21ef19e442819f7181d048bafad4d3efd3d31743c0e
+.git/logs/refs/remotes/origin/copilot/fix-8,,,,264dd1789fadb3d8c25c8de39414cf18e7f94f4054d335f66e9537bd95a50676
+.git/logs/refs/remotes/origin/copilot/fix-22,,,,9088a5ff9a0d528499adb6e53bf43a983514a0b3f80853a3ab0aa12f3b0d2ff5
+.git/logs/refs/remotes/origin/copilot/fix-c776c344-7ea4-4a49-8fac-d00228123d44,,,,70772d1ef57b00bdb6512cdbc3d8ac1ed1f3d94d25aa6cc9115600018b367743
+.git/logs/refs/remotes/origin/copilot/fix-4,,,,b1efe1c32ed17d228ee366f868708aa097127dbcade214907086258e4d23c2d5
+.git/logs/refs/remotes/origin/copilot/fix-13,,,,64477be5ae834c78d55a1cc792602957a885dcb5c4abf0688e11d7f75c520d75
+.git/logs/refs/remotes/origin/copilot/fix-6,,,,f180202d055aa773b523c94c0f2d50dfa0d5d291a1dbfbed5222314c565ddf46
+.git/logs/refs/remotes/origin/copilot/fix-0ca6197d-aec0-4323-a906-0d923ded62ee,,,,529d23dd314ed7765d13b52acbafffdfc093509eb19564e2e9ee8028e3c40f0e
+.git/logs/refs/remotes/origin/copilot/fix-5ba92dd8-51e8-441a-b6c9-ac1a338dd337,,,,e4d26bc408ac72587cd57c7385182daebe7178d3bddbd7bd17a62a4737a6b19f
+.git/logs/refs/remotes/origin/copilot/fix-10,,,,1de057493d80a65fb6e6ae2df71c7df1065d0b8148ce1a177f4e5e80b1a9dce1
+.git/logs/refs/heads/work,,,,91c3d2403fced28ab65107e44d677e7d750e62030a751e27cb563d9a3c6e79bc
+.git/logs/refs/heads/main,,,,866879a5b8f1d099133379b3acfa38ebd16bdcbc62fddc2173d42cda311c3c79
+.git/objects/26/ae535ebbcb6a35711266d95e4e4afcd02ddddc,,,,cbe6252fed8a5f084df9de7d2e85899ee9b26bf8d15a19b517f2d09b3791d3a5
+.git/objects/39/bec59db9f3a8516601c3ffc558881a93cf79f3,,,,80999ea48f739ae43ec3542b5554861426eb2b35476c72180051689251f2963c
+.git/objects/64/c2ee3b924d15193f18a822dacf4809fe938c2c,,,,98411a407499201bf9619270c9e059b979ee9b109b3951a14af49e6a18c4d660
+.git/objects/af/8b43bb7664e96fb2fe0d4de54315d956f39f7b,,,,989a2c6a2d4ada41330e4b89b36e639bf2a2a9ea04044f6ec594a2c301006cd2
+.git/objects/84/18372b8a597534618237f7aff6ac5e28eb59d2,,,,41e6ea4fae6f07f1170bb211b39aa3ef8c7db209196b3572dc228188bcc50398
+.git/objects/84/13e2e511b563d39cdef9aa74865c78c690b601,,,,fedbd1a68352a2bb725258437c20ae9400dca563131238de7502c3f634d6a7bd
+.git/objects/84/f3d1fbb3a74fd2e74d864490911a8c4b7ade67,,,,4e0e758bc8d7a7f4d1f920a0367954d00477cd91160483037ec2e333c90c2f5b
+.git/objects/1d/536dc2e7e0d16098ecf34f6c1ce0a7d256b0b7,,,,86a9e1a9896a8b6f7c21e9ae5a1e17ef8daaeba80b59cb5c5f8eb319224d531a
+.git/objects/e6/9a61611f2172fc49ffda81c848cc2e7a254630,,,,f069e05d30d4cd4364ffcd7df7a4fcccb27a5153395379e5332bc6914745c3dc
+.git/objects/17/951904ceca5a92646585d7c4fda098c6e64520,,,,1f2e3e271698f638b8bf9e0949613da1021096a086a7d326fbc1d855a9df8c75
+.git/objects/b7/27f3ea56fd067b98293a35e1438896099cc06a,,,,e065da0f4054830f4df449ac831a6f08997c38d43aa2cbc4e1f61be1b7dd7e24
+.git/objects/fe/644fe24434a2ca305f66b2df7638fef626a35a,,,,3e49709a4a8cb33d061105031bac7b45c680fc093497c29ccb30c52723c48626
+.git/objects/2a/41b257b12b1e5f07457ba9e513c897ceb12567,,,,2b9c9f22a1a609c31254ba9a1c16058e091292845f3e5061cf9b260810672f50
+.git/objects/d1/9ab9566e6f3bd6388b63ab3eb32c05a4554eb7,,,,9661865ca53a4ef29a2e115632056ed62ed45b4c931ba686fc871601a7b066c8
+.git/objects/43/7e107fe937bbf96af22f8a2e068419831b988a,,,,cf975204aea98bba815a9857808150adcc00d157137603ad73f8c7e6df464e14
+.git/objects/74/477a4b2a107e4cc3fe0d0ed2db716c60e23176,,,,a37cef0fb60da9379da36b6455ae93702d7db2b1d300ae5ab7206b93befb8948
+.git/objects/4f/22d2206337bcf6dde680a32f3ad19c114fe676,,,,43b7ba6c01795d39393467caa8c001401cfd554533fbab223fe9ccca4f78ef57
+.git/objects/ea/9e60d38121cfc42e6672197869da000642bd20,,,,b8fb7e2311a33f2d70726da59a2f2654bf5105f17d85c590fd7d0f31cb412319
+.git/objects/ea/f29146e0a20014ecc366c11dba62786aee90b5,,,,f45e46dde70a1c85738e4ca13dde80a8a5b5b5026ca9cd8bc5bcd2898593e612
+.git/objects/25/4f919f4c3a9bf3060ae696ac95b42db7a42f99,,,,84116ba00c54bdb43b55247ddaac3c85095bd5b83b8e28cf5d4ff0acd9842688
+.git/objects/2e/b72242c38c0c3a2323253d886c4066c0ceaf0e,,,,b0347b630707617f58376429dd85b320a07d0df075fcf0697b4b3c174987f62f
+.git/objects/2e/4bdbb41643ab52a1c7377b2014df389070c60e,,,,854117d6f48477b8e2fa1992b98b21b76cccba2adede43b139b46aff1e65ce9d
+.git/objects/1f/4b2ab2a9e032c506272da16218ef701ec1383c,,,,1db98115b40b26bef0bccc8f8283bf53a45f2224c9c19c6aff6c675b865c2dbc
+.git/objects/1f/072ab294392b434d20b2f75bf068202dfb0695,,,,20966018a0cd1198133ddb08e7deb34705578eaf08a7096d5db4362ddbbb136f
+.git/objects/13/56fbd854f8b5e8ad99fcd8c6618e34d171c752,,,,0e9b47b0d081c73e49b3e3952599a52620b06ba9c888cf57d56f8b7f21050d4d
+.git/objects/03/6fa445dbaa563e20fc230963f1705324df1a9c,,,,a3ef4a3da10a1b7d784d240b29c3057d13cc1eb0ef55ac32a36385a290c74c8a
+.git/objects/a2/14d40cf40e066743219882c88ca819453c10a3,,,,043033ce906b856cfa7b01b033606805ca9c8b459decc9f7dbb70c2647642a50
+.git/objects/c3/9f956194f62716f4d003950fbbb9f43ddd3a46,,,,f04aabb34a26bdb45f927f9e3b6a3011823e55198e0969dcf2b6e3c97d46819e
+.git/objects/c3/d357ae109c7b35f500f87cc6ee212cf124b4cf,,,,602fdd7ec95446864517ec041486986c077e9bb3362f17b2e9aba7539d90cb50
+.git/objects/48/19d8d2ff91bbbe1f2f7fecff197685761b6e5e,,,,0f45b79758708d538165cc1d40b83d4672f65464d8da01583d144ca01640f238
+.git/objects/ee/c994f755bd487180647e57e648370e9fbe0af0,,,,f2c5c1cf159641d54b87cb1546742c7b5c315ef49e9a3fac25de4f9de744bc17
+.git/objects/dd/7c9f93d288d36f570f5b5764bf6ca3c6f0ccc9,,,,517f6effbc38cd774175db798fcb3ceca9a645da582b6a63468941b01eedc86f
+.git/objects/89/7ea39a12646106be11b42735753736879e7692,,,,04eab3447769871ec0c51946d797fa3d26cd67733d653e705b0d35a3298b52b5
+.git/objects/89/1ab6f4c18a55acd3394ab1419be1531b8548a1,,,,55d491d553464014c1d1e0826ec83d6a7774903719dd577a2aed61eb8d06c3df
+.git/objects/16/e07dd2d76e449437a6f2cd900bdc11b5addf52,,,,cefc77a949b43567de3467491d06d9929ba86b8a1348ecc88d3327c3d58e0c1f
+.git/objects/ef/3a2a0fc2ec844cd4a6ee117227c5ac1ed30731,,,,8181eaf9e4be1e275b3a73e9225cca3712193fef455d6af0c794aec466488101
+.git/objects/pack/pack-08f4320fdd8399c73aeaf0d5fae546d84ce1efb9.idx,,,,8f39af3a54ae651121a8c84221692e9bd8e005c7c28397ee842cc1c0fcec7092
+.git/objects/pack/pack-4833904ec6407e7a147807f1d35e48e338b998e9.pack,,protocol;SOP,SOP;protocol,48c08fe63f0292ce841d85136b98652c1089837e188d4f569352615c1fcd625a
+.git/objects/pack/pack-08f4320fdd8399c73aeaf0d5fae546d84ce1efb9.rev,,,,3b2a7356f90f2f10c569779e21ef90ffaabac5f9d9339967ab8f86b7db98fcf5
+.git/objects/pack/pack-4833904ec6407e7a147807f1d35e48e338b998e9.rev,,,,8aae973dbeee09cc272b1e9d3f97bdd77d4ca090c8e8c424fb2de0981a8df27a
+.git/objects/pack/pack-4833904ec6407e7a147807f1d35e48e338b998e9.idx,,,,4bec707ccfc57709db172383167a64b41dbb66f695afc2c53da58bd3be9dc3be
+.git/objects/pack/pack-08f4320fdd8399c73aeaf0d5fae546d84ce1efb9.pack,,SOP,SOP,7df6db6be13518970bea78865493b75866fcdafc36ea86dc84a8f44b202c1104
+.git/objects/b5/0138f4cada0b6c9d140295c29ff46f1ca9975a,,,,cf072911901f1a71ab38c5c75403419365b7c874d73a6831f3d7ab84e604636e
+.git/objects/57/5d78da6f011a660c1cd76f98ec2951f8568191,,,,9c1eb75c94ee1d48fe1d634e85a53ec27033eeaafbb298787ceb4e56aa6d8859
+.git/objects/82/479cf2fac8bb96c59f6de07cc1d94c35cef8b6,,,,c500f3d7297c759dee843cf898e1b30f232fb381d92547742f248b92072d602e
+.git/objects/82/9862c1c6c412561034959a3e8c243dcf2da8c0,,,,277cd2dfe69abf377d68d3a57a15bee22b525431be2d4be220223d0fd116b460
+.git/objects/82/7cf79a109da77706d3a2c358730e1d162db211,,,,63a5bf35f1bb8bc26682dc6ab5f7ce09537b774b7168f76fdb306e54f16d6a2d
+.git/objects/f3/27d23161c2e5094905cb07c96ecbea4b680425,,,,e04fa73b2015d3d5c24e5e84a92dd96e91ebbdc5fa85fb56d05517e2dce36a46
+.git/objects/a0/57e53e3b80a68e6c3d04e43aaba7fb01f2d483,,,,601bf743d431ee9e2675818ccacddb3b0309fec78954311605aae020112eed4c
+.git/objects/a0/da535277842817fb4bd024b31c83fe35c5d8c4,,,,96eda52d8e606c4ae2f840944ff18ac6e3c3a554415d53245ebaf1812ed81079
+.git/objects/a0/93b1013a1adf80a28c5a82d77daeb76761bc3c,,,,05f0c66a95d0063a4a42a7efb6ec7e7feee8e69b2fe2568087ea45ce76aa4cc2
+.git/objects/a0/08cadf37fae632e2ba9bc72dfb84328ce8f5ca,,,,5ddd042a5ca98eb84466b97eaa63db865ada0a723230d97df67471d71934ebc1
+.git/objects/a3/88272b633cf4aae43f2a45bd5163884aae1b6a,,,,256cf5a28e8f0a1a018e21096d8082920a54b0b0295713cfa6a79124da5dbc39
+.git/objects/04/e612da8d362368f362132d33b3439dba7ddb94,,,,0929e206ef98bff22f8cae5e57cb59be6652d873061508a606a8b2ff56cf4d65
+.git/objects/04/5dd7105af506dc0092816e981a2a37b2687959,,,,943c9414d9d3df34d65897c39519e84cf4b2076c1b7ecd153793c7d8200e0937
+.git/objects/04/37e4905e9cdac984dba088ce56fd1c63db35b8,,,,2a9497126dc2e38acbfd29eb831116ad86a4998c0c288abfd46b1b360a5a514e
+.git/objects/04/963072f110b9baa1b68c5794d7f7822574a941,,,,22fcee720bdd41a61902a6f3908b3faf1cb82136e5f5ee86cc7685b40e5a2852
+.git/objects/3d/ecac9fde90006f4d74493a1cf401291a83e431,,,,4ec8b9b44013ab3df64bb2e83198140dfc3d921aa5e32881a2315eaaafb122a4
+.git/objects/3d/333da1ab4af339f753072a0ebcfb608671e66a,,,,1a7b1dbbe8620ae00f76048a4c180371999c591597baeb0886451d41a43f87fc
+.git/objects/3d/43da85366d22faf92e57c19303c6f8875b204d,,,,543ec315482c7707e043d916914d954c3a57b3f616b371b715f985c9048b7cf1
+.git/objects/c8/28ca6f234c93ca5b3e10fc28a2a8514dc5720c,,,,154ee7f3fd8772d4f124caad09f6598d9a23d51776d0e483c453a69910566e39
+.git/objects/1c/8afba74ff87cf3de29fb9804b0a1c1e6bd815f,,,,7b60f2cd1015b46eacc41c7a228f30aef14a680937d0c850fe9cc2fb73791462
+.git/objects/10/d2a0521b0fe70c281516dcecd21e6497e38d89,,,,75185353a7f285e9c43242f2b14e8ed0e49aeb4b5541cb4aab351639b78be984
+.git/objects/9e/c783fc8d6f25255767b73dfa9d43aa2096142b,,,,3bda6d6e26a48602a94d26117faf53f44891f874caeaa5d7c80fe157d38e00bb
+.git/objects/05/196b99ca8619881a543cdb9b661224b505428c,,,,5cfd1356384b05f42f25009cd74a9b5d7037f33289cefad87f62ddc363181506
+.git/objects/9b/b1c397b32b9f3d65beca417493aef279d0aaa9,,,,aaa4369865deffca63f6905f4e7f6a25f318bfb19a23c1ccf0f22b76d8c8cbd1
+.git/objects/42/6aac8d0f82d6302f34f4fa7654ca4fbdcffee8,,,,ca712dffad65fb125aa6fb9ecf645b7bf010a5d8cf51c6f530f99033460248d6
+.git/objects/e7/4152564147a125b8c464f0aae355489bdd9dde,,,,2cc54e0205bdc1771329eafeb88948bf9b17724a26a80e1c7b2101e9fa56f75a
+.git/objects/93/7cf9f39643fffdaab4073ed401f4e3e0011141,,,,20c69a60f476a7457c97212317aeb4431cf99d59a8112b35c8e3373ff757a461
+.git/objects/93/5b70f23f4e6a346897cf7a5b9606961843b7fd,,,,eefd714ad33ea951bcefe44304a32539e28c4df958ac86a4583cf2432467f5ec
+.git/objects/67/022f54b58d26929cbeebd8d54bfb935690cda9,,,,7d9d18f4487a0a04057418750fdc91d886b636f1f96352d33464e97727487c4f
+.git/objects/21/6df91468f01a3eaa8d14c86655c5b03e29b258,,,,471a4bb9665e44260b3cdbc1f287ba4dd90bf707a749f036f4b7a718ff59d0d6
+.git/objects/f5/4ba8d16252a3699af27fcf0baaab68c2da7bf2,,,,6e8441ec6701d8834881101bbbf1e8b31582c713a78244055d1f5ff1054c7f69
+.git/objects/9c/0bd060aab7c5c641f45ce36bb7cfe68c6b8d75,,,,f78a30627468fe0feee64130b537b9e74c155c03be40b4aadae17a2b3973b5b7
+.git/objects/3f/55421ff4befda1058a55b517e4509638658378,,,,49aa2b1029063f60ff6b6044c2b361b76d6a786f3741839c51fd5fe650ab49dc
+.git/objects/0f/cf5b63be65a11a85be1622943269235956ff01,,,,34dbb49dc5a841ee61c1c3eaa293423f59b2346ee74fe19688e530017931a813
+.git/objects/a1/c02c2f876704d62dee6ce2189efb517c42fef7,,,,f4fa338fd6cd9a2c36e6879c1788da92bbd4579b4ab405169d22752b3fb213d9
+.git/objects/60/c29fef71861686a41e32dde56635cad11bf5dd,,,,4f50bc910b60ed9eb916325506249067b45f99fe44706eb5ba654774da263e3b
+.git/objects/60/29f736df2753f96bdceb0c3d35b9c680d129bd,,,,332a8db4cbd0bb31df8805e1321b498ab96da18e45cb195fc72631a72664ca3c
+.git/objects/60/9fc920967d9a55cf9731f8685d4b9a0a485a6b,,,,59ea7cfc461a453a59651bf503d9cd3ed55ed86284262713ced6fadba107065e
+.git/objects/1b/fd56d31dff39528f60f0ed07789a49aad42a4d,,,,c24da5a4250e08cc5bd2fc0ee0227078e0c7d048c5725eec2d8058f7c0bb5b1e
+.git/objects/5a/4579bb8e1aac13327caf1af5698503fa2ff202,,,,a9dc1e4a9131c95cbb4e1775313edeeff7096dad82fbbe832db2fbaf6ba0681e
+.git/objects/0a/af869c5ef75fe9df653ac2f95c9f010aabaf4a,,,,552961ac9ad358d055bad7ea4c117f6c85f1a339423b9efd43fadb5e9e68a4f5
+.git/objects/b2/bc049e8ab065d33cc2f957db625895801963cb,,,,fac7863849d189c04d9f680dbd713624b6038b5c074e014952996122d6cf6efd
+.git/objects/72/9b3401bc3768cf2ae3b0e6991dabf6b0b6097d,,,,7c473197a210be651d573b10459465911995ded453f1484951d0e7906fd5821e
+.git/objects/66/17bce7812cfb0a7609534d080b9ec1983666cb,,,,a5ec3a5ba743842f5ec89cbf218b259b6ffc6be24fe60a825e48e372bcef9afb
+.git/objects/d5/3796d0bd8b95f9ff250867061a6e4cbb7f7656,,,,fc92db0775b87337cfe192004bf267bb78428672940f9c536cf77a4e186d7b41
+.git/objects/d5/1c5b8db7bb5f08ae149e3e3c0ec0db35f17625,,,,72917712c2889660c21baa654f07e88a27506c920093b7168d73126e9bc680f6
+.git/objects/d5/d42a6eec17d68a2f77270579c70790192bc72a,,,,3f9fd0301f303a962b2ca74490c1ae824d4f1681d554bb653c586b0d6ee60b1b
+.git/objects/ca/0f163898856bfb4be06b4177eedaa086616c4b,,,,74dc325b36e17835ac8249ca4f6a5bbbb0e9b759c830734f04b0c1c788aa4183
+.git/objects/4c/6f9e45f5f0ef6edae52a6eec5892159b809ba7,,,,b3f954cce8f1b9a991a2e629946850d40c0b86d69daa4c7217586a1db823e4ba
+.git/objects/4c/73093b753a37a2dea15587700d8f119a575068,,,,15db6bda9364d159b9964683edda6e5fc16b500d5c8b9f75546a415e2ee27f1d
+.git/objects/08/65707625614589cb1cf730fc537acbd3958223,,,,d91e8853e769e7f7350262db5eb699515ab6e87fc9699286df1a05422bdf0971
+.git/objects/f6/4a70b341b2914041eb89f77a5980ac99a999df,,,,1721d7c137eb59cec3e96666a7bd56f6ffcdd2a9039441104778724a9ef0e3c8
+.git/objects/c6/ca49d0c6c74847825adbdaec807650b67ddd27,,,,6ef9943b23fa9c552ccaf8966b1f1a90564ec600eba3d79e92f9feb1195f8702
+.git/objects/c6/c4b83edd9a4d39ff73f4944e6eb1760db9af4e,,,,64008ae47ff7e8a2672ee38b490e6cbe0282a8b7b935bbc5a8e5b45839b8d668
+.git/objects/7a/7aa9e085c8a438f1a6af5c8850a16210c7b65b,,,,65a238f9f383e0beb93a59bc4ac25cadb703ec74757f98c7a10208e75e992765
+.git/objects/0b/762f005013e9221031694389aafb506fd37fcc,,,,cd9038619e84a37d71d8bfcf6b146ddd7fccc039d7e4ed07737c2c713c778f0c
+.git/objects/0d/da48814a8ce0c1d2c6f40ae1da3f9254eb77af,,,,77ce039287623087d9dbebea9ef59ca527a5e2739e81bdbad034638cc7bbb150
+.git/objects/56/540091f6bec6a85fbf7cc2526fb56b0fb15d02,,,,3d894f5760ab2c163cba82cd1fa0621e77bdbad32e51617d00ca20af1994787b
+.git/objects/5e/065bbdfbb3156d8ad1e9f46b858b4d98c00e23,,,,bf874d460775c4b81fec6e18ba1c3e8753f0a64e1c38cc5fd946f1f5aa9b91a8
+.git/objects/d6/4159cfd326a43134889bfe7b01e2db5cec0b0b,,,,f9f720078732b70d3d1d644295d1a82eee22500e2a3174497e61cc7313f05b3d
+.git/objects/51/76608512015b18e67fcb5b643f39932eff4e57,,,,cc30353a1ea30b00b34386d87d4d031da4be762f4529888df08a19066f05f2c4
+.git/objects/69/4e40baa50a40419a95d6d655a134b2314180ce,,,,2c223df62c7bbe219fbafbf6729cbbe2b21774e9c3c83f03643286264c852bab
+.git/objects/f2/4d407ac2a724d036b14f336cc9b32ad48fd085,,,,5c3a3263dfe2d56f876a40307b50f9411d5eb2b16c8a7d681531672855ae138d
+.git/objects/55/8efb39a8ef19be391a40e3c89c0857be1bb1e4,,,,9a8160235f4eef8fe6be74aa8ab25e76642a7415f625bf8fc6de3e28b6d18845
+.git/objects/7c/52927b6e6ab56fc372dd6eb389d92a5e38fa5f,,,,1d37f6a6a085d73e4fcc9421ea8c3cef3a0b42889b4c822d0f8d9b32030cb608
+.git/objects/da/1d31515e7026e3cd060509714bca5ecc914118,,,,7070ce60c901a11fad6b512bc757f8f3e5d0ee27bfdc4f5a4a8dc0948f8ceba2
+.git/objects/da/bb4926931cff6342cc2921a45f1e261cbf148c,,,,0a0ff4845328b12a1e2b0e19af2aee42c6328c2b63413bed6bdb4b2818763724
+.git/objects/85/43467984d73906253e6cbe85d483ec7ea9bc19,,,,f7848ca06899f6243eac6dd16661b22adaeab84ff7f0c0786b0ca62d2868eefe
+.git/objects/85/82b6752ca54156f4faeb5cef2f0ac808f3c3af,,,,8e0df9ab50675b540fe01850843fdf21231d23c1d91159844a8408491a1c1980
+.git/objects/85/fd225d4b33ad2b46c1e22e781402d28f062d03,,,,06419bf8ddcda44cfbe9e375a192ab9fc95e6e2b9d3b1e01318b8f14ec414662
+.git/objects/9f/23d5925759e22ea5a6dc9690d32e3c0d585893,,,,d03760be0fdd3ce3b300d47fe0a854e4658aea26d0eb0a6bf21eb6296c04864e
+.git/objects/a7/5c830318b1637347e0f83f0d40f6a10ba05162,,,,e7fba21d7bda87ea9f3827362cb1f2ea7bb7f7a7c1734d51a95a0f456e03424f
+.git/objects/fb/b54621a0128544bcc6687f70c79aaf3696e466,,,,7760930b8f99b8e3cba4abbe03ea517fe104630fa468024202180f7e4bd7af38
+.git/objects/fb/5c3784215c89d8ca929041416d1f96323cfc23,,,,4ff2f53b0a3d24411a090139693ad0ca9a721b6caf5d2e7757365c0602ce1726
+.git/objects/88/7f8cd68514810ca50860cfda9b7700afabcb4c,,,,12275822f2f417d553881dcac44006a116ac5f28e11f62a511a722ef553f3e0c
+.git/objects/9a/1e03386c73a4b633e49536e3a77166e03bd0f8,,,,8ba0b494ae5ac758e72009ea17b7f6d37cabf2418ad39292fda351edee2d87cf
+.git/objects/d8/2f7c7119e00067174df7db7b37dbcb34af18d9,,,,e461e4a27dc215e6c16d4bf2fe651de4b817461ef8af0c91d765015dca543d8b
+.git/objects/d8/4d7546d812e063ba29a42625dfe612e833702c,,,,b3a47a0b1fe9ae5a72904fc5a3fdb5404d0e8c3bf6b5561c00ad9edae967c7d2
+.git/objects/f9/d5aa2a5c41efcfd38a62d7be9d5bd47289d508,,,,d8a7de6cf2a2d47e3eda583e95db4fffa907635695a05ef60a029afb01adb6aa
+.git/objects/f9/be1631e07e477d55baa479751d35227ada326c,,,,3d7260e57e772db7d89b1c5fb13aea7b45659691b2025f4a8fc492e62690ec81
+.git/objects/f9/e6625b768238810a1117728e9ec08c94869423,,,,47901a58c540140729fd97c2c675c3220ed99ff1a1c5c282c8b8f19d44fb0686
+.git/objects/2f/e4c8aa82dfbcda50cea8547e08da80d95c52a4,,,,0bd333933347043f00b61b29112c12fbe2db2a0e563e6e9736dccd3e8ed1fdac
+.git/objects/f4/abce4f34390aa891a0f4d1dd4a1f7c0654f9d4,,,,327c5adaea280b6bdca7fc62b4129055fa2217d43aaa7cb29eab929e1de80360
+.git/objects/3c/b1c7f04b207c55063e0e70ff2a6b33bcebe895,,,,cef8ce1c40744dfbf9a6f1b91830cd1447f408333d183aa260bb45b0aa4ff8f4
+.git/objects/5c/9b6728d61cb634e841995e7e236a58b6bdca77,,,,eacfd021e2c3a500938bf5eed7042feadfa256400110262284e36dfbb4941796
+.git/objects/5c/2b1e9aa534b48c9fabe5ecc97dc3549e9505f5,,,,b6b458f16463d1f8ae5dffdc0ee78bb40a3669e190713c6c2c0a28400405b3a3
+.git/objects/6c/767c944d900b9ba5cfc6716051179055592fc7,,,,63ad48d4e2a1f92166d773c0274eee45e38b26b56e55dc65790b939de6743e4e
+.git/objects/99/87e5e5301779e27ed69863511f3838730429c2,,,,549081055c659450b0f35d933d461d72d2a8bfbd833a0ce7b3515fe8f0ce6e03
+.git/objects/e1/3a90e925efe799a45c11442b9b92130f369e4f,,,,6911604c1cb9874a21a67e6e6f8fb987185cd3c637e687604f3ee73a1eb68d4b
+.git/objects/97/853926d5ae540ab7be245051cb23c273190bd4,,,,926e6b3e2b2bfcc6b3520c2255dde0b1be56eeee5d3bc565e86d6fb5b1150e08
+.git/objects/97/17f8ed8c76260ec5109e607c6ae12739686085,,,,b86a0d4048b3edd8f6cd7dd7a5a4755c9c8cfb7d002c6626611b43a75c1e5330
+.git/objects/5d/ffd9313bec90aaf23f7b6eb7673f98c6a030a6,,,,ec7b17a1b3dd3f44dfc1eb7611c26c8d5a61b1ca155a8cb38cf5cf45755cc832
+.git/objects/7d/e0895a73d84c610e993f2569c27c2c03ab0448,,,,f911ec5ed3b27ea841474c2a6bb94adb521b34759eb840fe12c95f096a7cf1af
+.git/objects/7d/1cc129e60315ff57d640ec75b0623a98b10ea6,,,,dd9d3530123d3f01d8e04df3f153c1f2facf246c7b609454cab71bab1609ce38
+.git/objects/65/a7ae78d6f4d950cd5ac98cb5d53ff48352ead3,,,,624f1790f389bb8c2bc0ba6df86a40e6dfe83e3e8a6cc4c1e6d333ca4d1e8b93
+.git/objects/ac/f885d13a75be053f30aeb0b6197445542bb952,,,,953d2b1afe121bb601faeb9dbb1ab909ad4d4ec36c27d1e160910bf78a1e1087
+.git/objects/3e/6fd4951fba32d8cc02501551aab6669236fcf7,,,,3581cdfa22d12f44d16ca5997ba59365c6aea0822090e09643a040ec8e3121a4
+.git/objects/db/e5f6b8f97bde9c0dbd00453b9d7f6ac7581216,,,,8ad78ffd94051702a8c6b429e5159021590b20dfd876b6e3c6082b8f967657ff
+.git/objects/db/642cd85973bd54c31cd26bac69e14c3b80acce,,,,c0d12ff59c025444164c3639cf72bda5fb5e49bc375157f6a684318efbba9ebc
+.git/objects/92/9727e77cbe361285ce25b3d4c6141141b998f7,,,,e0f0f479329eb1e4c400c8703718cc1dac9e90564fd202fa1182b8318bb474a4
+.git/objects/92/a0b28b593f55e69fb9291af0d590156578ceb8,,,,389f7e357dad0b20b9b899640095f414d6376b12af75068396b2cecf403819b3
+.git/objects/ed/5ff615edb160d3969065df8748e8e556eef896,,,,e3a6139d371288e424f8de80c73bf64b5826f85bb7cbfcc3bd136f5eb4c7104b
+.git/objects/8d/d692bfb21bc5b9c40e4c7b381a42e64de65cd0,,,,36da4e6ded0e5b6cf4e0d8a7b9a6f4131d61d8757f32539bf2c8f151dc8746d5
+.git/objects/d2/ab09e0ec7ca553980d1f9eb15641ccb00d753d,,,,22cae39758acfcf1bb16a33e23dbbb3b874a39c90f4a7a837839cd365656ba72
+.git/objects/ec/c5daece386c87f03799f147bd9130623cf868e,,,,042a34b5bd4907b5730e2f01c6c24e0d471d575a9d1b3e60a5ca1ee254be5458
+.git/objects/31/3f665135434571a6800de5f1a98f32d9c14e8e,,,,5dc4cceb03d8c0959385a59cf4b615881e8af2c39841095765bc6ff4dd13313e
+.git/objects/c2/629d0732e95de95f4772d80615161537003dc3,,,,c7245434ac5f20cc50027a96cb663164e1aef8a3d614082f8c04786b802a7b1d
+.git/objects/a8/72b8e6ba1c6bea20481abf2ca65747484f027a,,,,d22f49ffa82f6f6a325685a6857b2c8add565c3e283e307e498951673fb8ff3b
+.git/objects/f8/4afec6a1058f52414535282586a6a284b99491,,,,d46b27849396dbe7d568eb6c0d34e72409e62672e8b36939838b2b8d861b14ce
+.git/objects/8f/961b07cc6dffbdb844bcc1651f7cc4191df531,,,,1085765b5df22d6d55344889963e17ff671b01bea2a802fe7f8e7ea49c38b243
+.git/objects/e4/b1fea8e9702a78bd2d0e55f37ccfd595da29da,,,,50f4966c9fca74b671b8a5c7d76c3ae86e979d9eacae30095b362793ed70f1f7
+.git/objects/76/86f37aa92e1c3c317e1ffffe1b8210220445b9,,,,2d39c32537bd751776737d062403de4ad4a933c69fa2e99eee2b2dd2453062c7
+TEMPLATES_GENERALIZED/protocol_template.md,protocol,protocol;process,process,79cb6b597b70da190ae332cd4c7706b73fdadc42d8d38d6c62e4809e4b9644e7
+TEMPLATES_GENERALIZED/entity_profile_template.md,,protocol;process,process;protocol,635bc683c3add5922330fb7ed20af909c8c39800e2aab4fee8caae235123ed1e
+TEMPLATES_GENERALIZED/project_template.md,,,,3a33893d5d290b3aeb4d8ade1749114f5b727f3a759601b8777c37b3cca9a39b
+TEMPLATES_GENERALIZED/system_component_template.md,,protocol;process,process;protocol,72171e325a04688feb2625dd9152e8d1266eea3b96f9995db9abba85fea5232d
+TEMPLATES_GENERALIZED/GENERALIZATION_SUMMARY.md,,protocol;SOP;process;naming,SOP;naming;process;protocol,6b6faa8905d71badeb586a34ffed709cb62bba4e1bb35bb4c274eb7a34e781a7
+TEMPLATES_GENERALIZED/README.md,,protocol;SOP;process,SOP;process;protocol,4b08ac7a79b73acbb17c3e5dd2be711df3bd88068e1d0bc60802e4f51794be76
+TEMPLATES_GENERALIZED/workflow_template.md,,process,process,c82b54903f67bae9b1a07af70c34a801c020cc90fb5a95ce996830fbb13f0f77
+TEMPLATES_GENERALIZED/sop_template.md,SOP,SOP;process,process,47afd79c7af509e1d091d06eb7c9ef6229c59af436bf240b2d65e0a6430a3cf5
+TEMPLATES_GENERALIZED/USAGE_EXAMPLES.md,,SOP;process;naming,SOP;naming;process,c5c47a5e72862ab6869c7f9d85300584a10883693513ffbba7f2bd4f05e2734b
+TEMPLATES_GENERALIZED/note_template.md,,,,ca4de5dc0074845a9f2093d484b82071d4714cd142cbfb51ee8c79464eb7d82f
+TEMPLATES_GENERALIZED/checklist_template.md,,,,18160fe44efaec2e8309345b91ebb0edc49a85131e6f9590ebeb9b86e51998f3
+TEMPLATES_GENERALIZED/meeting_notes_template.md,,,,d4960c1228648ccf49abb329546a5f8bbe3cc33bd15ad9a261ac7f42d9a75ef2
+TEMPLATES_GENERALIZED/script_template.md,,protocol,protocol,083afcd7fbc80d975728d36820e24a21a73c64647ce93a00c4a0fa6b93f350d8
+TEMPLATES_GENERALIZED/naming_conventions.md,naming,protocol;SOP;process;naming,SOP;process;protocol,41123093a91792d0f6ecff0bdf2a4261b748fc0e6f604a6be32195c5f7bf5321
