@@ -1,14 +1,13 @@
 ---
-uniqueID: '04'
+uniqueID: "04"
 title: 4_S0VRC3
 tags:
-- protocol
-- template
-- digest
-- system
-- thread
+  - protocol
+  - template
+  - digest
+  - system
+  - thread
 ---
-
 
 # 4_S0VRC3
 
@@ -17,6 +16,7 @@ It serves as the master database for all generated, archived, and active content
 All writing, protocols, myths, digests, and documents begin or pass through this vault.
 
 ## 🔍 Meaning
+
 "4_S0VRC3" is read as “A Source.”
 It is both a symbolic node and a practical sandbox.
 
@@ -26,6 +26,7 @@ It is both a symbolic node and a practical sandbox.
 ## 📦 Contents
 
 ### Core System Folders
+
 - `REGEOS_RG01/` — Recursive Generative Operating System logic and protocols
 - `ARCHIVE_RK01/` — Long-term archival storage and symbolic lifeforce records
 - `MIRROR_MR01/` — Shadow self, reflection, and inner critic materials
@@ -34,6 +35,7 @@ It is both a symbolic node and a practical sandbox.
 - `SYSTEM_MAP_SM01/` — System architecture and navigation maps
 
 ### Project and Documentation
+
 - `ARCHIVAL_STACK/` — Project thread digests and processed conversations
 - `DOCUMENTATION/` — Vault guides, system documentation, and structural notes
 - `PROJECT_MANAGEMENT/` — Manifests, changelogs, and system core files
@@ -41,9 +43,11 @@ It is both a symbolic node and a practical sandbox.
 - `Users/` — User-specific content and personal materials
 
 ### Active Files
+
 - Various project and analysis documents in development
 
 ## 📂 Organization
+
 - `DOCUMENTATION/root_overview.md` — quick index of organizational files
 - `DOCUMENTATION/folder_map.md` — canonical vault tree
 - `CATALOGS_AND_INDEXES/FOLDER_CATALOG_FINAL.md` — UID list of major folders
@@ -57,7 +61,9 @@ It is both a symbolic node and a practical sandbox.
 - `PROJECT_MANAGEMENT/COMPLETION_SUMMARY.md` — current progress overview
 
 ## 💬 Community
+
 Join our [GitHub Discussions](https://github.com/4-b100m/4_S0VRC3/discussions) to:
+
 - Ask questions about the system and creative processes
 - Share ideas for new projects and workflows
 - Collaborate on specific projects (PR01-PR19)
@@ -67,9 +73,11 @@ Join our [GitHub Discussions](https://github.com/4-b100m/4_S0VRC3/discussions) t
 See [DISCUSSIONS.md](DISCUSSIONS.md) for more details and [community guidelines](.github/COMMUNITY_GUIDELINES.md).
 
 ## 🤖 Commit Agent
+
 Automation support lives in [`scripts/commit_agent.py`](scripts/commit_agent.py) and the workflow [`./.github/workflows/commit-agent.yml`](.github/workflows/commit-agent.yml).
 Run `python scripts/commit_agent.py` to review commit messages, or `python scripts/commit_agent.py --merge <source> <target>` to perform a guarded local merge.
 
 ## 🔒 Status
+
 Naming logic frozen as of `2025-05-04`
 Vault version: `v1.0`
