@@ -9,6 +9,10 @@ import shutil
 import textwrap
 import pprint
 import re
+import sys
+import time
+import threading
+import itertools
 from typing import Any
 
 
@@ -135,3 +139,39 @@ def print_header(title: str, subtitle: str = None, color: str = None):
     if subtitle:
         print(f" {subtitle.center(width - 2)}")
     print(f"{c_start}{'=' * width}{c_end}\n")
+
+
+class Spinner:
+    """A context manager that displays a spinner animation."""
+
+    def __init__(self, message: str = "Loading...", delay: float = 0.1):
+        self.message = message
+        self.delay = delay
+        self.stop_running = False
+        self.spinner_thread = None
+
+    def spin(self):
+        spinner_chars = itertools.cycle(["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"])
+        while not self.stop_running:
+            sys.stdout.write(f"\r{next(spinner_chars)} {self.message}")
+            sys.stdout.flush()
+            time.sleep(self.delay)
+
+    def __enter__(self):
+        self.start()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.stop()
+
+    def start(self):
+        self.stop_running = False
+        self.spinner_thread = threading.Thread(target=self.spin)
+        self.spinner_thread.start()
+
+    def stop(self):
+        self.stop_running = True
+        if self.spinner_thread:
+            self.spinner_thread.join()
+        sys.stdout.write("\r" + " " * (len(self.message) + 2) + "\r")
+        sys.stdout.flush()

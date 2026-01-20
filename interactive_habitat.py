@@ -105,7 +105,9 @@ class InteractiveHabitat(cmd.Cmd):
             "recursive_depth_limit": 5,
         }
 
-        habitat.spawn_experiment(experiment, containment_rules)
+        with habitat_ux.Spinner(f"Spawning experiment '{safe_name}'..."):
+            habitat.spawn_experiment(experiment, containment_rules)
+
         habitat_ux.print_card(
             f"Spawned Experiment: {safe_name}",
             {
@@ -133,7 +135,9 @@ class InteractiveHabitat(cmd.Cmd):
         habitat = self.habitats[self.current_habitat]
 
         try:
-            result = habitat.run_experiment(arg)
+            with habitat_ux.Spinner(f"Running experiment '{safe_arg}'..."):
+                result = habitat.run_experiment(arg)
+
             print(
                 f"{Colors.GREEN}✅ Experiment '{safe_arg}' completed successfully{Colors.RESET}"
             )

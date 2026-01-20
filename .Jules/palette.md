@@ -5,3 +5,7 @@
 ## 2026-01-17 - The Cost of Hardcoded Strings
 **Learning:** Hardcoded "intro" strings in Python's `cmd` module limit dynamic styling opportunities (like ANSI colors).
 **Action:** Use the `preloop` hook to render dynamic, styled headers instead of relying on the static `intro` attribute.
+
+## 2026-01-20 - Feedback for Blocking Operations
+**Learning:** CLI tools often lack feedback during synchronous blocking operations (like spawning or running experiments), leaving users uncertain if the process is hung.
+**Action:** Implement a `Spinner` context manager for all blocking operations > 500ms to provide immediate visual reassurance that work is proceeding.

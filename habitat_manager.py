@@ -117,7 +117,9 @@ class HabitatManager:
 
         # Spawn in main habitat
         habitat = self.habitats["main"]
-        exp_data = habitat.spawn_experiment(experiment, containment_rules)
+
+        with habitat_ux.Spinner(f"Spawning experiment '{safe_name}'..."):
+            exp_data = habitat.spawn_experiment(experiment, containment_rules)
 
         habitat_ux.print_card(
             f"Spawned Experiment: {safe_name}",
@@ -152,7 +154,8 @@ class HabitatManager:
         )
 
         try:
-            result = habitat.run_experiment(name)
+            with habitat_ux.Spinner(f"Running experiment '{safe_name}'..."):
+                result = habitat.run_experiment(name)
             print(
                 f"{Colors.GREEN}✅ Experiment '{safe_name}' completed successfully{Colors.RESET}"
             )
