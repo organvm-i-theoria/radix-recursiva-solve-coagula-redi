@@ -1,4 +1,5 @@
 # ENVIRONMENT MANIFEST
+
 **INTERNAL_ENV_ONLY** - This document is for internal use within 4_S0VRC3 environment only.
 
 ## Repository Metadata
@@ -7,7 +8,7 @@
 **Non-Export Policy**: All content, styles, conventions, and experimental rules within this environment are strictly internal and must not be propagated to external repositories without formal promotion approval.  
 **Internal Prefix**: ENV  
 **Stability**: Experimental  
-**Ownership**: 4_S0VRC3 maintainers  
+**Ownership**: 4_S0VRC3 maintainers
 
 ## Description
 
@@ -23,6 +24,7 @@ This repository serves as a contained experimental environment for developing an
 ## Containment Enforcement
 
 This environment uses automated validation to ensure containment:
+
 - Internal-only banners required on all policy and documentation files
 - Scanning for prohibited global phrases that could lead to unintended propagation
 - Registry of internal-only style and code rules with ENV namespace
@@ -32,3 +34,14 @@ This environment uses automated validation to ensure containment:
 - [Containment Policy](docs/policies/CONTAINMENT_POLICY.md)
 - [Promotion Playbook](docs/policies/PROMOTION_PLAYBOOK.md)
 - [Style Registry](style.registry.yml)
+
+## GitHub MCP Server (VS Code)
+
+If you use the GitHub MCP server (`github/github-mcp-server`) via VS Code, it will fail to start unless the environment variable below is set:
+
+- `GITHUB_PERSONAL_ACCESS_TOKEN`
+
+Notes:
+
+- We provide `.env.example` as a template and a local `.env` file can be used for convenience, but the VS Code MCP extension runs the server in its own process and may require you to expose the variable via your devcontainer/Codespaces/host environment.
+- Use a Fine-grained PAT scoped to this repository (and organization if needed), or a Classic PAT with `repo` (and optionally `read:org`).
