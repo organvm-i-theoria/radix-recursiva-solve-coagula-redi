@@ -16,6 +16,15 @@ _ANSI_CSI_RE = re.compile(r"\x1B\[[0-?]*[ -/]*[@-~]")
 _ANSI_OSC_RE = re.compile(r"\x1B\].*?(?:\x07|\x1B\\)", re.DOTALL)
 _ANSI_ESC_RE = re.compile(r"\x1B[@-Z\\-_]")
 
+# Build translation tables to remove control characters.
+# Base: removes 0x00-0x1F and 0x7F.
+_TRANS_REMOVE_ALL = dict.fromkeys(range(32))
+_TRANS_REMOVE_ALL[127] = None  # Remove DEL
+
+# Keep Newlines: same as base but preserves 0x0A (\n).
+_TRANS_KEEP_NL = _TRANS_REMOVE_ALL.copy()
+del _TRANS_KEEP_NL[10]
+
 
 def strip_ansi(text: str) -> str:
     """Remove ANSI escape sequences from a string.
@@ -48,17 +57,12 @@ def sanitize_for_terminal(value: Any, *, keep_newlines: bool = False) -> str:
 
     text = strip_ansi(text)
 
-    # Drop remaining control chars (keep \n only if requested).
-    out_chars = []
-    for ch in text:
-        o = ord(ch)
-        if keep_newlines and ch == "\n":
-            out_chars.append(ch)
-            continue
-        if o < 0x20 or o == 0x7F:
-            continue
-        out_chars.append(ch)
-    return "".join(out_chars)
+    # Drop remaining control chars.
+    # Uses translation table for O(n) -> O(1) mostly (in Python terms)
+    # We use explicit tables to ensure 'keep_newlines' is respected even if
+    # earlier replacements missed something (defense in depth).
+    table = _TRANS_KEEP_NL if keep_newlines else _TRANS_REMOVE_ALL
+    return text.translate(table)
 
 
 class Colors:
