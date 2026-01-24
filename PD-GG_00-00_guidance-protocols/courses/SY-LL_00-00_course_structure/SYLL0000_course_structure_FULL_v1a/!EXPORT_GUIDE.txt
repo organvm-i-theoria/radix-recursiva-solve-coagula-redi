@@ -1,0 +1,3 @@
+# !EXPORT_GUIDE.txt
+
+How to prepare and zip files for LMS upload or archiving.

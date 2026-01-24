@@ -1,0 +1,34 @@
+# .zshrc_template
+# RE:GE_OS Terminal Profile
+# Version: v1a — 2025-05-13
+# UID: ZSHRC_TMPL_001
+
+# 🌱 Welcome to RE:GE_OS
+echo "🌱 Welcome to RE:GE_OS [$(date '+%Y-%m-%d')] :: Terminal-Mode Active"
+
+# === ENVIRONMENT SETUP ===
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+# === ALIASES ===
+alias ll='eza -l'
+alias la='eza -la'
+alias gs='git status'
+alias gd='git diff'
+alias pycheck="ps aux | grep '[p]ython' | grep -v vscode | grep -v cursor | grep -v dropbox"
+
+# === SHELL UI SETTINGS ===
+export ZSH_THEME="agnoster"
+plugins=(git pip zoxide)
+
+# === OH-MY-ZSH LOAD ===
+[ -f $HOME/.oh-my-zsh/oh-my-zsh.sh ] && source $HOME/.oh-my-zsh/oh-my-zsh.sh
+
+# === PROJECT AWARENESS ===
+if [ -f "pyproject.toml" ]; then
+  echo "📦 Poetry project detected — activating shell"
+  poetry shell
+fi
