@@ -12,7 +12,6 @@ additional isolation and structure for safe experimentation.
 import json
 import os
 import re
-import subprocess
 import tempfile
 import time
 import re
@@ -174,6 +173,7 @@ class ExperimentalHabitat:
     """Main habitat for containing experimental systems"""
     
     def __init__(self, name: str, isolation_level: int = 3):
+        self._validate_name(name)
         self.name = name
         self.isolation_level = isolation_level
         self.active_experiments: Dict[str, Any] = {}
@@ -184,7 +184,8 @@ class ExperimentalHabitat:
         self.temp_dir = tempfile.mkdtemp(prefix=f"habitat_{name}_")
         logger.info(f"Habitat {name} established at {self.temp_dir}")
         
-    def _validate_name(self, name: str) -> None:
+    @staticmethod
+    def _validate_name(name: str) -> None:
         """Validate that the name contains only safe characters"""
         if not re.match(r'^[a-zA-Z0-9_-]+$', name):
             raise ValueError(f"Invalid name '{name}'. Only alphanumeric characters, underscores, and hyphens are allowed.")
