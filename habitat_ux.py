@@ -9,6 +9,9 @@ import shutil
 import textwrap
 import pprint
 import re
+import sys
+import threading
+import time
 from typing import Any
 
 
@@ -75,6 +78,41 @@ class Colors:
     RESET = "\033[0m"
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
+
+
+class Spinner:
+    """A context manager that displays a spinner animation."""
+
+    def __init__(self, message: str = "Loading...", delay: float = 0.1):
+        self.spinner = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        self.message = message
+        self.delay = delay
+        self.stop_running = threading.Event()
+        self.spin_thread = None
+
+    def spin(self):
+        while not self.stop_running.is_set():
+            for frame in self.spinner:
+                if self.stop_running.is_set():
+                    break
+                # Use standard carriage return to overwrite line
+                sys.stdout.write(f"\r{Colors.CYAN}{frame}{Colors.RESET} {self.message}")
+                sys.stdout.flush()
+                time.sleep(self.delay)
+
+    def __enter__(self):
+        self.stop_running.clear()
+        self.spin_thread = threading.Thread(target=self.spin)
+        self.spin_thread.start()
+        return self
+
+    def __exit__(self, exc_type, exc_value, exc_traceback):
+        self.stop_running.set()
+        if self.spin_thread:
+            self.spin_thread.join()
+        # Clear the line
+        sys.stdout.write("\r" + " " * (len(self.message) + 2) + "\r")
+        sys.stdout.flush()
 
 
 def get_terminal_width():

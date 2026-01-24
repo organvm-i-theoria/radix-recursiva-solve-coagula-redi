@@ -117,7 +117,9 @@ class HabitatManager:
 
         # Spawn in main habitat
         habitat = self.habitats["main"]
-        exp_data = habitat.spawn_experiment(experiment, containment_rules)
+
+        with habitat_ux.Spinner(f"Spawning experiment '{safe_name}'..."):
+            exp_data = habitat.spawn_experiment(experiment, containment_rules)
 
         habitat_ux.print_card(
             f"Spawned Experiment: {safe_name}",
@@ -130,12 +132,6 @@ class HabitatManager:
             icon="🧪",
             color=Colors.GREEN,
         )
-        print(
-            f"{Colors.GREEN}🧪 Spawned experiment '{Colors.BOLD}{safe_name}{Colors.RESET}{Colors.GREEN}' in habitat '{habitat.name}'{Colors.RESET}"
-        )
-        print(f"   Hypothesis: {safe_hypothesis}")
-        print(f"   Containment Level: {habitat.isolation_level}")
-        print(f"   Boundary: {experiment.boundary.get_full_path()}")
 
         return exp_data
 
@@ -152,17 +148,29 @@ class HabitatManager:
         )
 
         try:
-            result = habitat.run_experiment(name)
+            with habitat_ux.Spinner(f"Running experiment '{safe_name}'..."):
+                result = habitat.run_experiment(name)
+
             print(
                 f"{Colors.GREEN}✅ Experiment '{safe_name}' completed successfully{Colors.RESET}"
             )
-            print(f"{Colors.HEADER}Result summary:{Colors.RESET}")
+
+            # Use card for result summary
+            summary_data = {}
             if isinstance(result, dict):
                 for key, value in result.items():
-                    if key != "nested":  # Don't print nested recursion
-                        print(f"   {Colors.CYAN}{key}:{Colors.RESET} {value}")
+                    if key != "nested":
+                        summary_data[key] = value
             else:
-                print(f"   {result}")
+                summary_data["Result"] = result
+
+            habitat_ux.print_card(
+                f"Result: {safe_name}",
+                summary_data,
+                icon="📊",
+                color=Colors.GREEN
+            )
+
             return result
         except Exception as e:
             safe_err = habitat_ux.sanitize_for_terminal(e)
@@ -417,29 +425,6 @@ class HabitatManager:
 
     def list_habitats(self):
         """List all active habitats"""
-        print(f"{Colors.HEADER}🏠 Active Habitats:{Colors.RESET}")
-        print("=" * 50)
-
-        for key, habitat in self.habitats.items():
-            status = habitat.get_habitat_status(include_boundaries=False)
-            print(f"{Colors.BOLD}📍 {key} ({habitat.name}){Colors.RESET}")
-            print(
-                f"   {Colors.CYAN}Isolation Level:{Colors.RESET} {status['isolation_level']}"
-            )
-            print(
-                f"   {Colors.CYAN}Nesting Depth:{Colors.RESET} {status['nesting_depth']}"
-            )
-            print(
-                f"   {Colors.CYAN}Active Experiments:{Colors.RESET} {status['active_experiments']}"
-            )
-            print(
-                f"   {Colors.CYAN}Graduated Patterns:{Colors.RESET} {status['graduated_patterns']}"
-            )
-            print(
-                f"   {Colors.CYAN}Failed Experiments:{Colors.RESET} {status['failed_experiments']}"
-            )
-            print(f"   {Colors.CYAN}Workspace:{Colors.RESET} {status['workspace']}")
-            print()
         habitat_ux.print_header("Active Habitats", color=Colors.HEADER)
 
         for key, habitat in self.habitats.items():
@@ -456,21 +441,6 @@ class HabitatManager:
             habitat_ux.print_card(
                 f"Habitat: {key}", display_status, icon="📍", color=Colors.CYAN
             )
-        print("🏠 Active Habitats:")
-        print("=" * 60)
-        print(f"{'KEY':<20} {'NAME':<20} {'LVL':<5} {'ACTIVE':<7} {'WORKSPACE'}")
-        print("-" * 60)
-
-        for key, habitat in self.habitats.items():
-            status = habitat.get_habitat_status(include_boundaries=False)
-            workspace_short = status["workspace"]
-            if len(workspace_short) > 30:
-                workspace_short = "..." + workspace_short[-27:]
-
-            print(
-                f"{key:<20} {status['name']:<20} {status['isolation_level']:<5} {status['active_experiments']:<7} {workspace_short}"
-            )
-        print("=" * 60)
 
     def cleanup_all(self, force: bool = False):
         """Cleanup all habitats"""
