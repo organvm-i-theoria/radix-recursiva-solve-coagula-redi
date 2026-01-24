@@ -32,6 +32,11 @@ Thumbs.db
 /tmp/
 **/tmp/
 
+# Local tooling / editor history
+.venv/
+.history/
+.specstory/history/
+
 # Log files
 *.log
 
@@ -49,7 +54,9 @@ dist/
 build/
 
 # Editor files
-.vscode/
+.vscode/*
+!.vscode/
+!.vscode/mcp.json
 *.sublime-*
 
 # Backup files
@@ -109,3 +116,6 @@ RC-VK_*/
 
 # POV engagement directories (external)
 POV-ENGAGEMENT_*/
+
+# Generated cleanup artifacts
+branch_cleanup_delete_list_*.txt

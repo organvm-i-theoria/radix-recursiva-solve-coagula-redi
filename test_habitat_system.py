@@ -17,11 +17,12 @@ Or with pytest: pytest test_habitat_system.py -v
 
 import unittest
 import os
+import habitat_ux
 from experimental_habitat_implementation import (
     ExperimentalHabitat,
     ExperimentalSystem,
     RecursiveMythEngine,
-    ContainmentBoundary
+    ContainmentBoundary,
 )
 
 
@@ -82,6 +83,7 @@ class TestExperimentalSystem(unittest.TestCase):
 
     def test_experiment_run_failure(self):
         """Test experiment failure handling"""
+
         class FailingExperiment(ExperimentalSystem):
             def _execute_experiment(self):
                 raise ValueError("Test failure")
@@ -148,8 +150,8 @@ class TestExperimentalHabitat(unittest.TestCase):
         """Test spawning an experiment"""
         exp = ExperimentalSystem("test_exp", "Test hypothesis")
         containment = {
-            'resources': {'cpu': '50%', 'memory': '512M'},
-            'network_isolation': True
+            "resources": {"cpu": "50%", "memory": "512M"},
+            "network_isolation": True,
         }
 
         exp_data = self.habitat.spawn_experiment(exp, containment)
@@ -162,7 +164,7 @@ class TestExperimentalHabitat(unittest.TestCase):
     def test_run_experiment(self):
         """Test running a spawned experiment"""
         exp = ExperimentalSystem("test_exp", "Test hypothesis")
-        containment = {'resources': {}}
+        containment = {"resources": {}}
 
         self.habitat.spawn_experiment(exp, containment)
         result = self.habitat.run_experiment("test_exp")
@@ -180,7 +182,7 @@ class TestExperimentalHabitat(unittest.TestCase):
         """Test creating nested habitat"""
         # First spawn parent experiment
         parent_exp = ExperimentalSystem("parent_exp", "Parent")
-        self.habitat.spawn_experiment(parent_exp, {'resources': {}})
+        self.habitat.spawn_experiment(parent_exp, {"resources": {}})
 
         # Create nested habitat
         nested = self.habitat.nest_habitat("parent_exp", "sub_lab")
@@ -192,7 +194,7 @@ class TestExperimentalHabitat(unittest.TestCase):
     def test_graduate_experiment(self):
         """Test graduating successful experiment"""
         exp = ExperimentalSystem("test_exp", "Test hypothesis")
-        self.habitat.spawn_experiment(exp, {'resources': {}})
+        self.habitat.spawn_experiment(exp, {"resources": {}})
         self.habitat.run_experiment("test_exp")
 
         forge_package = self.habitat.graduate_to_forge("test_exp")
@@ -205,12 +207,13 @@ class TestExperimentalHabitat(unittest.TestCase):
 
     def test_contain_failure(self):
         """Test composting failed experiment"""
+
         class FailingExp(ExperimentalSystem):
             def _execute_experiment(self):
                 raise RuntimeError("Intentional failure")
 
         exp = FailingExp("failing_exp", "Will fail")
-        self.habitat.spawn_experiment(exp, {'resources': {}})
+        self.habitat.spawn_experiment(exp, {"resources": {}})
 
         try:
             self.habitat.run_experiment("failing_exp")
@@ -256,7 +259,7 @@ class TestIntegrationWorkflow(unittest.TestCase):
             # Spawn experiment
             exp = RecursiveMythEngine()
             exp.max_depth = 2
-            habitat.spawn_experiment(exp, {'resources': {}})
+            habitat.spawn_experiment(exp, {"resources": {}})
 
             # Run experiment
             result = habitat.run_experiment(exp.name)
@@ -281,14 +284,14 @@ class TestIntegrationWorkflow(unittest.TestCase):
         try:
             # Spawn parent experiment
             parent = ExperimentalSystem("parent", "Parent experiment")
-            main_hab.spawn_experiment(parent, {'resources': {}})
+            main_hab.spawn_experiment(parent, {"resources": {}})
 
             # Create nested habitat
             nested_hab = main_hab.nest_habitat("parent", "nested_lab")
 
             # Spawn nested experiment
             child = ExperimentalSystem("child", "Child experiment")
-            nested_hab.spawn_experiment(child, {'resources': {}})
+            nested_hab.spawn_experiment(child, {"resources": {}})
 
             # Run both
             main_hab.run_experiment("parent")
@@ -308,6 +311,25 @@ class TestIntegrationWorkflow(unittest.TestCase):
             main_hab.cleanup()
 
 
+class TestTerminalSanitization(unittest.TestCase):
+    """Tests for terminal/ANSI sanitization helpers."""
+
+    def test_strip_ansi_sequences(self):
+        text = "hello\x1b[31mred\x1b[0mworld"
+        self.assertEqual(habitat_ux.strip_ansi(text), "helloredworld")
+
+    def test_sanitize_removes_control_chars(self):
+        # Includes ESC + CSI clear screen, BEL, and a DEL.
+        text = "ok\x1b[2J\x07\x7f"
+        self.assertEqual(habitat_ux.sanitize_for_terminal(text), "ok")
+
+    def test_sanitize_normalizes_newlines(self):
+        text = "line1\nline2\r\nline3\tend"
+        self.assertEqual(
+            habitat_ux.sanitize_for_terminal(text), "line1\\nline2\\nline3\\tend"
+        )
+
+
 def run_tests():
     """Run all tests"""
     # Create test suite
@@ -320,6 +342,7 @@ def run_tests():
     suite.addTests(loader.loadTestsFromTestCase(TestRecursiveMythEngine))
     suite.addTests(loader.loadTestsFromTestCase(TestExperimentalHabitat))
     suite.addTests(loader.loadTestsFromTestCase(TestIntegrationWorkflow))
+    suite.addTests(loader.loadTestsFromTestCase(TestTerminalSanitization))
 
     # Run tests
     runner = unittest.TextTestRunner(verbosity=2)
@@ -331,4 +354,5 @@ def run_tests():
 
 if __name__ == "__main__":
     import sys
+
     sys.exit(run_tests())

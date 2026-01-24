@@ -13,18 +13,25 @@ Usage:
 import cmd
 import json
 import sys
-from experimental_habitat_implementation import ExperimentalHabitat, ExperimentalSystem, RecursiveMythEngine
+from experimental_habitat_implementation import (
+    ExperimentalHabitat,
+    ExperimentalSystem,
+    RecursiveMythEngine,
+)
 import habitat_ux
 
 # Use shared colors
 Colors = habitat_ux.Colors
 
+_LABEL_ISOLATION_LEVEL = "Isolation Level"
+_LABEL_NESTING_DEPTH = "Nesting Depth"
+
 
 class InteractiveHabitat(cmd.Cmd):
     """Interactive shell for habitat management"""
 
-    intro = ''  # Will be set in preloop to allow dynamic coloring
-    prompt = f'{Colors.BOLD}(habitat){Colors.RESET} '
+    intro = ""  # Will be set in preloop to allow dynamic coloring
+    prompt = f"{Colors.BOLD}(habitat){Colors.RESET} "
 
     def __init__(self):
         super().__init__()
@@ -36,8 +43,12 @@ class InteractiveHabitat(cmd.Cmd):
     def preloop(self):
         """Print the header before the loop starts"""
         habitat_ux.print_header("EXPERIMENTAL HABITAT", "Interactive Shell")
-        print(f"Type '{Colors.CYAN}help{Colors.RESET}' or '{Colors.CYAN}?{Colors.RESET}' to list commands.")
-        print(f"Type '{Colors.CYAN}quit{Colors.RESET}' or '{Colors.CYAN}exit{Colors.RESET}' to leave the shell.\n")
+        print(
+            f"Type '{Colors.CYAN}help{Colors.RESET}' or '{Colors.CYAN}?{Colors.RESET}' to list commands."
+        )
+        print(
+            f"Type '{Colors.CYAN}quit{Colors.RESET}' or '{Colors.CYAN}exit{Colors.RESET}' to leave the shell.\n"
+        )
 
     def _create_default_habitat(self):
         """Create the default main habitat"""
@@ -57,6 +68,7 @@ class InteractiveHabitat(cmd.Cmd):
             return
 
         name = args[0]
+        safe_name = habitat_ux.sanitize_for_terminal(name)
         exp_type = "recursive_myth"
         hypothesis = "Default experimental hypothesis"
 
@@ -68,10 +80,12 @@ class InteractiveHabitat(cmd.Cmd):
                 i += 2
             elif args[i] == "--hypothesis" and i + 1 < len(args):
                 # Join remaining args as hypothesis
-                hypothesis = " ".join(args[i + 1:])
+                hypothesis = " ".join(args[i + 1 :])
                 break
             else:
                 i += 1
+
+        safe_hypothesis = habitat_ux.sanitize_for_terminal(hypothesis)
 
         habitat = self.habitats[self.current_habitat]
 
@@ -85,23 +99,25 @@ class InteractiveHabitat(cmd.Cmd):
 
         # Spawn in habitat
         containment_rules = {
-            'resources': {'cpu': '50%', 'memory': '512M'},
-            'network_isolation': True,
-            'time_limit': 1800,
-            'recursive_depth_limit': 5
+            "resources": {"cpu": "50%", "memory": "512M"},
+            "network_isolation": True,
+            "time_limit": 1800,
+            "recursive_depth_limit": 5,
         }
 
         habitat.spawn_experiment(experiment, containment_rules)
         habitat_ux.print_card(
-            f"Spawned Experiment: {name}",
+            f"Spawned Experiment: {safe_name}",
             {
                 "Habitat": habitat.name,
-                "Hypothesis": hypothesis,
-                "Boundary": experiment.boundary.get_full_path()
+                "Hypothesis": safe_hypothesis,
+                "Boundary": experiment.boundary.get_full_path(),
             },
-            icon="🧪"
+            icon="🧪",
         )
-        print(f"{Colors.GREEN}🧪 Spawned experiment '{Colors.BOLD}{name}{Colors.RESET}{Colors.GREEN}' in habitat '{habitat.name}'{Colors.RESET}")
+        print(
+            f"{Colors.GREEN}🧪 Spawned experiment '{Colors.BOLD}{safe_name}{Colors.RESET}{Colors.GREEN}' in habitat '{habitat.name}'{Colors.RESET}"
+        )
 
     def do_run(self, arg):
         """Run an experiment
@@ -112,11 +128,15 @@ class InteractiveHabitat(cmd.Cmd):
             print(f"{Colors.RED}❌ Error: Experiment name required{Colors.RESET}")
             return
 
+        safe_arg = habitat_ux.sanitize_for_terminal(arg)
+
         habitat = self.habitats[self.current_habitat]
 
         try:
             result = habitat.run_experiment(arg)
-            print(f"{Colors.GREEN}✅ Experiment '{arg}' completed successfully{Colors.RESET}")
+            print(
+                f"{Colors.GREEN}✅ Experiment '{safe_arg}' completed successfully{Colors.RESET}"
+            )
 
             display_result = {}
             if isinstance(result, dict):
@@ -126,14 +146,11 @@ class InteractiveHabitat(cmd.Cmd):
             else:
                 display_result["Result"] = result
 
-            habitat_ux.print_card(
-                f"Result: {arg}",
-                display_result,
-                icon="✅"
-            )
+            habitat_ux.print_card(f"Result: {safe_arg}", display_result, icon="✅")
 
         except Exception as e:
-            print(f"{Colors.RED}❌ Experiment failed: {e}{Colors.RESET}")
+            safe_err = habitat_ux.sanitize_for_terminal(e)
+            print(f"{Colors.RED}❌ Experiment failed: {safe_err}{Colors.RESET}")
 
     def do_status(self, arg):
         """Get status of habitat or experiment
@@ -144,40 +161,49 @@ class InteractiveHabitat(cmd.Cmd):
         habitat = self.habitats[self.current_habitat]
 
         if arg:
+            safe_arg = habitat_ux.sanitize_for_terminal(arg)
             # Get experiment status
             if arg in habitat.active_experiments:
                 exp_data = habitat.active_experiments[arg]
-                experiment = exp_data['experiment']
+                experiment = exp_data["experiment"]
 
                 habitat_ux.print_card(
-                    f"Experiment: {arg}",
+                    f"Experiment: {safe_arg}",
                     {
                         "Status": experiment.status,
                         "Hypothesis": experiment.hypothesis,
                         "Created": experiment.created,
-                        "Workspace": exp_data.get('workspace')
+                        "Workspace": exp_data.get("workspace"),
                     },
-                    icon="📊"
+                    icon="📊",
                 )
             elif arg in habitat.graduated_patterns:
-                print(f"{Colors.GREEN}🎓 Experiment '{arg}' has graduated to Code Forge{Colors.RESET}")
+                print(
+                    f"{Colors.GREEN}🎓 Experiment '{safe_arg}' has graduated to Code Forge{Colors.RESET}"
+                )
             elif arg in habitat.failed_experiments:
-                print(f"{Colors.RED}💀 Experiment '{arg}' has been composted{Colors.RESET}")
+                print(
+                    f"{Colors.RED}💀 Experiment '{safe_arg}' has been composted{Colors.RESET}"
+                )
             else:
-                print(f"{Colors.YELLOW}❓ Experiment '{arg}' not found{Colors.RESET}")
+                print(
+                    f"{Colors.YELLOW}❓ Experiment '{safe_arg}' not found{Colors.RESET}"
+                )
         else:
             # Get habitat status
             status = habitat.get_habitat_status()
             display_status = {
                 "Habitat Name": habitat.name,
-                "Isolation Level": status['isolation_level'],
-                "Nesting Depth": status['nesting_depth'],
-                "Active Experiments": status['active_experiments'],
-                "Graduated Patterns": status['graduated_patterns'],
-                "Failed Experiments": status['failed_experiments'],
-                "Workspace": status['workspace']
+                _LABEL_ISOLATION_LEVEL: status["isolation_level"],
+                _LABEL_NESTING_DEPTH: status["nesting_depth"],
+                "Active Experiments": status["active_experiments"],
+                "Graduated Patterns": status["graduated_patterns"],
+                "Failed Experiments": status["failed_experiments"],
+                "Workspace": status["workspace"],
             }
-            habitat_ux.print_card(f"Habitat: {self.current_habitat}", display_status, icon="🏠")
+            habitat_ux.print_card(
+                f"Habitat: {self.current_habitat}", display_status, icon="🏠"
+            )
 
     def do_graduate(self, arg):
         """Graduate an experiment to Code Forge
@@ -188,22 +214,27 @@ class InteractiveHabitat(cmd.Cmd):
             print(f"{Colors.RED}❌ Error: Experiment name required{Colors.RESET}")
             return
 
+        safe_arg = habitat_ux.sanitize_for_terminal(arg)
+
         habitat = self.habitats[self.current_habitat]
 
         try:
             forge_package = habitat.graduate_to_forge(arg)
-            print(f"{Colors.GREEN}🎓 Experiment '{arg}' successfully graduated!{Colors.RESET}")
+            print(
+                f"{Colors.GREEN}🎓 Experiment '{safe_arg}' successfully graduated!{Colors.RESET}"
+            )
             habitat_ux.print_card(
-                f"Graduated: {arg}",
+                f"Graduated: {safe_arg}",
                 {
-                    "Code patterns": forge_package['code_patterns'],
-                    "Symbolic mappings": forge_package['symbolic_mappings'],
-                    "Integration hooks": forge_package['integration_hooks']
+                    "Code patterns": forge_package["code_patterns"],
+                    "Symbolic mappings": forge_package["symbolic_mappings"],
+                    "Integration hooks": forge_package["integration_hooks"],
                 },
-                icon="🎓"
+                icon="🎓",
             )
         except Exception as e:
-            print(f"{Colors.RED}❌ Failed to graduate: {e}{Colors.RESET}")
+            safe_err = habitat_ux.sanitize_for_terminal(e)
+            print(f"{Colors.RED}❌ Failed to graduate: {safe_err}{Colors.RESET}")
 
     def do_compost(self, arg):
         """Compost a failed experiment
@@ -212,22 +243,24 @@ class InteractiveHabitat(cmd.Cmd):
         """
         args = arg.split(maxsplit=1)
         if len(args) < 2:
-            print(f"{Colors.RED}❌ Error: Experiment name and reason required{Colors.RESET}")
+            print(
+                f"{Colors.RED}❌ Error: Experiment name and reason required{Colors.RESET}"
+            )
             return
 
         name, reason = args
+        safe_name = habitat_ux.sanitize_for_terminal(name)
         habitat = self.habitats[self.current_habitat]
 
         try:
             lessons = habitat.contain_failure(name, reason)
-            print(f"{Colors.YELLOW}♻️  Experiment '{name}' safely composted{Colors.RESET}")
-            habitat_ux.print_card(
-                f"Composted: {name}",
-                lessons,
-                icon="♻️ "
+            print(
+                f"{Colors.YELLOW}♻️  Experiment '{safe_name}' safely composted{Colors.RESET}"
             )
+            habitat_ux.print_card(f"Composted: {safe_name}", lessons, icon="♻️ ")
         except Exception as e:
-            print(f"{Colors.RED}❌ Failed to compost: {e}{Colors.RESET}")
+            safe_err = habitat_ux.sanitize_for_terminal(e)
+            print(f"{Colors.RED}❌ Failed to compost: {safe_err}{Colors.RESET}")
 
     def do_nest(self, arg):
         """Create a nested habitat
@@ -236,10 +269,14 @@ class InteractiveHabitat(cmd.Cmd):
         """
         args = arg.split()
         if len(args) < 2:
-            print(f"{Colors.RED}❌ Error: Parent experiment and child name required{Colors.RESET}")
+            print(
+                f"{Colors.RED}❌ Error: Parent experiment and child name required{Colors.RESET}"
+            )
             return
 
         parent_exp, child_name = args[0], args[1]
+        safe_parent_exp = habitat_ux.sanitize_for_terminal(parent_exp)
+        safe_child_name = habitat_ux.sanitize_for_terminal(child_name)
         parent_habitat = self.habitats[self.current_habitat]
 
         try:
@@ -247,19 +284,24 @@ class InteractiveHabitat(cmd.Cmd):
             habitat_key = f"{self.current_habitat}_{child_name}"
             self.habitats[habitat_key] = nested_habitat
 
-            print(f"{Colors.GREEN}🪆 Created nested habitat '{child_name}'{Colors.RESET}")
+            print(
+                f"{Colors.GREEN}🪆 Created nested habitat '{safe_child_name}'{Colors.RESET}"
+            )
             habitat_ux.print_card(
-                f"Nested Habitat: {child_name}",
+                f"Nested Habitat: {safe_child_name}",
                 {
-                    "Parent Experiment": parent_exp,
-                    "Nesting Depth": nested_habitat.nesting_depth,
-                    "Isolation Level": nested_habitat.isolation_level,
-                    "Access Key": habitat_key
+                    "Parent Experiment": safe_parent_exp,
+                    _LABEL_NESTING_DEPTH: nested_habitat.nesting_depth,
+                    _LABEL_ISOLATION_LEVEL: nested_habitat.isolation_level,
+                    "Access Key": habitat_key,
                 },
-                icon="🪆"
+                icon="🪆",
             )
         except Exception as e:
-            print(f"{Colors.RED}❌ Failed to create nested habitat: {e}{Colors.RESET}")
+            safe_err = habitat_ux.sanitize_for_terminal(e)
+            print(
+                f"{Colors.RED}❌ Failed to create nested habitat: {safe_err}{Colors.RESET}"
+            )
 
     def do_switch(self, arg):
         """Switch to a different habitat
@@ -271,14 +313,16 @@ class InteractiveHabitat(cmd.Cmd):
             print(f"{Colors.RED}❌ Error: Habitat key required{Colors.RESET}")
             return
 
+        safe_arg = habitat_ux.sanitize_for_terminal(arg)
+
         if arg in self.habitats:
             self.current_habitat = arg
-            print(f"{Colors.GREEN}✅ Switched to habitat: {arg}{Colors.RESET}")
+            print(f"{Colors.GREEN}✅ Switched to habitat: {safe_arg}{Colors.RESET}")
         else:
-            print(f"{Colors.RED}❌ Habitat '{arg}' not found{Colors.RESET}")
+            print(f"{Colors.RED}❌ Habitat '{safe_arg}' not found{Colors.RESET}")
             print(f"Available habitats: {', '.join(self.habitats.keys())}")
 
-    def do_list(self, arg):
+    def do_list(self, _arg):
         """List all habitats
         Usage: list
         """
@@ -291,14 +335,14 @@ class InteractiveHabitat(cmd.Cmd):
             display_status = {
                 "Key": f"{key}{current}",
                 "Name": habitat.name,
-                "Isolation Level": status['isolation_level'],
-                "Nesting Depth": status['nesting_depth'],
-                "Active Experiments": status['active_experiments'],
-                "Graduated Patterns": status['graduated_patterns']
+                _LABEL_ISOLATION_LEVEL: status["isolation_level"],
+                _LABEL_NESTING_DEPTH: status["nesting_depth"],
+                "Active Experiments": status["active_experiments"],
+                "Graduated Patterns": status["graduated_patterns"],
             }
             habitat_ux.print_card(f"Habitat: {key}", display_status, icon="📍")
 
-    def do_cleanup(self, arg):
+    def do_cleanup(self, _arg):
         """Cleanup all habitats
         Usage: cleanup
         """
@@ -309,11 +353,13 @@ class InteractiveHabitat(cmd.Cmd):
                 habitat.cleanup()
                 print(f"{Colors.GREEN}✅ Cleaned up habitat '{key}'{Colors.RESET}")
             except Exception as e:
-                print(f"{Colors.RED}❌ Failed to cleanup habitat '{key}': {e}{Colors.RESET}")
+                print(
+                    f"{Colors.RED}❌ Failed to cleanup habitat '{key}': {e}{Colors.RESET}"
+                )
 
         print(f"{Colors.GREEN}🎉 Cleanup complete!{Colors.RESET}")
 
-    def do_quit(self, arg):
+    def do_quit(self, _arg):
         """Exit the interactive shell
         Usage: quit
         """
@@ -323,7 +369,9 @@ class InteractiveHabitat(cmd.Cmd):
                 habitat.cleanup()
             except Exception as e:
                 # Ignore cleanup errors during exit, but log them for visibility
-                print(f"{Colors.RED}❌ Error during cleanup of habitat '{habitat.name}': {e}{Colors.RESET}")
+                print(
+                    f"{Colors.RED}❌ Error during cleanup of habitat '{habitat.name}': {e}{Colors.RESET}"
+                )
         return True
 
     def do_exit(self, arg):
