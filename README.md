@@ -9,7 +9,11 @@ tags:
  - thread
 ---
 
-# 4_S0VRC3
+[![ORGAN-I: Theory](https://img.shields.io/badge/ORGAN--I-Theory-1a237e?style=flat-square)](https://github.com/organvm-i-theoria)
+[![Python](https://img.shields.io/badge/python-3.x-3776ab?style=flat-square&logo=python&logoColor=white)]()
+[![Status: Active](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)]()
+
+# 4_S0VRC3 — Radix Recursiva: Solve, Coagula, Redī
 
 > A living specification that implements itself.
 
@@ -89,26 +93,101 @@ See [CLAUDE.md](CLAUDE.md) for full command reference and development setup.
 
 ---
 
+## The Experimental Habitat System
+
+The Python package at `src/habitat/` is a zero-dependency containment sandbox that manages the full lifecycle of code experiments within the RE:GE:OS framework.
+
+### Architecture
+
+| Component | Role |
+|-----------|------|
+| `ExperimentalHabitat` | Isolation boundaries with hierarchical nesting |
+| `ExperimentalSystem` | Experiment objects with hypothesis tracking and state management |
+| `ContainmentBoundary` | Hierarchical isolation structure for safe execution |
+| `RecursiveMythEngine` | Symbolic and mythic processing layer |
+| `HabitatManager` | CLI management interface for all habitat operations |
+
+### Lifecycle
+
+```
+Spawn → Run → { Graduate | Compost }
+```
+
+Experiments are spawned within containment boundaries, run with full hypothesis tracking, and either graduate into the broader system or are composted back as learning material. No experiment is wasted — even failure feeds the recursive loop.
+
+### Entry Points
+
+After installation (`pip install -e .`), four console commands are available:
+
+- `habitat-manager` — Full habitat containment system management
+- `habitat-interactive` — Interactive habitat interface for exploration
+- `habitat-demo` — Quick demonstration of core concepts
+- `habitat-workflow` — Complete workflow demonstration end-to-end
+
+---
+
+## Symbolic UID Naming Convention
+
+All identifiers in this system follow a consonant-only UID convention — vowels are stripped or encoded numerically to create dense, semantically meaningful identifiers. The repository UID `4_S0VRC3` itself follows this pattern.
+
+Directory suffixes encode organizational function:
+- `RG01` — RE:GE:OS core
+- `RK01` — Archive
+- `MR01` — Mirror
+- `TP01` — Templates
+- `TA01` — Tags
+- `SM01` — System Map
+
+This naming system is frozen as of 2025-05-04 and serves as the constitutional basis for all vault operations.
+
+---
+
 ## For Developers
 
 Technical details, commands, and architecture documentation: [CLAUDE.md](CLAUDE.md)
 
-Entry points after install:
-- `habitat-manager` — Experimental Habitat containment system
-- `habitat-interactive` — Interactive habitat interface
-- `habitat-demo` — Simple demonstration
-- `habitat-workflow` — Complete workflow demo
+The codebase includes 17 GitHub Actions workflows covering:
+- AI-assisted code review
+- CodeQL security analysis
+- Semgrep static analysis
+- Documentation quality checks
+- Automated CI/CD pipelines
 
 ---
 
 ## Community
 
-Join [GitHub Discussions](https://github.com/4-b100m/4_S0VRC3/discussions) to ask questions, share ideas, and connect with the recursive creative community.
+Join [GitHub Discussions](https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi/discussions) to ask questions, share ideas, and connect with the recursive creative community.
 
 ---
 
 ## Status
 
-- **Vault version:** v1.0
-- **Naming logic frozen:** 2025-05-04
-- **Last updated:** 2026-01-25
+| Field | Value |
+|-------|-------|
+| **Vault version** | v1.0 |
+| **Naming logic frozen** | 2025-05-04 |
+| **Last updated** | 2026-01-25 |
+| **Documentation status** | Active |
+| **Organ** | I — Theoria |
+
+---
+
+## Part of the Eight-Organ System
+
+This repository belongs to **ORGAN-I: Theoria** — the epistemological and theoretical foundation of the [organvm](https://github.com/meta-organvm) creative-institutional system.
+
+| Organ | Domain | Organization |
+|-------|--------|-------------|
+| **I — Theoria** | Theory, epistemology, recursion | [`organvm-i-theoria`](https://github.com/organvm-i-theoria) |
+| II — Poiesis | Art, generative & experiential | [`organvm-ii-poiesis`](https://github.com/organvm-ii-poiesis) |
+| III — Ergon | Commerce, SaaS & products | [`organvm-iii-ergon`](https://github.com/organvm-iii-ergon) |
+| IV — Taxis | Orchestration & governance | [`organvm-iv-taxis`](https://github.com/organvm-iv-taxis) |
+| V — Logos | Public process & essays | [`organvm-v-logos`](https://github.com/organvm-v-logos) |
+| VI — Koinonia | Community & salons | [`organvm-vi-koinonia`](https://github.com/organvm-vi-koinonia) |
+| VII — Kerygma | Marketing & distribution | [`organvm-vii-kerygma`](https://github.com/organvm-vii-kerygma) |
+| VIII — Meta | Umbrella organization | [`meta-organvm`](https://github.com/meta-organvm) |
+
+---
+
+**[@4444J99](https://github.com/4444J99)** / Part of [ORGAN-I: Theoria](https://github.com/organvm-i-theoria)
