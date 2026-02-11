@@ -1,83 +1,24 @@
----
-uniqueID: GN33
-title: CHANGELOG.md
-tags:
-- system
-- digest
-- thread
----
+# Changelog
 
-# CHANGELOG.md 
-_This file documents structural changes, naming updates, and vault configuration decisions for `4_S0VRC3`._
+All notable changes to this project will be documented in this file.
 
----
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [v2025-05-04] Initialization of `4_S0VRC3`
+## [Unreleased]
 
-**Date:** 2025-05-04 21:43:10
-**Status:** [OK] Locked & Active 
-**Author:** Anthony James Padavano 
-**Location:** `/Users/anthonyjamespadavano/Documents/4_S0VRC3`
+### Added
 
----
+- Platinum Sprint: CI/CD workflow, standardized badge row, ADR documentation
+- Initial CHANGELOG following Keep a Changelog format
 
-### [REFRESH] Structural Changes
-- Renamed vault from `4JP` → `4_S0VRC3` (read: “A Source”)
-- Changed Obsidian Sync target to this vault
-- Designated `4_S0VRC3` as new root of recursive system
-- Vault moved out of `_4JP_`; now functions as **topmost** terminal
-- Obsidian iCloud support deprecated — replaced by **Obsidian Sync**
+## [0.1.0] - 2026-02-11
 
----
+### Added
 
-### [INDEX]️ Folder/Content Notes
-- `_4JP_` now exists **conceptually as a sublayer** (optional future use)
-- Contents map in README updated accordingly
-- Git integration flagged for future setup
-- Plugins prompting API warnings (OpenAI model) — noted for configuration
+- Initial public release as part of the organvm eight-organ system
+- Core project structure and documentation
+- README with portfolio-quality documentation
 
----
-
-### [COMPASS] Next To-Do Items
--  Update README and vault_state to reflect new hierarchy
--  Resolve GPT-4 plugin API key issue
--  Build THREAD_DIGEST archive system
-
----
-
-### [v2026-01-03] Security Fix: Path Traversal Vulnerability
-
-**Date:** 2026-01-03 
-**Status:** [OK] Fixed 
-**Author:** Copilot Security Agent 
-**Severity:** HIGH
-
-#### [LOCKED] Security Changes
-- **Fixed:** Path traversal vulnerability in `experimental_habitat_implementation.py`
-- **Component:** `ExperimentalHabitat.spawn_experiment()` method
-- **Issue:** Unsanitized experiment names could escape containment directories
-- **Solution:** Implemented strict alphanumeric whitelist validation (regex: `^[a-zA-Z0-9_-]+$`)
-- **Impact:** Prevents directory creation outside intended temporary workspace
-- **Testing:** Added comprehensive test suite (`test_path_traversal_fix.py`) - all 23 malicious patterns blocked
-- **Documentation:** Created `SECURITY_FIX_DOCUMENTATION.md` with full details
-
-#### [LIST] Files Changed
-- Modified: `experimental_habitat_implementation.py` (lines 134-136)
-- Added: `test_path_traversal_fix.py` (security test suite)
-- Added: `SECURITY_FIX_DOCUMENTATION.md` (detailed security analysis)
-- Updated: `SECURITY.md` (added recent fixes section)
-
----
-
-### [v2025-01-08] CheatCode_LookUp System Addition
-
-**Date:** 2025-01-08 
-**Status:** [OK] Active 
-**Author:** AI Assistant (Copilot) 
-**UID:** CC01
-
-#### [LIST] Changes
-- **Added:** `CheatCode_LookUp.md` as central quick-reference system
-- **Purpose:** Consolidates Instructions, Knowledge Sources, Best Practices, and CookBooks
-- **Integration:** Cross-references existing system files (VAULT_GUIDE, SYSTEM_ROOT_README, etc.)
-- **Structure:** Follows established UID convention and template patterns
+[Unreleased]: https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi/releases/tag/v0.1.0
