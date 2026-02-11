@@ -17,6 +17,14 @@ tags:
 
 # Radix Recursiva: Solve, Coagula, Redi
 
+[![CI](https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi/actions/workflows/ci.yml/badge.svg)](https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-pending-lightgrey)](https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi/blob/main/LICENSE)
+[![Organ I](https://img.shields.io/badge/Organ-I%20Theoria-8B5CF6)](https://github.com/organvm-i-theoria)
+[![Status](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi)
+[![Python](https://img.shields.io/badge/lang-Python-informational)](https://github.com/organvm-i-theoria/radix-recursiva-solve-coagula-redi)
+
+
 **A recursive generative operating system that unifies knowledge architecture, symbolic computation, and experimental containment into a single self-documenting vault — where the specification implements itself and naming conventions encode ontological meaning.**
 
 The title is an alchemical formula. *Solve* — dissolve the existing structure, break apart assumptions and inherited categories. *Coagula* — recompose what was dissolved into new, more coherent form. *Redi* — return to the beginning, carrying the transformation forward into the next cycle. This is not decoration. It is the operating logic: every document, every experiment, every naming convention in this system passes through dissolution, recomposition, and recursive return. The repository name *is* the algorithm.
