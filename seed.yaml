@@ -1,41 +1,16 @@
-version: 1
+# seed.yaml — Automation Contract for ?/?
+# Schema: seed/v1.0
+# Updated: AUTONOMY Sprint Phase E (orphan resolution)
 
-project:
-  name: "solve-et-coagula"
-  codename: "alchemical-synthesis-engine"
-  description: "Python-based alchemical transformation engine for data synthesis and analysis."
-  owners:
-    - handle: "4jp"
-      role: "architect"
-  repo:
-    monorepo: false
-    package_manager: "pip"
-    type: "alchemist"
+schema_version: "1.0"
+organ: ?
+organ_name: ?
+repo: ?
+org: ?
 
-architecture:
-  style: "modular-python"
-  tech_stack:
-    backend: "Python 3.11"
-    scripts: ["habitat_manager.py", "complete_workflow_demo.py"]
-    database: "SQLite (Local)"
+metadata:
 
-coding_standards:
-  language: "Python"
-  style:
-    formatter: "black"
-    linter: "pylint"
-
-knowledge_graph:
-  enabled: true
-  db_path: "/Users/4jp/.metasystem/metastore.db"
-  auto_index: true
-  integration:
-    log_decisions: true
-    log_file_changes: true
-    cross_project_learning: true
-
-automation_contract:
-  ai_access:
-    read_paths: ["**/*.py", "docs/**"]
-    write_paths: ["src/**", "tests/**"]
-    disallowed_writes: ["seed.yaml", ".env"]
+produces:
+  - type: theory-artifact
+    description: "Theoretical framework, ontological model, or epistemological tool"
+    consumers: [ORGAN-IV]
